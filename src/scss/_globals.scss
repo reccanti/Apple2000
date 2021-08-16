@@ -1,0 +1,54 @@
+/**
+ * @TODO - Ehhh this is kind a catch-all right now 😓
+ * For now we'll just put anything we need in here and
+ * we'll worry about breaking it out later!
+ * ~reccanti 4/12/2021
+ */
+
+// breakpoints
+
+$bp-large: 700px; // defining this here since we can't use CSS variables in media query selectors ~reccanti 4/12/2021
+
+// colors
+
+$textColors: (
+	"black": #0d0e10,
+	// AA
+	"blue": #7e5dff,
+	"brown": #bf6139,
+	"darkBlue": #2b75ff,
+	"darkGray": #728a8f,
+	"darkGreen": #1d973f,
+	"purple": #d05eff,
+	"salmon": #ff6582,
+	// AAA
+	"lightBlue": #51cbff,
+	"lightGray": #b4cacb,
+	"lightGreen": #48f4a2,
+	"magenta": #f84ebe,
+	"orange": #fa9854,
+	"pink": #ffadd4,
+	"white": #ffffff,
+	"yellow": #fed33a,
+);
+
+$backgroundColors: (
+	"black": #0d0e10,
+	// AA
+	"blue": #3f5df5,
+	"brown": #b5400f,
+	"darkGray": #517178,
+	"darkGreen": #08830b,
+	"purple": #d05eff,
+	"salmon": #fa6581,
+	// AAA
+	"darkBlue": #1b3add,
+	"lightBlue": #51cbff,
+	"lightGray": #b4cacb,
+	"lightGreen": #43e296,
+	"magenta": #f84ebe,
+	"orange": #fa9854,
+	"pink": #ffadd4,
+	"white": #ffffff,
+	"yellow": #ffc42c,
+);

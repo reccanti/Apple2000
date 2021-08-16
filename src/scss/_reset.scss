@@ -1,0 +1,12 @@
+@use "vendor/reset";
+
+/**
+ * Some additional resets. Removing default margin and padding and
+ * setting box-sizing to "border-box" because why wouldn't you???
+ */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	min-height: 0vw;
+}

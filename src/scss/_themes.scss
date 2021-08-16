@@ -1,0 +1,91 @@
+@use 'globals';
+
+:root {
+	@each $color, $value in globals.$backgroundColors {
+		--background-#{$color}: #{$value};
+	}
+
+	@each $color, $value in globals.$textColors {
+		--text-#{$color}: #{$value};
+	}
+}
+
+.wrapper {
+	--bgColor: var(--background-black);
+	--textColor: var(--text-white);
+
+	&--lightGray {
+		--bgColor: var(--background-lightGray);
+		--textColor: var(--text-black);
+	}
+
+	&--darkGray {
+		--bgColor: var(--background-darkGray);
+		--textColor: var(--text-white);
+	}
+
+	&--blue {
+		--bgColor: var(--background-blue);
+		--textColor: var(--text-white);
+	}
+
+	&--magenta {
+		--bgColor: var(--background-magenta);
+		--textColor: var(--text-white);
+	}
+
+	&--orange {
+		--bgColor: var(--background-orange);
+		--textColor: var(--text-black);
+	}
+
+	&--darkGreen {
+		--bgColor: var(--background-darkGreen);
+		--textColor: var(--text-white);
+	}
+
+	&--pink {
+		--bgColor: var(--background-pink);
+		--textColor: var(--text-black);
+	}
+
+	&--purple {
+		--bgColor: var(--background-purple);
+		--textColor: var(--text-white);
+	}
+
+	&--lightGreen {
+		--bgColor: var(--background-lightGreen);
+		--textColor: var(--text-black);
+	}
+
+	&--yellow {
+		--bgColor: var(--background-yellow);
+		--textColor: var(--text-black);
+	}
+
+	&--salmon {
+		--bgColor: var(--background-salmon);
+		--textColor: var(--text-black);
+	}
+
+	&--brown {
+		--bgColor: var(--background-brown);
+		--textColor: var(--text-white);
+	}
+
+	&--darkBlue {
+		--bgColor: var(--background-darkBlue);
+		--textColor: var(--text-white);
+	}
+
+	&--lightBlue {
+		--bgColor: var(--background-lightBlue);
+		--textColor: var(--text-black);
+	}
+
+	&--white {
+		--bgColor: var(--background-white);
+		--textColor: var(--text-black);
+	}
+}
