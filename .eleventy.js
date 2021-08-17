@@ -1,4 +1,4 @@
-const { compile } = require("./sassfuncs");
+const { compile } = require("./src/sassfuncs");
 const path = require("path");
 
 function didSassFileChange(files) {
@@ -7,30 +7,36 @@ function didSassFileChange(files) {
 
 module.exports = function (config) {
 	const ASSET_DIR = path.relative(
-		process.cwd(),
-		path.join(__dirname, "assets")
+		__dirname,
+		path.join(__dirname, "src", "assets")
 	);
-	const SASS_DIR = path.relative(process.cwd(), path.join(__dirname, "scss"));
+	const SASS_DIR = path.relative(
+		__dirname,
+		path.join(__dirname, "src", "scss")
+	);
+
+	// config.setUseGitIgnore(false);
 
 	/**
 	 * Run this initially no matter what
 	 */
 	compile({
 		entryFile: path.join(SASS_DIR, "styles.scss"),
-		outDir: path.join(__dirname, "_site", "styles"),
+		outDir: path.join(__dirname, "src", "_site", "styles"),
 	});
 
+	// config.addWatchTarget(path.resolve(SASS_DIR));
+	// config.addWatchTarget(path.join(path.relative(__dirname, SASS_DIR), "**"));
 	config.addWatchTarget(SASS_DIR);
-	console.log(SASS_DIR);
 	config.on("beforeWatch", async (changedFiles) => {
-		console.log("changed");
 		// changedFiles is an array of files that changed
 		// to trigger the watch/serve build
 		// if we detect a file
 		if (didSassFileChange(changedFiles)) {
+			console.log("compile sass");
 			compile({
 				entryFile: path.join(SASS_DIR, "styles.scss"),
-				outDir: path.join(__dirname, "_site", "styles"),
+				outDir: path.join(__dirname, "src", "_site", "styles"),
 			});
 		}
 	});

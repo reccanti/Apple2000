@@ -1,91 +1,137 @@
 @use 'globals';
 
 :root {
+	// Colors
 	@each $color, $value in globals.$backgroundColors {
 		--background-#{$color}: #{$value};
 	}
-
 	@each $color, $value in globals.$textColors {
 		--text-#{$color}: #{$value};
 	}
+
+	// Font Families
+	--font-family-header: "ChronoType";
+	--font-family-regular: "Fira Sans";
+
+	// Font Sizes
+	--font-size-base: 1.4rem;
+
+	$fib: 1, 2, 3, 5, 8, 13;
+	$cur: 6;
+	@each $num in $fib {
+		--font-size-header#{$cur}: calc(var(--font-size-base) * #{$num});
+		$cur: $cur - 1;
+	}
+
+	// Line Height
+	--line-height: 1.35;
+
+	// Spacing
 }
 
-.wrapper {
-	--bgColor: var(--background-black);
-	--textColor: var(--text-white);
+/**
+ * The Theme Root is where all of our variables and themes are set up.
+ * Anything that requires a toggle should go here.
+ */
+.theme-root {
+	--background-color: var(--background-black);
+	--text-color: var(--text-white);
 
 	&--lightGray {
-		--bgColor: var(--background-lightGray);
-		--textColor: var(--text-black);
+		--background-color: var(--background-lightGray);
+		--text-color: var(--text-black);
 	}
 
 	&--darkGray {
-		--bgColor: var(--background-darkGray);
-		--textColor: var(--text-white);
+		--background-color: var(--background-darkGray);
+		--text-color: var(--text-white);
 	}
 
 	&--blue {
-		--bgColor: var(--background-blue);
-		--textColor: var(--text-white);
+		--background-color: var(--background-blue);
+		--text-color: var(--text-white);
 	}
 
 	&--magenta {
-		--bgColor: var(--background-magenta);
-		--textColor: var(--text-white);
+		--background-color: var(--background-magenta);
+		--text-color: var(--text-white);
 	}
 
 	&--orange {
-		--bgColor: var(--background-orange);
-		--textColor: var(--text-black);
+		--background-color: var(--background-orange);
+		--text-color: var(--text-black);
 	}
 
 	&--darkGreen {
-		--bgColor: var(--background-darkGreen);
-		--textColor: var(--text-white);
+		--background-color: var(--background-darkGreen);
+		--text-color: var(--text-white);
 	}
 
 	&--pink {
-		--bgColor: var(--background-pink);
-		--textColor: var(--text-black);
+		--background-color: var(--background-pink);
+		--text-color: var(--text-black);
 	}
 
 	&--purple {
-		--bgColor: var(--background-purple);
-		--textColor: var(--text-white);
+		--background-color: var(--background-purple);
+		--text-color: var(--text-white);
 	}
 
 	&--lightGreen {
-		--bgColor: var(--background-lightGreen);
-		--textColor: var(--text-black);
+		--background-color: var(--background-lightGreen);
+		--text-color: var(--text-black);
 	}
 
 	&--yellow {
-		--bgColor: var(--background-yellow);
-		--textColor: var(--text-black);
+		--background-color: var(--background-yellow);
+		--text-color: var(--text-black);
 	}
 
 	&--salmon {
-		--bgColor: var(--background-salmon);
-		--textColor: var(--text-black);
+		--background-color: var(--background-salmon);
+		--text-color: var(--text-black);
 	}
 
 	&--brown {
-		--bgColor: var(--background-brown);
-		--textColor: var(--text-white);
+		--background-color: var(--background-brown);
+		--text-color: var(--text-white);
 	}
 
 	&--darkBlue {
-		--bgColor: var(--background-darkBlue);
-		--textColor: var(--text-white);
+		--background-color: var(--background-darkBlue);
+		--text-color: var(--text-white);
 	}
 
 	&--lightBlue {
-		--bgColor: var(--background-lightBlue);
-		--textColor: var(--text-black);
+		--background-color: var(--background-lightBlue);
+		--text-color: var(--text-black);
 	}
 
 	&--white {
-		--bgColor: var(--background-white);
-		--textColor: var(--text-black);
+		--background-color: var(--background-white);
+		--text-color: var(--text-black);
+	}
+}
+
+/**
+ * Setting up the body styles 🕺
+ */
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+
+	font-weight: 100;
+	font-family: var(--font-family-regular);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height);
+}
+
+/**
+ * That's using your head!!! 
+ */
+@for $i from 1 through 6 {
+	h#{$i} {
+		font-family: var(--font-family-header);
+		font-size: var(--font-size-header#{$i});
 	}
 }

@@ -9,7 +9,7 @@
 		"dev": "npm run eleventy -- --serve",
 		"prepare": "node ./src/build.js",
 		"lint": "eslint ./src",
-		"eleventy": "eleventy --input=./src --output=./src/_site --config=./src/.eleventy.js"
+		"eleventy": "eleventy --input=./src --output=./src/_site"
 	},
 	"author": "reccanti <reccanti@gmail.com>",
 	"license": "AGPL-3.0-or-later",

@@ -8,6 +8,12 @@
 // * This is the place where we'll make our cool sections 😎
 // */
 
+.Wrapper {
+	border: 1rem solid var(--text-color);
+	overflow: scroll;
+	height: 100vh;
+}
+
 // .ShmancySection {
 // 	position: relative;
 // 	display: flex;
