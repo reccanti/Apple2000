@@ -1,5 +1,29 @@
+const Image = require("@11ty/eleventy-img");
 const { compile } = require("./src/sassfuncs");
 const path = require("path");
+const fs = require("fs").promises;
+
+async function imageShortcode(src, alt, sizes) {
+	// const metadata = await Image(src, {
+	// 	formats: ["svg"],
+	// 	outputDir: "src/_site/img",
+	// });
+
+	// console.log(metadata);
+
+	// const imageAttributes = {
+	// 	alt,
+	// 	sizes,
+	// 	loading: "lazy",
+	// 	decoding: "async",
+	// };
+
+	const pathToFile = path.resolve(src);
+	const text = await fs.readFile(pathToFile, { encoding: "utf-8" });
+	// console.log(text);
+
+	return text;
+}
 
 function didSassFileChange(files) {
 	return !!files.find((file) => file.endsWith(".scss"));
@@ -45,8 +69,11 @@ module.exports = function (config) {
 
 	config.addPassthroughCopy({
 		[path.join(SASS_DIR, "fonts")]: path.join("styles", "fonts"),
+		[path.join(SASS_DIR, "img")]: path.join("styles", "img"),
 	});
 
 	config.addPassthroughCopy(ASSET_DIR);
 	config.addWatchTarget(ASSET_DIR);
+
+	config.addLiquidShortcode("image", imageShortcode);
 };

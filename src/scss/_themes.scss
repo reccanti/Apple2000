@@ -1,7 +1,7 @@
 @use 'globals';
 
 :root {
-	// Colors
+	/* Colors */
 	@each $color, $value in globals.$backgroundColors {
 		--background-#{$color}: #{$value};
 	}
@@ -9,11 +9,11 @@
 		--text-#{$color}: #{$value};
 	}
 
-	// Font Families
+	/* Font Families */
 	--font-family-header: "ChronoType";
 	--font-family-regular: "Fira Sans";
 
-	// Font Sizes
+	/* Font Sizes */
 	--font-size-base: 1.4rem;
 
 	$fib: 1, 2, 3, 5, 8, 13;
@@ -22,11 +22,19 @@
 		--font-size-header#{$cur}: calc(var(--font-size-base) * #{$num});
 		$cur: $cur - 1;
 	}
+	--font-size-badge: calc(var(--font-size-base) * 0.8);
 
-	// Line Height
-	--line-height: 1.35;
+	/* Spacing */
+	$fib: (0.5, 1, 2, 3, 5, 8);
+	$cur: 1;
+	@each $num in $fib {
+		--spacing#{$cur}: calc(var(--font-size-base) * #{$num});
+		$cur: $cur + 1;
+	}
 
-	// Spacing
+	/* Line Height */
+	--line-height-text: 1.35;
+	--line-height-header: 1;
 }
 
 /**
@@ -113,25 +121,16 @@
 	}
 }
 
-/**
- * Setting up the body styles 🕺
- */
-body {
-	background-color: var(--background-color);
-	color: var(--text-color);
+// ul,
+// ol {
+//   list-style-type: disc;
+// }
 
-	font-weight: 100;
-	font-family: var(--font-family-regular);
-	font-size: var(--font-size-base);
-	line-height: var(--line-height);
-}
+// ul > li,
+// ol > li {
+//   margin-left: var(--space-1);
+// }
 
-/**
- * That's using your head!!! 
- */
-@for $i from 1 through 6 {
-	h#{$i} {
-		font-family: var(--font-family-header);
-		font-size: var(--font-size-header#{$i});
-	}
-}
+// li:not(:first-child) {
+//   margin-top: var(--space-1);
+// }

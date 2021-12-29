@@ -3,7 +3,162 @@
 //  * base styles for most elements, as well as anything that wasn't
 //  * covered in the CSS reset
 //  */
-// @use 'globals';
+@use 'globals';
+
+/**
+ * Setting up the "body" styles 🕺
+ */
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+
+	font-weight: 100;
+	font-family: var(--font-family-regular);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-text);
+}
+
+/**
+ * That's using your "head!!!" 🗣
+ */
+@for $i from 1 through 6 {
+	h#{$i} {
+		font-family: var(--font-family-header);
+		font-size: var(--font-size-header#{$i});
+		line-height: var(--line-height-header);
+	}
+}
+
+/**
+ * Time to get "form-"al. 🎩
+ */
+label {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	font-size: var(--font-size-badge);
+	font-family: var(--font-family-header);
+	margin-left: globals.$borderSize + 0.5rem;
+
+	& > * {
+		margin-top: var(--space1);
+	}
+
+	/**
+   * @TODO - I don't like that I need to use this weird class,
+   * but I don't have a better way of dealing with this right
+   * now. Maybe use a :has() polyfill?
+   */
+	&.required::after {
+		content: "(required)";
+	}
+}
+
+textarea {
+	background-color: var(--background-color);
+	color: var(--text-color);
+
+	box-sizing: border-box;
+	resize: both;
+	border: 1px solid var(--text-color);
+	padding: var(--space-1);
+	font-style: italic;
+	font-size: var(--font-size-base);
+	width: 100%;
+
+	&:focus {
+		outline: none;
+		background-color: var(--text-color);
+		color: var(--background-color);
+		font-style: normal;
+	}
+}
+
+input[type="text"] {
+	/* resets */
+	background: unset;
+	font: unset;
+
+	background-color: var(--background-color);
+	color: var(--text-color);
+
+	box-sizing: border-box;
+	border: 1px solid var(--text-color);
+	padding: var(--space-1);
+	font-style: italic;
+	font-size: var(--font-size-base);
+	width: 100%;
+
+	&:focus {
+		outline: none;
+		background-color: var(--text-color);
+		color: var(--background-color);
+		font-style: normal;
+	}
+
+	&:required {
+		border-style: double;
+	}
+}
+
+select {
+	appearance: none;
+	border: globals.$borderSize solid var(--text-color);
+	width: 100%;
+	padding: 0.5rem;
+	background-color: var(--background-color);
+	font-family: var(--font-family-header);
+	font-size: var(--font-size-badge);
+	color: var(--text-color);
+
+	datalist {
+		// outline: globals.$borderSize solid var(--text-color);
+		font-family: var(--font-family-header);
+		font-size: var(--font-size-badge);
+	}
+
+	// option,
+	// optgroup {
+	// 	font-family: var(--font-family-header);
+	// 	font-size: var(--font-size-badge);
+	// }
+}
+
+/**
+ * "Button" up!
+ */
+button,
+a.button {
+	all: unset;
+	cursor: pointer;
+
+	display: inline-block;
+	padding: 0.5rem;
+	background-color: var(--background-color);
+	outline: globals.$borderSize solid var(--text-color);
+
+	padding: var(--space1);
+	text-align: center;
+
+	img {
+		display: block;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--text-color);
+		color: var(--background-color);
+	}
+}
+
+/**
+ * Let's make those horizontal rules fancy 🎩
+ */
+hr {
+	border: none;
+	border-bottom: globals.$borderSize dotted;
+	color: var(--text-color);
+}
 
 // /**
 //   * Let's put some basic setup stuff here for now...

@@ -2,39 +2,145 @@
 //  * This file is where we set up our more complex components,
 //  * things that require
 //  */
-// @use 'globals';
+@use 'globals';
 
 // /**
 // * This is the place where we'll make our cool sections 😎
 // */
 
+$wrapperBorder: 1rem;
+$wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
+
 .Wrapper {
-	border: 1rem solid var(--text-color);
-	overflow: scroll;
+	border: $wrapperBorder solid var(--text-color);
+	overflow-y: scroll;
 	height: 100vh;
+	margin: 0;
+
+	&-inner {
+		max-width: 1200px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 1rem;
+	}
 }
 
-// .ShmancySection {
-// 	position: relative;
-// 	display: flex;
-// 	flex-direction: column;
+.Menu {
+	$root: &;
 
-// 	&::after {
-// 		content: "";
-// 		display: block;
-// 		width: 100%;
-// 		height: var(--space-1);
-// 		margin-top: var(--space-3);
+	&-close {
+		display: block;
+	}
 
-// 		background-size: 0.5rem 0.5rem; /* Yeah this is really specific to this one thing, so I don't want to put this in a variable yet */
-// 		background-image: repeating-linear-gradient(
-// 			45deg,
-// 			var(--foreground-color) 0,
-// 			var(--foreground-color) 1px,
-// 			var(--background-color) 0,
-// 			var(--background-color) 50%
-// 		);
-// 	}
+	&-contents {
+		display: flex;
+		width: 100%;
+		max-width: 600px;
+		background-color: var(--background-color);
+		border: globals.$borderSize * 3 double var(--text-color);
+	}
+
+	&-inner {
+		padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem 0.5rem;
+	}
+
+	&-title {
+		font-family: var(--font-family-header);
+		font-size: var(--font-size-header5);
+		line-height: var(--line-height-header);
+		display: flex;
+		align-items: center;
+		padding: 0 1rem;
+
+		position: absolute;
+		height: 100%;
+		background-color: var(--text-color);
+		color: var(--background-color);
+	}
+
+	&-header {
+		display: flex;
+		position: relative;
+		justify-content: center;
+		outline: globals.$borderSize solid var(--text-color);
+
+		&::before {
+			content: "";
+			width: 100%;
+			background-color: var(--text-color);
+			mask-image: url("img/Gradient.svg");
+			mask-size: globals.$borderSize * 2;
+			-webkit-mask-image: url("img/Gradient.svg");
+			-webkit-mask-size: globals.$borderSize * 2;
+		}
+	}
+
+	&-toggle {
+		display: block;
+	}
+
+	// toggle the appearance of the menu on and off
+
+	&--close {
+		#{$root}-contents {
+			display: none;
+		}
+
+		#{$root}-toggle {
+			display: block;
+		}
+	}
+
+	&--open {
+		#{$root}-contents {
+			display: block;
+		}
+
+		#{$root}-toggle {
+			display: none;
+		}
+	}
+}
+
+.Header {
+	position: fixed;
+	padding: 2 * $wrapperBorder;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.Splash {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	height: $wrappedHeight;
+}
+
+.Icon {
+	height: 3rem;
+	width: 3rem;
+	padding: 0.5rem;
+	display: block;
+
+	svg {
+		display: block;
+	}
+
+	path,
+	rect {
+		fill: var(--text-color);
+
+		button:hover &,
+		button:focus &,
+		.button:hover &,
+		.button:focus & {
+			fill: var(--background-color);
+		}
+	}
+}
 
 // 	@media (min-width: globals.$bp-large) {
 // 		&-inner {
