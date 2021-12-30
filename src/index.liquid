@@ -24,29 +24,39 @@
 					</button>
 				</nav>
 				<div class="Menu-inner">
-					<label for="theme-select">Theme</label>
-					<select id="theme-select" name="theme-select">
-						<optgroup label="WCAG AA">
-							<option value="blue">Blue</option>
-							<option value="brown">Brown</option>
-							<option value="darkGray">Dark Gray</option>
-							<option value="darkGreen">Dark Green</option>
-							<option value="purple">Purple</option>
-							<option value="salmon">Salmon</option>
-						</optgroup>
-						<optgroup label="WCAG AAA">
-							<option value="black">Black</option>
-							<option value="darkBlue">Dark Blue</option>
-							<option value="lightBlue">Light Blue</option>
-							<option value="lightGray">Light Gray</option>
-							<option value="lightGreen">Light Green</option>
-							<option value="magenta">Magenta</option>
-							<option value="orange">Orange</option>
-							<option value="pink">Pink</option>
-							<option value="white">White</option>
-							<option value="yellow">Yellow</option>
-						</optgroup>
-					</select>
+					<label for="theme-select">
+						Theme
+						<select id="theme-select" name="theme-select">
+							<optgroup label="WCAG AA">
+								<option value="blue">Blue</option>
+								<option value="brown">Brown</option>
+								<option value="darkGray">Dark Gray</option>
+								<option value="darkGreen">Dark Green</option>
+								<option value="purple">Purple</option>
+								<option value="salmon">Salmon</option>
+							</optgroup>
+							<optgroup label="WCAG AAA">
+								<option value="black">Black</option>
+								<option value="darkBlue">Dark Blue</option>
+								<option value="lightBlue">Light Blue</option>
+								<option selected value="lightGray">Light Gray</option>
+								<option value="lightGreen">Light Green</option>
+								<option value="magenta">Magenta</option>
+								<option value="orange">Orange</option>
+								<option value="pink">Pink</option>
+								<option value="white">White</option>
+								<option value="yellow">Yellow</option>
+							</optgroup>
+						</select>
+					</label>
+					<label for="text-size-slider">
+						Text Size
+						<input type="range" name="text-size-slider" id="text-size-slider" min="1" max="3" step="0.01" value="1.5" />
+					</label>
+					<label for="use-simple-text">
+						Use Simple Text
+						<input type="checkbox" id="use-simple-text" name="use-simple-text" />
+					</label>
 				</div>
 			</div>
 		</nav>
@@ -93,7 +103,7 @@
 				<!-- Intro -->
 				<section class="ShmancySection">
 					<div class="ShmancySection-inner">
-						<h2>Welcome to Apple ][000!</h2>
+						<h2>Welcome to Apple ][000e!</h2>
 						<p>
 							This is a place to iterate on this new theme. The goal is to
 							replicate the limited capabilites of early computers, while also
@@ -504,6 +514,7 @@
 						</p>
 					</div>
 				</section>
+				<hr />
 				<!-- Let's document all our headers -->
 				<section class="ShmancySection">
 					<div class="ShmancySection-inner">
@@ -563,11 +574,15 @@
 					this._menu = root.querySelector(".Menu-content");
 					this._closeButton = root.querySelector(".Menu-close");
 					this._themeSelect = root.querySelector("select[name='theme-select']");
+					this._textSizeSlider = root.querySelector("input[name='text-size-slider']");
+					this._fancyTextCheckbox = root.querySelector("input[name='use-simple-text']");
 
 					// setup events
 					this._toggleButton.addEventListener("click", this.openMenu);
 					this._closeButton.addEventListener("click", this.closeMenu);
 					this._themeSelect.addEventListener("change", this.switchTheme);
+					this._textSizeSlider.addEventListener("input", this.adjustTextSize)
+					this._fancyTextCheckbox.addEventListener("change", this.swapFancyText)
 				}
 
 				openMenu = () => {
@@ -578,6 +593,22 @@
 				closeMenu = () => {
 					this._rootElem.classList.add("Menu--close");
 					this._rootElem.classList.remove("Menu--open");
+				}
+
+				adjustTextSize = e => {
+					const textSize = Number(e.target.value);
+					if (textSize) {
+						document.documentElement.style.setProperty('--font-size-multiplier', textSize)
+					}
+				}
+
+				swapFancyText = e => {
+					const isChecked = e.target.checked;
+					if (isChecked) {
+						document.documentElement.style.setProperty('--font-family-header', 'var(--font-basic)');
+					} else {
+						document.documentElement.style.setProperty('--font-family-header', 'var(--font-fancy)');
+					}
 				}
 
 				switchTheme = e => {

@@ -41,7 +41,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	&-inner {
-		padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem 0.5rem;
+		padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem;
 	}
 
 	&-title {

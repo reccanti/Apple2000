@@ -10,16 +10,25 @@
 	}
 
 	/* Font Families */
-	--font-family-header: "ChronoType";
-	--font-family-regular: "Fira Sans";
+	--font-basic: "Fira Sans";
+	--font-fancy: "ChronoType";
+
+	--font-family-header: var(--font-fancy);
+	--font-family-regular: var(--font-basic);
 
 	/* Font Sizes */
-	--font-size-base: 1.4rem;
+	--font-size-multiplier: 1.5;
+	--font-size-base: calc(var(--font-size-multiplier) * 1rem);
 
-	$fib: 1, 2, 3, 5, 8, 13;
+	$fib: 0, 1, 2, 3, 5, 8;
 	$cur: 6;
 	@each $num in $fib {
-		--font-size-header#{$cur}: calc(var(--font-size-base) * #{$num});
+		// --font-size-header#{$cur}: calc(
+		// 	#{$num} * var(--font-size-multiplier) * 1vw
+		// );
+		--font-size-header#{$cur}: calc(
+			(#{$num} * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+		);
 		$cur: $cur - 1;
 	}
 	--font-size-badge: calc(var(--font-size-base) * 0.8);

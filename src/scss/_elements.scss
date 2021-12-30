@@ -4,6 +4,7 @@
 //  * covered in the CSS reset
 //  */
 @use 'globals';
+@use "sass:math";
 
 /**
  * Setting up the "body" styles 🕺
@@ -26,6 +27,7 @@ body {
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header#{$i});
 		line-height: var(--line-height-header);
+		margin: var(--spacing2) 0;
 	}
 }
 
@@ -38,11 +40,6 @@ label {
 	width: 100%;
 	font-size: var(--font-size-badge);
 	font-family: var(--font-family-header);
-	margin-left: globals.$borderSize + 0.5rem;
-
-	& > * {
-		margin-top: var(--space1);
-	}
 
 	/**
    * @TODO - I don't like that I need to use this weird class,
@@ -52,6 +49,10 @@ label {
 	&.required::after {
 		content: "(required)";
 	}
+
+	&:not(:first-child) {
+		margin-top: var(--spacing1);
+	}
 }
 
 textarea {
@@ -60,11 +61,12 @@ textarea {
 
 	box-sizing: border-box;
 	resize: both;
-	border: 1px solid var(--text-color);
-	padding: var(--space-1);
+	border: globals.$borderSize solid var(--text-color);
+	padding: var(--spacing1);
 	font-style: italic;
 	font-size: var(--font-size-base);
 	width: 100%;
+	font-family: var(--font-family-regular);
 
 	&:focus {
 		outline: none;
@@ -83,8 +85,9 @@ input[type="text"] {
 	color: var(--text-color);
 
 	box-sizing: border-box;
-	border: 1px solid var(--text-color);
-	padding: var(--space-1);
+	border: globals.$borderSize solid var(--text-color);
+	padding: var(--spacing1);
+	font-family: var(--font-family-regular);
 	font-style: italic;
 	font-size: var(--font-size-base);
 	width: 100%;
@@ -95,9 +98,46 @@ input[type="text"] {
 		color: var(--background-color);
 		font-style: normal;
 	}
+}
 
-	&:required {
-		border-style: double;
+input[type="range"] {
+	appearance: none;
+	height: globals.$borderSize;
+	background-color: var(--text-color);
+	width: 100%;
+
+	&::-webkit-slider-thumb {
+		appearance: none;
+		width: 1.5rem;
+		height: 1.5rem;
+		border: globals.$borderSize solid var(--text-color);
+		border-radius: 50%;
+		background-color: var(--background-color);
+	}
+
+	&::-moz-range-thumb {
+		border: globals.$borderSize solid var(--text-color);
+		border-radius: 50%;
+		background-color: var(--background-color);
+	}
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	border: globals.$borderSize solid var(--text-color);
+	height: 1.5rem;
+	width: 1.5rem;
+	padding: math.div(globals.$borderSize, 2);
+	display: flex;
+
+	&:checked {
+		&::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-color: var(--text-color);
+		}
 	}
 }
 
@@ -116,12 +156,6 @@ select {
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-badge);
 	}
-
-	// option,
-	// optgroup {
-	// 	font-family: var(--font-family-header);
-	// 	font-size: var(--font-size-badge);
-	// }
 }
 
 /**
@@ -156,8 +190,33 @@ a.button {
  */
 hr {
 	border: none;
-	border-bottom: globals.$borderSize dotted;
+	border-bottom: globals.$borderSize * 3 double;
 	color: var(--text-color);
+	margin: 1rem 0;
+}
+
+/**
+ * Some text formatting
+ */
+p {
+	&:not(:first-child) {
+		margin-top: var(--spacing2);
+	}
+}
+
+/**
+ * Heck yeah. Time for links, baby
+ */
+a {
+	display: inline-block;
+	color: var(--text-color);
+	font-weight: bold;
+
+	&:focus,
+	&:hover {
+		background: var(--text-color);
+		color: var(--background-color);
+	}
 }
 
 // /**
