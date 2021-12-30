@@ -24,12 +24,22 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 }
 
+/**
+ * The Box component can be used to wrap content. Useful for things like menus or asides
+ */
 .Box {
 	background-color: var(--background-color);
 	border: globals.$borderSize * 3 double var(--text-color);
-	padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem;
+
+	&-inner {
+		// padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem;
+		padding: var(--spacing2);
+	}
 }
 
+/*
+ * A fancy header for use in a Box
+ */
 .Header {
 	outline: globals.$borderSize solid var(--text-color);
 	display: grid;
@@ -51,7 +61,6 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-area: area;
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header5);
-		line-height: var(--line-height-header);
 		padding: 0 1rem;
 		background-color: var(--text-color);
 		color: var(--background-color);
@@ -64,28 +73,18 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-area: area;
 		justify-self: end;
 		z-index: 1;
-		display: flex;
 	}
 }
 
+/**
+ * The Menu appears in the upper-right corner of the screen and
+ */
 .Menu {
 	$root: &;
 	z-index: 10;
 	position: fixed;
 	right: 0;
 	margin: calc(#{$wrapperBorder} + 1rem);
-
-	// &-close {
-	// 	display: block;
-	// }
-
-	// &-contents {
-	// 	display: flex;
-	// }
-
-	// &-toggle {
-	// 	display: block;
-	// }
 
 	// toggle the appearance of the menu on and off
 
@@ -100,7 +99,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	&--open {
-		width: 100%;
+		width: calc(100% - (2 * #{$wrapperBorder}) - (2 * 1rem));
 		max-width: 600px;
 
 		#{$root}-contents {
@@ -113,6 +112,9 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 }
 
+/**
+ * The Splash component defines a fancy, full-page splash screen
+ */
 .Splash {
 	display: flex;
 	flex-direction: column;
@@ -122,6 +124,10 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	height: $wrappedHeight;
 }
 
+/**
+ * The Icon component is a bunch of rules for styling Icons and
+ * making sure they're themed correctly
+ */
 .Icon {
 	height: 3rem;
 	width: 3rem;
@@ -143,6 +149,15 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 			fill: var(--background-color);
 		}
 	}
+}
+
+/**
+ * The Button Group is a collection of buttons that are spaced
+ * appropriately
+ */
+.ButtonGroup {
+	display: flex;
+	gap: globals.$borderSize;
 }
 
 // 	@media (min-width: globals.$bp-large) {

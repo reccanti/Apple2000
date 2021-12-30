@@ -6,8 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Apple ][000</title>
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+		<style>
+			.spacer:not(:first-child) {
+				margin-top: var(--spacing1);
+			}
+			.spacer--big:not(:first-child) {
+				margin-top: var(--spacing6);
+			}
+		</style>
 	</head>
-	<body id="theme-toggle" class="theme-root theme-root--lightGray">
+	<body id="theme-toggle" class="theme-root theme-root--white">
+		<!-- Settings Menu -->
 		<nav id="SettingsMenu" class="Menu Menu--close">
 			<button class="Menu-toggle">
 				<span class="Icon">
@@ -17,7 +26,7 @@
 			<div class="Menu-contents Box">
 				<nav class="Header">
 					<header class="Header-inner">Settings</header>
-					<div class="Header-buttons">
+					<div class="Header-buttons ButtonGroup">
 						<button class="Menu-close">
 							<span class="Icon">
 								{% image "./src/assets/icons/close.svg", "close" %}
@@ -25,7 +34,7 @@
 						</button>
 					</div>
 				</nav>
-				<div class="Menu-inner">
+				<div class="Box-inner Menu-inner">
 					<label for="theme-select">
 						Theme
 						<select id="theme-select" name="theme-select">
@@ -41,12 +50,12 @@
 								<option value="black">Black</option>
 								<option value="darkBlue">Dark Blue</option>
 								<option value="lightBlue">Light Blue</option>
-								<option selected value="lightGray">Light Gray</option>
+								<option value="lightGray">Light Gray</option>
 								<option value="lightGreen">Light Green</option>
 								<option value="magenta">Magenta</option>
 								<option value="orange">Orange</option>
 								<option value="pink">Pink</option>
-								<option value="white">White</option>
+								<option selected value="white">White</option>
 								<option value="yellow">Yellow</option>
 							</optgroup>
 						</select>
@@ -62,14 +71,16 @@
 				</div>
 			</div>
 		</nav>
+		<!-- Content -->
 		<div class="Wrapper">
 			<main class="Wrapper-inner">
-				<!-- Splash -->
-				<section class="Splash Splash--big">
+
+				<!-- Yay welcome to the theme! -->
+				<section class="Splash">
 					<h1 class="Splash-main" data-text="Apple ][000!">
 						<div class="Splash-inner">Apple<br />][000e!</div>
 					</h1>
-					<nav class="Splash-iconLinks">
+					<nav class="ButtonGroup">
 						<a class="button" href="#">
 							<span class="Icon">
 								{% image "./src/assets/icons/facebook.svg", "facebook" %}
@@ -102,44 +113,45 @@
 						</a>
 					</nav>
 				</section>
-				<!-- Intro -->
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Welcome to Apple ][000e!</h2>
-						<p>
-							This is a place to iterate on this new theme. The goal is to
-							replicate the limited capabilites of early computers, while also
-							giving them a modern twist. I know—real original—but it's my theme
-							and I'll do what I want, dammit!
-						</p>
-						<p>
-							This is a small theme, a baby if you will. I don't want to plan
-							for every scenario and make it super generalized. Instead, my goal
-							here is to just create examples as I need them and use that as the
-							basis for this theme
-						</p>
-					</div>
+
+				<!-- What even is this? -->
+				<section>
+					<h2>Welcome to Apple ][000e!</h2>
+					<p>
+						This is a place to iterate on this new theme. The goal is to
+						replicate the limited capabilites of early computers, while also
+						giving them a modern twist. I know—real original—but it's my theme
+						and I'll do what I want, dammit!
+					</p>
+					<p>
+						This is a small theme, a baby if you will. I don't want to plan
+						for every scenario and make it super generalized. Instead, my goal
+						here is to just create examples as I need them and use that as the
+						basis for this theme
+					</p>
 				</section>
+
 				<!--  Let's put all our "elements" here -->
 				<section class="Splash">
 					<h1 class="Splash-main" data-text="Elements">
 						<div class="Splash-inner">Elements</div>
 					</h1>
 				</section>
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Text!</h2>
-						<p>
-							It's kind of become apparent that I need to be able to compare the
-							headers and their hierarchy relative to each other. So that's
-							what's going on in this section!
-						</p>
-						<p>UPDATE: this is a section for text in general now!</p>
-						<div class="Box">
-							<header class="Header">
-								<div class="Header-inner">Headers!</div>
-							</header>
-							{% comment %} <h3>Headers!</h3> {% endcomment %}
+
+				<!-- I know writers who use "Text" and they're all cowards!-->
+				<section>
+					<h2>Text!</h2>
+					<p>
+						It's kind of become apparent that I need to be able to compare the
+						headers and their hierarchy relative to each other. So that's
+						what's going on in this section!
+					</p>
+					<p>UPDATE: this is a section for text in general now!</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Headers!</div>
+						</header>
+						<div class="Box-inner">
 							<h1>Here's Header 1</h1>
 							<h2>Here's Header 2</h2>
 							<h3>Here's Header 3</h3>
@@ -147,52 +159,142 @@
 							<h5>Here's Header 5</h5>
 							<h6>Here's Header 6</h6>
 						</div>
-						<div class="Box">
-							<header class="Header">
-								<div class="Header-inner">Base Text</div>
-							</header>
+					</div>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Base Text</div>
+						</header>
+						<div class="Box-inner">
 							<p>Don't mind me, just some basic text</p>
 							<p><a href="#">Whoa buddy, a link? Getting fancy!</a></p>
 						</div>
 					</div>
 				</section>
+
 				<!-- Forms??? I feel so professional! -->
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Forms!</h2>
-						<p>
-							Time for every web designer's favorite step of the process:
-							designing all the goddamn form elements!
-						</p>
-						<p>
-							Since it would be a pain-in-the-butt to design EVERY form element,
-							I'm just going to handle this on a case-by-case basis, adding more
-							as needed!
-						</p>
-						<hr />
-						<label>
-							Textarea
-							<textarea>Hello</textarea>
-						</label>
-						<label>
-							Text Input
-							<input type="text" />
-						</label>
+				<section class="spacer--big">
+					<h2>Forms!</h2>
+					<p>
+						Time for every web designer's favorite step of the process:
+						designing all the goddamn form elements!
+					</p>
+					<p>
+						Since it would be a pain-in-the-butt to design EVERY form element,
+						I'm just going to handle this on a case-by-case basis, adding more
+						as needed!
+					</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Form Elements</div>
+						</header>
+						<div class="Box-inner">
+							<label>
+								Textarea
+								<textarea>Hello</textarea>
+							</label>
+							<label>
+								Text Input
+								<input type="text" />
+							</label>
+							<label>
+								Select 
+								<select>
+									<option value="1">Pick Me!</option>
+									<option value="2">No Me!</option>
+									<option value="3">I'm good</option>
+								</select>
+							</label>
+							<label>
+								Range 
+								<input type="range" />
+							</label>
+							<label>
+								Checkbox
+								<input type="checkbox" />
+							</label>
+						</div>
 					</div>
 				</section>
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Buttons!!!</h2>
-						<p>Buttons? Classic.</p>
-						<hr />
-						<button>Just a normal 🅱️utton</button>
+
+				<!-- 🅱️uttons -->
+				<section class="spacer--big">
+					<h2>Buttons!!!</h2>
+					<p>Buttons? Classic.</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Da Buttons</div>
+						</header>
+						<div class="Box-inner">
+							<button>Just a normal 🅱️utton</button>
+						</div>
 					</div>
 				</section>
-				<!-- Maybe we should talk about the my "components"? -->
+
+				<!-- Just some other things! -->
+				<section class="spacer--big">
+					<h2>Other Stuff</h2>
+					<p>I dunno where to put these</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Miscellaneous</div>
+						</header>
+						<div class="Box-inner">
+							<p>Horizontal Rule</p>
+							<hr />
+						</div>
+					</div>
+				</section>
+
+				<!-- Time for components! -->
 				<section class="Splash">
 					<h1 class="Splash-main">
 						<div class="Splash-inner">Components</div>
 					</h1>
+				</section>
+
+				<section class="spacer--big">
+					<h2>Box</h2>
+					<p>A general-purpose Box for wrapping contents</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Box</div>
+						</header>
+						<div class="Box-inner">
+							<div class="Box">
+								<div class="Box-inner">
+									This is a simple Box with a little bit of content in it.
+								</div>
+							</div>
+							<div class="spacer Box">
+								<header class="Header">
+									<div class="Header-inner">Box with Header</div>
+								</header>
+								<div class="Box-inner">
+									You can also put a header in the Box for more context
+								</div>
+							</div>
+							<div class="spacer Box">
+								<header class="Header">
+									<div class="Header-inner">Box with Header + Buttons</div>
+									<div class="Header-buttons ButtonGroup">
+										<button class="Menu-toggle">
+											<span class="Icon">
+												{% image "./src/assets/icons/gear.svg", "menu" %}
+											</span>
+										</button>
+										<button class="Menu-toggle">
+											<span class="Icon">
+												{% image "./src/assets/icons/close.svg", "close" %}
+											</span>
+										</button>
+									</div>
+								</header>
+								<div class="Box-inner">
+									Hey look, the Header can also have buttons!
+								</div>
+							</div>
+						</div>
+					</div>
 				</section>
 				<!-- It's time we give these Shmancy Sections the attention they deserve! -->
 				<section class="ShmancySection">
@@ -201,6 +303,7 @@
 						<p>You're lookin at it! Get a load of this bad boy!!!</p>
 					</div>
 				</section>
+
 				<!-- My fancy way of linking to projects -->
 				<section class="ShmancySection">
 					<div class="ShmancySection-inner">
