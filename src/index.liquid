@@ -8,20 +8,22 @@
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
 	</head>
 	<body id="theme-toggle" class="theme-root theme-root--lightGray">
-		<nav id="SettingsMenu" class="Header Menu Menu--close">
+		<nav id="SettingsMenu" class="Menu Menu--close">
 			<button class="Menu-toggle">
 				<span class="Icon">
 					{% image "./src/assets/icons/gear.svg", "menu" %}
 				</span>
 			</button>
-			<div class="Menu-contents">
-				<nav class="Menu-header">
-					<header class="Menu-title">Settings</header>
-					<button class="Menu-close">
-						<span class="Icon">
-							{% image "./src/assets/icons/close.svg", "close" %}
-						</span>
-					</button>
+			<div class="Menu-contents Box">
+				<nav class="Header">
+					<header class="Header-inner">Settings</header>
+					<div class="Header-buttons">
+						<button class="Menu-close">
+							<span class="Icon">
+								{% image "./src/assets/icons/close.svg", "close" %}
+							</span>
+						</button>
+					</div>
 				</nav>
 				<div class="Menu-inner">
 					<label for="theme-select">
@@ -133,18 +135,25 @@
 							what's going on in this section!
 						</p>
 						<p>UPDATE: this is a section for text in general now!</p>
-						<hr />
-						<h3>Headers!</h3>
-						<h1>Here's Header 1</h1>
-						<h2>Here's Header 2</h2>
-						<h3>Here's Header 3</h3>
-						<h4>Here's Header 4</h4>
-						<h5>Here's Header 5</h5>
-						<h6>Here's Header 6</h6>
-						<hr />
-						<h3>Base Text</h3>
-						<p>Don't mind me, just some basic text</p>
-						<p><a href="#">Whoa buddy, a link? Getting fancy!</a></p>
+						<div class="Box">
+							<header class="Header">
+								<div class="Header-inner">Headers!</div>
+							</header>
+							{% comment %} <h3>Headers!</h3> {% endcomment %}
+							<h1>Here's Header 1</h1>
+							<h2>Here's Header 2</h2>
+							<h3>Here's Header 3</h3>
+							<h4>Here's Header 4</h4>
+							<h5>Here's Header 5</h5>
+							<h6>Here's Header 6</h6>
+						</div>
+						<div class="Box">
+							<header class="Header">
+								<div class="Header-inner">Base Text</div>
+							</header>
+							<p>Don't mind me, just some basic text</p>
+							<p><a href="#">Whoa buddy, a link? Getting fancy!</a></p>
+						</div>
 					</div>
 				</section>
 				<!-- Forms??? I feel so professional! -->

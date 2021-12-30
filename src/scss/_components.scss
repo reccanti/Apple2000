@@ -4,13 +4,12 @@
 //  */
 @use 'globals';
 
-// /**
-// * This is the place where we'll make our cool sections 😎
-// */
-
+/**
+ * The Wrapper component wraps all of our content and applies a border
+ * around it, so it looks like the screen is being framed
+ */
 $wrapperBorder: 1rem;
 $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
-
 .Wrapper {
 	border: $wrapperBorder solid var(--text-color);
 	overflow-y: scroll;
@@ -25,59 +24,68 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 }
 
-.Menu {
-	$root: &;
+.Box {
+	background-color: var(--background-color);
+	border: globals.$borderSize * 3 double var(--text-color);
+	padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem;
+}
 
-	&-close {
-		display: block;
-	}
+.Header {
+	outline: globals.$borderSize solid var(--text-color);
+	display: grid;
+	grid-template-areas: "area";
 
-	&-contents {
-		display: flex;
+	&::before {
+		content: "";
+		grid-area: area;
 		width: 100%;
-		max-width: 600px;
-		background-color: var(--background-color);
-		border: globals.$borderSize * 3 double var(--text-color);
+		background-color: var(--text-color);
+		mask-image: url("img/Gradient.svg");
+		mask-size: globals.$borderSize * 2;
+		-webkit-mask-image: url("img/Gradient.svg");
+		-webkit-mask-size: globals.$borderSize * 2;
 	}
 
 	&-inner {
-		padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem;
-	}
-
-	&-title {
+		justify-self: center;
+		grid-area: area;
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header5);
 		line-height: var(--line-height-header);
-		display: flex;
-		align-items: center;
 		padding: 0 1rem;
-
-		position: absolute;
-		height: 100%;
 		background-color: var(--text-color);
 		color: var(--background-color);
-	}
-
-	&-header {
+		z-index: 1;
 		display: flex;
-		position: relative;
-		justify-content: center;
-		outline: globals.$borderSize solid var(--text-color);
-
-		&::before {
-			content: "";
-			width: 100%;
-			background-color: var(--text-color);
-			mask-image: url("img/Gradient.svg");
-			mask-size: globals.$borderSize * 2;
-			-webkit-mask-image: url("img/Gradient.svg");
-			-webkit-mask-size: globals.$borderSize * 2;
-		}
+		align-items: center;
 	}
 
-	&-toggle {
-		display: block;
+	&-buttons {
+		grid-area: area;
+		justify-self: end;
+		z-index: 1;
+		display: flex;
 	}
+}
+
+.Menu {
+	$root: &;
+	z-index: 10;
+	position: fixed;
+	right: 0;
+	margin: calc(#{$wrapperBorder} + 1rem);
+
+	// &-close {
+	// 	display: block;
+	// }
+
+	// &-contents {
+	// 	display: flex;
+	// }
+
+	// &-toggle {
+	// 	display: block;
+	// }
 
 	// toggle the appearance of the menu on and off
 
@@ -92,6 +100,9 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	&--open {
+		width: 100%;
+		max-width: 600px;
+
 		#{$root}-contents {
 			display: block;
 		}
@@ -100,14 +111,6 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 			display: none;
 		}
 	}
-}
-
-.Header {
-	position: fixed;
-	padding: 2 * $wrapperBorder;
-	width: 100%;
-	display: flex;
-	justify-content: flex-end;
 }
 
 .Splash {
