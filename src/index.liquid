@@ -26,7 +26,7 @@
 			<div class="Menu-contents Box">
 				<nav class="Header">
 					<header class="Header-inner">Settings</header>
-					<div class="Header-buttons ButtonGroup">
+					<div class="Header-buttons ButtonGroup ButtonGroup--nowrap">
 						<button class="Menu-close">
 							<span class="Icon">
 								{% image "./src/assets/icons/close.svg", "close" %}
@@ -276,13 +276,13 @@
 							<div class="spacer Box">
 								<header class="Header">
 									<div class="Header-inner">Box with Header + Buttons</div>
-									<div class="Header-buttons ButtonGroup">
-										<button class="Menu-toggle">
+									<div class="Header-buttons ButtonGroup ButtonGroup--nowrap">
+										<button>
 											<span class="Icon">
 												{% image "./src/assets/icons/gear.svg", "menu" %}
 											</span>
 										</button>
-										<button class="Menu-toggle">
+										<button>
 											<span class="Icon">
 												{% image "./src/assets/icons/close.svg", "close" %}
 											</span>
@@ -296,6 +296,108 @@
 						</div>
 					</div>
 				</section>
+
+				<!-- Da Buttons, but group -->
+				<section class="spacer--big">
+					<h2>Button Group</h2>
+					<p>Just a group of buttons</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">ButtonGroup</div>
+						</header>
+						<div class="Box-inner">
+						  <p>This here's your bog-standard group of buttons</p>
+							<div class="spacer ButtonGroup">
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/facebook.svg", "facebook" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/github.svg", "github" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/instagram.svg", "instagram" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/gumroad.svg", "gumroad" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/twitch.svg", "twitch" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/twitter.svg", "twitter" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/gear.svg", "settings" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/close.svg", "close" %}
+									</span>
+								</a>
+								<button>A normal button!</button>
+							</div>
+							<p>And this one's a no-wrap variant. Useful for things like the Header.</p>
+							<div class="spacer ButtonGroup ButtonGroup--nowrap">
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/facebook.svg", "facebook" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/github.svg", "github" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/instagram.svg", "instagram" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/gumroad.svg", "gumroad" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/twitch.svg", "twitch" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/twitter.svg", "twitter" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/gear.svg", "settings" %}
+									</span>
+								</a>
+								<a class="button" href="#">
+									<span class="Icon">
+										{% image "./src/assets/icons/close.svg", "close" %}
+									</span>
+								</a>
+								<button>A normal button!</button>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<!-- It's time we give these Shmancy Sections the attention they deserve! -->
 				<section class="ShmancySection">
 					<div class="ShmancySection-inner">
@@ -410,6 +512,7 @@
 						</ul>
 					</div>
 				</section>
+
 				<!-- Tag you're it!!! -->
 				<section class="ShmancySection">
 					<div class="ShmancySection-inner">
@@ -453,183 +556,186 @@
 						/></a>
 					</div>
 				</section>
+
 				<!-- Let's show ya how to use this bad boy -->
 				<section class="Splash">
 					<h1 class="Splash-main" data-text="Examples">
 						<div class="Splash-inner">Examples</div>
 					</h1>
 				</section>
+
 				<!-- Let's replicate a blog entry -->
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Let's Simulate a Blog Entry!</h2>
-						<p>
-							I'm just going to try and reprint a blog post I've posted and see
-							how it looks!
-						</p>
-						<hr />
-						<h1>My (silly) Local WordPress Setup</h1>
-						<nav title="Blog Post Actions">
-							<ul class="TagList">
-								<li class="Tag"><a href="#">bwilcox</a></li>
-								<li class="Tag"><a href="#">Uncategorized</a></li>
-								<li class="Tag"><a href="#">Leave a comment</a></li>
-								<li class="Tag"><a href="#">May 17, 2020</a></li>
-								<li class="Tag">4 Minutes</li>
+				<section class="spacer--big">
+					<h2>Let's Simulate a Blog Entry!</h2>
+					<p>
+						I'm just going to try and reprint a blog post I've posted and see
+						how it looks!
+					</p>
+					<div class="spacer Box">
+						<div class="Box-inner">
+							<h1>My (silly) Local WordPress Setup</h1>
+							<nav title="Blog Post Actions">
+								<ul class="TagList">
+									<li class="Tag"><a href="#">bwilcox</a></li>
+									<li class="Tag"><a href="#">Uncategorized</a></li>
+									<li class="Tag"><a href="#">Leave a comment</a></li>
+									<li class="Tag"><a href="#">May 17, 2020</a></li>
+									<li class="Tag">4 Minutes</li>
+								</ul>
+							</nav>
+							<p>
+								Welcome to <a href="https://blair.pictures/">blair.pictures</a>!
+								This is the first WordPress site I’ve developed on my own. Until
+								now, I’ve mostly made static sites like
+								<a href="https://jekyllrb.com/">Jekyll</a> or
+								<a href="https://www.gatsbyjs.org/">Gatsby</a>. These frameworks
+								offer a self-contained environment that can be run entirely
+								through the terminal, which I’ve always found easier to wrap my
+								head around. I didn’t want to lose that with this site, so I
+								created this (janky) setup to work around it!
+							</p>
+							<h2>Why use WordPress?</h2>
+							<p>
+								So why would I use WordPress if I like the toolchains of static
+								sites so much? It really came down to images. Basically, the way
+								you manage content on a static site is by committing files
+								directly to a Git repository. This is fine for text-heavy sites,
+								but it’s not great for sites like this that use lots of images.
+								Your choices are to commit large, binary files to your git
+								repo—which will quickly inflate its size—or to figure out another
+								way of hosting these images.
+							</p>
+							<p>
+								Though there are some options available, most of the easy-to-use
+								solutions like Contentful, were fairly expensive. Meanwhile
+								Dreamhost offered an inexpensive WordPress Hosting plan with
+								unlimited storage. On top of that I would have an environment that
+								I could access from several devices, which is really helpful since
+								I do a lot of my drawing on my iPad. So with all those factors
+								considered, I decided to bite the bullet and make a WordPress
+								site!
+							</p>
+							<h2>Creating an Isolate Environment with Docker</h2>
+							<p>
+								With WordPress selected, I needed to figure out my local
+								development environment. I always found this part intimidating.
+								Unlike with a static site, where all you have to do is download
+								some files and run some commands on the terminal, with WordPress
+								you needto set up an entire LAMP stack! Tools like MAMP make
+								easier, but I would always worried I’d leave some process running
+								in the background, or I’d have trouble resetting the database. I
+								wanted to be able to launch and teardown my environment easily.
+							</p>
+							<p>
+								The tool I ended up turning to was Docker. I’ve been using it a
+								lot at work recently, and I liked its ability to create isolated,
+								composable environments. Even better, there was already a
+								WordPress Docker image, so creating an environment was as simple
+								as creating a docker-compose.yaml file!
+							</p>
+							<p>
+								Still, some of the functionality I wanted was a little verbose,
+								and there were some gotchas—like how to completely reset the
+								database. To make these common functions a little easier to
+								remember, I created some npm run scripts to simplify things:
+							</p>
+							<ul>
+								<li>
+									<code>launch</code> – Setup the docker container using
+									docker-compose
+								</li>
+								<li>
+									<code>stop</code> – Stop running the docker container (but leave
+									everything in-tact)
+								</li>
+								<li>
+									<code>teardown</code> – Stop and remove all volumes associated
+									with the site. Useful in case things get too out-of-hand and you
+									want to start from scratch
+								</li>
+								<li>
+									<code>ssh</code> – Essentially just executes bash inside the
+									docker container. Useful for when you want to explore the file
+									system inside the image
+								</li>
 							</ul>
-						</nav>
-						<p>
-							Welcome to <a href="https://blair.pictures/">blair.pictures</a>!
-							This is the first WordPress site I’ve developed on my own. Until
-							now, I’ve mostly made static sites like
-							<a href="https://jekyllrb.com/">Jekyll</a> or
-							<a href="https://www.gatsbyjs.org/">Gatsby</a>. These frameworks
-							offer a self-contained environment that can be run entirely
-							through the terminal, which I’ve always found easier to wrap my
-							head around. I didn’t want to lose that with this site, so I
-							created this (janky) setup to work around it!
-						</p>
-						<h2>Why use WordPress?</h2>
-						<p>
-							So why would I use WordPress if I like the toolchains of static
-							sites so much? It really came down to images. Basically, the way
-							you manage content on a static site is by committing files
-							directly to a Git repository. This is fine for text-heavy sites,
-							but it’s not great for sites like this that use lots of images.
-							Your choices are to commit large, binary files to your git
-							repo—which will quickly inflate its size—or to figure out another
-							way of hosting these images.
-						</p>
-						<p>
-							Though there are some options available, most of the easy-to-use
-							solutions like Contentful, were fairly expensive. Meanwhile
-							Dreamhost offered an inexpensive WordPress Hosting plan with
-							unlimited storage. On top of that I would have an environment that
-							I could access from several devices, which is really helpful since
-							I do a lot of my drawing on my iPad. So with all those factors
-							considered, I decided to bite the bullet and make a WordPress
-							site!
-						</p>
-						<h2>Creating an Isolate Environment with Docker</h2>
-						<p>
-							With WordPress selected, I needed to figure out my local
-							development environment. I always found this part intimidating.
-							Unlike with a static site, where all you have to do is download
-							some files and run some commands on the terminal, with WordPress
-							you needto set up an entire LAMP stack! Tools like MAMP make
-							easier, but I would always worried I’d leave some process running
-							in the background, or I’d have trouble resetting the database. I
-							wanted to be able to launch and teardown my environment easily.
-						</p>
-						<p>
-							The tool I ended up turning to was Docker. I’ve been using it a
-							lot at work recently, and I liked its ability to create isolated,
-							composable environments. Even better, there was already a
-							WordPress Docker image, so creating an environment was as simple
-							as creating a docker-compose.yaml file!
-						</p>
-						<p>
-							Still, some of the functionality I wanted was a little verbose,
-							and there were some gotchas—like how to completely reset the
-							database. To make these common functions a little easier to
-							remember, I created some npm run scripts to simplify things:
-						</p>
-						<ul>
-							<li>
-								<code>launch</code> – Setup the docker container using
-								docker-compose
-							</li>
-							<li>
-								<code>stop</code> – Stop running the docker container (but leave
-								everything in-tact)
-							</li>
-							<li>
-								<code>teardown</code> – Stop and remove all volumes associated
-								with the site. Useful in case things get too out-of-hand and you
-								want to start from scratch
-							</li>
-							<li>
-								<code>ssh</code> – Essentially just executes bash inside the
-								docker container. Useful for when you want to explore the file
-								system inside the image
-							</li>
-						</ul>
-						<p>
-							With these, I was able to create an isolated WordPress environment
-							that I could setup and teardown at will!
-						</p>
-						<h2>Setting Up Live Development</h2>
-						<p>
-							The next thing I needed to figure out was how to make changes to
-							the site. My solution was to create 2 folders at the root of the
-							environment, plugins and themes. The contents of these folders are
-							.gitignored, so I could just git clone existing themes and plugins
-							into them. Then, I created a new npm run script to copy those
-							files into the container:
-						</p>
-						<ul>
-							<li>
-								<code>build</code> – copies the contents of plugins and themes
-								into the appropriate location in the Docker container
-							</li>
-						</ul>
-						<p>
-							Still, this wasn’t great for getting immediate feedback. I wanted
-							to be able to copy files into the container as I was editing them.
-							Fortunately, I was able to do that with Gulp. Though I’ve mostly
-							moved to using Webpack for most of my JavaScript development, Gulp
-							is really useful when all I want to do is run a command when my
-							file changes. I stored this in another script:
-						</p>
-						<ul>
-							<li>
-								<code>dev</code> – runs build to copy the initial files over,
-								then runs gulp to watch for changes.
-							</li>
-						</ul>
-						<p>
-							With that, I was able to see changes in real-time as I was making
-							them! This solution might not scale if I need to start modifying
-							other types of WordPress files, but it suits my needs for now. You
-							can see the final environment setup in my comic-site-env repo.
-						</p>
-						<h2>Pushing My Changes to Production</h2>
-						<p>
-							With the Basic WordPress plan, the WordPress environment is
-							already setup, so when I’m ready to push my changes to production,
-							I just upload my files on their web panel. This isn’t too
-							difficult, since all my changes are limited to themes and plugins.
-						</p>
-						<p>
-							I’m not super happy with how manual this step is, so I’d like to
-							automate it using something like ssh and rsync in the future.
-						</p>
-						<h2>In Summary…</h2>
-						<p>My local development workflow is the following:</p>
-						<ul>
-							<li>Launch the site in a Docker container</li>
-							<li>Copy themes and plugins into the container using Gulp</li>
-							<li>Manually upload the changes when I’m done</li>
-						</ul>
-						<p>
-							This is admittedly a roundabout and hacky setup, but I’m happy
-							with how I’m able to keep everything self-contained and controlled
-							with terminal commands! I haven’t hit any major pain-points with
-							this setup—in fact I’m able to do a lot more customization without
-							working with code. Still I’m hoping to keep updating and refining
-							this process.
-						</p>
-						<p>
-							What are your thoughts on this setup? Do you have any janky setups
-							you’d like to share? Is there anything you’d like me to write
-							about next? Leave a comment and let me know!
-						</p>
+							<p>
+								With these, I was able to create an isolated WordPress environment
+								that I could setup and teardown at will!
+							</p>
+							<h2>Setting Up Live Development</h2>
+							<p>
+								The next thing I needed to figure out was how to make changes to
+								the site. My solution was to create 2 folders at the root of the
+								environment, plugins and themes. The contents of these folders are
+								.gitignored, so I could just git clone existing themes and plugins
+								into them. Then, I created a new npm run script to copy those
+								files into the container:
+							</p>
+							<ul>
+								<li>
+									<code>build</code> – copies the contents of plugins and themes
+									into the appropriate location in the Docker container
+								</li>
+							</ul>
+							<p>
+								Still, this wasn’t great for getting immediate feedback. I wanted
+								to be able to copy files into the container as I was editing them.
+								Fortunately, I was able to do that with Gulp. Though I’ve mostly
+								moved to using Webpack for most of my JavaScript development, Gulp
+								is really useful when all I want to do is run a command when my
+								file changes. I stored this in another script:
+							</p>
+							<ul>
+								<li>
+									<code>dev</code> – runs build to copy the initial files over,
+									then runs gulp to watch for changes.
+								</li>
+							</ul>
+							<p>
+								With that, I was able to see changes in real-time as I was making
+								them! This solution might not scale if I need to start modifying
+								other types of WordPress files, but it suits my needs for now. You
+								can see the final environment setup in my comic-site-env repo.
+							</p>
+							<h2>Pushing My Changes to Production</h2>
+							<p>
+								With the Basic WordPress plan, the WordPress environment is
+								already setup, so when I’m ready to push my changes to production,
+								I just upload my files on their web panel. This isn’t too
+								difficult, since all my changes are limited to themes and plugins.
+							</p>
+							<p>
+								I’m not super happy with how manual this step is, so I’d like to
+								automate it using something like ssh and rsync in the future.
+							</p>
+							<h2>In Summary…</h2>
+							<p>My local development workflow is the following:</p>
+							<ul>
+								<li>Launch the site in a Docker container</li>
+								<li>Copy themes and plugins into the container using Gulp</li>
+								<li>Manually upload the changes when I’m done</li>
+							</ul>
+							<p>
+								This is admittedly a roundabout and hacky setup, but I’m happy
+								with how I’m able to keep everything self-contained and controlled
+								with terminal commands! I haven’t hit any major pain-points with
+								this setup—in fact I’m able to do a lot more customization without
+								working with code. Still I’m hoping to keep updating and refining
+								this process.
+							</p>
+							<p>
+								What are your thoughts on this setup? Do you have any janky setups
+								you’d like to share? Is there anything you’d like me to write
+								about next? Leave a comment and let me know!
+							</p>
+						</div>
 					</div>
 				</section>
-				<hr />
+
 				<!-- Let's document all our headers -->
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
+				<section class="spacer Box">
+					<div class="Box-inner">
 						<h2>Comic Page</h2>
 						<p>
 							Oh yeah, here it is, the moment you've all been waiting for. Let's
@@ -676,6 +782,7 @@
 				</section>
 			</main>
 		</div>
+
 		<script>
 			class Menu {
 				constructor(root) {

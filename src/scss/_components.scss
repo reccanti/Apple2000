@@ -12,6 +12,7 @@ $wrapperBorder: 1rem;
 $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 .Wrapper {
 	border: $wrapperBorder solid var(--text-color);
+	background-color: var(--background-color);
 	overflow-y: scroll;
 	height: 100vh;
 	margin: 0;
@@ -41,10 +42,12 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  * A fancy header for use in a Box
  */
 .Header {
-	outline: globals.$borderSize solid var(--text-color);
+	background-color: var(--text-color);
+	border-bottom: globals.$borderSize solid var(--text-color);
 	display: grid;
 	grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
 	grid-template-rows: [row] auto;
+	overflow: hidden;
 
 	&::before {
 		content: "";
@@ -52,7 +55,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-row: row;
 		grid-column: 1 / span 3;
 
-		background-color: var(--text-color);
+		background-color: var(--background-color);
 		mask-image: url("img/Gradient.svg");
 		mask-size: globals.$borderSize * 2;
 		-webkit-mask-image: url("img/Gradient.svg");
@@ -76,6 +79,12 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-column: 3 / span 1;
 		justify-self: end;
 		z-index: 1;
+
+		// &.ButtonGroup {
+		// 	margin-top: -1 * globals.$borderSize;
+		// 	margin-bottom: -1 * globals.$borderSize;
+		// 	margin-right: -1 * globals.$borderSize;
+		// }
 	}
 }
 
@@ -132,9 +141,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  * making sure they're themed correctly
  */
 .Icon {
-	height: 3rem;
-	width: 3rem;
-	padding: 0.5rem;
+	height: 2rem;
+	width: 2rem;
 	display: block;
 
 	svg {
@@ -159,8 +167,19 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  * appropriately
  */
 .ButtonGroup {
-	display: flex;
+	display: inline-flex;
 	gap: globals.$borderSize;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	&--nowrap {
+		flex-wrap: nowrap;
+	}
+
+	// & button:not(:first-child),
+	// & a.button:not(:first-child) {
+	// 	margin-left: -1 * globals.$borderSize;
+	// }
 }
 
 // 	@media (min-width: globals.$bp-large) {
