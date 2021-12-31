@@ -43,12 +43,15 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 .Header {
 	outline: globals.$borderSize solid var(--text-color);
 	display: grid;
-	grid-template-areas: "area";
+	grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
+	grid-template-rows: [row] auto;
 
 	&::before {
 		content: "";
-		grid-area: area;
-		width: 100%;
+
+		grid-row: row;
+		grid-column: 1 / span 3;
+
 		background-color: var(--text-color);
 		mask-image: url("img/Gradient.svg");
 		mask-size: globals.$borderSize * 2;
@@ -57,20 +60,20 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	&-inner {
-		justify-self: center;
-		grid-area: area;
+		grid-row: row;
+		grid-column: 2 / span 1;
+
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header5);
 		padding: 0 1rem;
 		background-color: var(--text-color);
 		color: var(--background-color);
 		z-index: 1;
-		display: flex;
-		align-items: center;
 	}
 
 	&-buttons {
-		grid-area: area;
+		grid-row: row;
+		grid-column: 3 / span 1;
 		justify-self: end;
 		z-index: 1;
 	}
