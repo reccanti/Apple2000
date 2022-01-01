@@ -1,0 +1,775 @@
+@charset "UTF-8";
+/* Webfont CSS setup for ChronoType by Caveras */
+@font-face {
+  font-family: "ChronoType";
+  src: url("./fonts/chronotype/ChronoType.eot");
+  src: url("./fonts/chronotype/ChronoType.eot?#iefix") format("embedded-opentype"), url("./fonts/chronotype/ChronoType.woff") format("woff"), url("./fonts/chronotype/ChronoType.ttf") format("truetype"), url("./fonts/chronotype/ChronoType.svg#ChronoType") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "ChronoType";
+    src: url("./fonts/chronotype/ChronoType.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+/* Webfont CSS setup for ChronoType by Caveras */
+@font-face {
+  font-family: "Fira Sans";
+  src: url("./fonts/firasans/FiraSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url("./fonts/firasans/FiraSans-Regular.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+ * Some additional resets. Removing default margin and padding and
+ * setting box-sizing to "border-box" because why wouldn't you???
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-height: 0vw;
+}
+
+textarea {
+  background: unset;
+  font: unset;
+}
+
+/**
+ * @TODO - Ehhh this is kind a catch-all right now 😓
+ * For now we'll just put anything we need in here and
+ * we'll worry about breaking it out later!
+ * ~reccanti 4/12/2021
+ */
+:root {
+  /* Colors */
+  --background-black: #0d0e10;
+  --background-blue: #3f5df5;
+  --background-brown: #b5400f;
+  --background-darkGray: #517178;
+  --background-darkGreen: #08830b;
+  --background-purple: #d05eff;
+  --background-salmon: #fa6581;
+  --background-darkBlue: #1b3add;
+  --background-lightBlue: #51cbff;
+  --background-lightGray: #b4cacb;
+  --background-lightGreen: #43e296;
+  --background-magenta: #f84ebe;
+  --background-orange: #fa9854;
+  --background-pink: #ffadd4;
+  --background-white: #ffffff;
+  --background-yellow: #ffc42c;
+  --text-black: #0d0e10;
+  --text-blue: #7e5dff;
+  --text-brown: #bf6139;
+  --text-darkBlue: #2b75ff;
+  --text-darkGray: #728a8f;
+  --text-darkGreen: #1d973f;
+  --text-purple: #d05eff;
+  --text-salmon: #ff6582;
+  --text-lightBlue: #51cbff;
+  --text-lightGray: #b4cacb;
+  --text-lightGreen: #48f4a2;
+  --text-magenta: #f84ebe;
+  --text-orange: #fa9854;
+  --text-pink: #ffadd4;
+  --text-white: #ffffff;
+  --text-yellow: #fed33a;
+  /* Font Families */
+  --font-basic: "Fira Sans";
+  --font-fancy: "ChronoType";
+  --font-family-header: var(--font-fancy);
+  --font-family-regular: var(--font-basic);
+  /* Font Sizes */
+  --font-size-multiplier: 1.5;
+  --font-size-base: calc(var(--font-size-multiplier) * 1rem);
+  --font-size-header6: calc(
+  	(0 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  );
+  --font-size-header5: calc(
+  	(1 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  );
+  --font-size-header4: calc(
+  	(2 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  );
+  --font-size-header3: calc(
+  	(3 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  );
+  --font-size-header2: calc(
+  	(5 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  );
+  --font-size-header1: calc(
+  	(8 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  );
+  --font-size-badge: calc(var(--font-size-base) * 0.8);
+  /* Spacing */
+  --spacing1: calc(var(--font-size-base) * 0.5);
+  --spacing2: calc(var(--font-size-base) * 1);
+  --spacing3: calc(var(--font-size-base) * 2);
+  --spacing4: calc(var(--font-size-base) * 3);
+  --spacing5: calc(var(--font-size-base) * 5);
+  --spacing6: calc(var(--font-size-base) * 8);
+  /* Line Height */
+  --line-height-text: 1.35;
+  --line-height-header: 1;
+}
+
+/**
+ * The Theme Root is where all of our variables and themes are set up.
+ * Anything that requires a toggle should go here.
+ */
+.theme-root {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-black);
+  --background-color: var(--background-black);
+  --text-color: var(--text-white);
+}
+.theme-root--lightGray {
+  --light-color: var(--background-lightGray);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-lightGray);
+  --text-color: var(--text-black);
+}
+.theme-root--darkGray {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-darkGray);
+  --background-color: var(--background-darkGray);
+  --text-color: var(--text-white);
+}
+.theme-root--blue {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-blue);
+  --background-color: var(--background-blue);
+  --text-color: var(--text-white);
+}
+.theme-root--magenta {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-magenta);
+  --background-color: var(--background-magenta);
+  --text-color: var(--text-white);
+}
+.theme-root--orange {
+  --light-color: var(--background-orange);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-orange);
+  --text-color: var(--text-black);
+}
+.theme-root--darkGreen {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-darkGreen);
+  --background-color: var(--background-darkGreen);
+  --text-color: var(--text-white);
+}
+.theme-root--pink {
+  --light-color: var(--background-pink);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-pink);
+  --text-color: var(--text-black);
+}
+.theme-root--purple {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-purple);
+  --background-color: var(--background-purple);
+  --text-color: var(--text-white);
+}
+.theme-root--lightGreen {
+  --light-color: var(--background-lightGreen);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-lightGreen);
+  --text-color: var(--text-black);
+}
+.theme-root--yellow {
+  --light-color: var(--background-yellow);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-yellow);
+  --text-color: var(--text-black);
+}
+.theme-root--salmon {
+  --light-color: var(--background-salmon);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-salmon);
+  --text-color: var(--text-black);
+}
+.theme-root--brown {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-brown);
+  --background-color: var(--background-brown);
+  --text-color: var(--text-white);
+}
+.theme-root--darkBlue {
+  --light-color: var(--text-white);
+  --dark-color: var(--background-darkBlue);
+  --background-color: var(--background-darkBlue);
+  --text-color: var(--text-white);
+}
+.theme-root--lightBlue {
+  --light-color: var(--background-lightBlue);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-lightBlue);
+  --text-color: var(--text-black);
+}
+.theme-root--white {
+  --light-color: var(--background-white);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-white);
+  --text-color: var(--text-black);
+}
+
+/**
+ * Setting up the "body" styles 🕺
+ */
+body {
+  background-color: var(--text-color);
+  color: var(--text-color);
+  font-weight: 100;
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-text);
+}
+
+/**
+ * That's using your "head!!!" 🗣
+ */
+h1 {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header1);
+  line-height: var(--line-height-header);
+  margin: var(--spacing2) 0;
+}
+
+h2 {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header2);
+  line-height: var(--line-height-header);
+  margin: var(--spacing2) 0;
+}
+
+h3 {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header3);
+  line-height: var(--line-height-header);
+  margin: var(--spacing2) 0;
+}
+
+h4 {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header4);
+  line-height: var(--line-height-header);
+  margin: var(--spacing2) 0;
+}
+
+h5 {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header5);
+  line-height: var(--line-height-header);
+  margin: var(--spacing2) 0;
+}
+
+h6 {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header6);
+  line-height: var(--line-height-header);
+  margin: var(--spacing2) 0;
+}
+
+/**
+ * Time to get "form-"al. 🎩
+ */
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: var(--font-size-badge);
+  font-family: var(--font-family-header);
+  /**
+    * @TODO - I don't like that I need to use this weird class,
+    * but I don't have a better way of dealing with this right
+    * now. Maybe use a :has() polyfill?
+    */
+}
+label.required::after {
+  content: "(required)";
+}
+label:not(:first-child) {
+  margin-top: var(--spacing1);
+}
+
+textarea {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+  resize: both;
+  border: 0.3rem solid var(--text-color);
+  padding: 0.9rem;
+  font-style: italic;
+  font-size: var(--font-size-base);
+  width: 100%;
+  font-family: var(--font-family-regular);
+}
+textarea:focus {
+  outline: none;
+  border: 0.9rem double var(--text-color);
+  padding: 0.3rem;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  font-style: normal;
+}
+
+input[type=text] {
+  /* resets */
+  background: unset;
+  font: unset;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+  border: 0.3rem solid var(--text-color);
+  padding: 0.9rem;
+  font-family: var(--font-family-regular);
+  font-style: italic;
+  font-size: var(--font-size-base);
+  width: 100%;
+}
+input[type=text]:focus {
+  outline: none;
+  border: 0.9rem double var(--text-color);
+  padding: 0.3rem;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  font-style: normal;
+}
+
+input[type=range] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 0.3rem;
+  background-color: var(--text-color);
+  width: 100%;
+  margin: var(--spacing1) 0;
+}
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.3rem solid var(--text-color);
+  border-radius: 50%;
+  background-color: var(--background-color);
+}
+input[type=range]::-moz-range-thumb {
+  border: 0.3rem solid var(--text-color);
+  border-radius: 50%;
+  background-color: var(--background-color);
+}
+input[type=range]:focus, input[type=range]:active {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb {
+  outline-offset: 0.3rem;
+  outline: 0.3rem solid var(--text-color);
+}
+input[type=range]:focus::-moz-range-thumb, input[type=range]:active::-moz-range-thumb {
+  outline-offset: 0.3rem;
+  outline: 0.3rem solid var(--text-color);
+}
+
+input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0.3rem solid var(--text-color);
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0.15rem;
+  display: flex;
+  margin: 0.6rem;
+}
+input[type=checkbox]:focus {
+  outline: 0.3rem solid var(--text-color);
+  outline-offset: 0.3rem;
+}
+input[type=checkbox]:checked::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-color);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0.3rem solid var(--text-color);
+  border-radius: 0;
+  width: 100%;
+  padding: 0.9rem;
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-badge);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+select:focus {
+  outline: none;
+  padding: 0.3rem;
+  border: 0.9rem double var(--text-color);
+}
+select option::after {
+  content: "";
+  display: block;
+  background-color: var(--dark-color);
+}
+
+/**
+ * "Button" up!
+ */
+button,
+a.button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--background-color);
+  box-shadow: 0 0 0 0.3rem var(--text-color);
+  padding: 0.6rem;
+  text-align: center;
+}
+button img,
+a.button img {
+  display: block;
+}
+button:hover, button:focus,
+a.button:hover,
+a.button:focus {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+button:focus,
+a.button:focus {
+  outline: 0.3rem solid var(--background-color);
+  outline-offset: -0.3rem;
+}
+
+/**
+ * Let's make those horizontal rules fancy 🎩
+ */
+hr {
+  border: none;
+  border-bottom: 0.9rem double;
+  color: var(--text-color);
+  margin: 1rem 0;
+}
+
+/**
+ * Some text formatting
+ */
+p:not(:first-child) {
+  margin-top: var(--spacing2);
+}
+
+/**
+ * Heck yeah. Time for links, baby
+ */
+a {
+  display: inline-block;
+  color: var(--text-color);
+  font-weight: bold;
+}
+a:focus, a:hover {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+
+/**
+ * The Wrapper component wraps all of our content and applies a border
+ * around it, so it looks like the screen is being framed
+ */
+.Wrapper {
+  border: 1rem solid var(--text-color);
+  background-color: var(--background-color);
+  overflow-y: scroll;
+  height: 100vh;
+  margin: 0;
+}
+.Wrapper-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/**
+ * The Box component can be used to wrap content. Useful for things like menus or asides
+ */
+.Box {
+  background-color: var(--background-color);
+  border: 0.9rem double var(--text-color);
+}
+.Box-inner {
+  padding: var(--spacing2);
+}
+
+/*
+ * A fancy header for use in a Box
+ */
+.Header {
+  background-color: var(--text-color);
+  border-bottom: 0.3rem solid var(--text-color);
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
+  grid-template-rows: [row] auto;
+  overflow: hidden;
+}
+.Header::before {
+  content: "";
+  grid-row: row;
+  grid-column: 1/span 3;
+  background-color: var(--background-color);
+  mask-image: url("img/Gradient.svg");
+  mask-size: 0.6rem;
+  -webkit-mask-image: url("img/Gradient.svg");
+  -webkit-mask-size: 0.6rem;
+}
+.Header-inner {
+  grid-row: row;
+  grid-column: 2/span 1;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header5);
+  padding: 0 1rem;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  z-index: 1;
+}
+.Header-buttons {
+  grid-row: row;
+  grid-column: 3/span 1;
+  justify-self: end;
+  z-index: 1;
+}
+
+/**
+ * The Menu appears in the upper-right corner of the screen and
+ */
+.Menu {
+  z-index: 10;
+  position: fixed;
+  right: 0;
+  margin: calc(1rem + 1rem);
+}
+.Menu--close .Menu-contents {
+  display: none;
+}
+.Menu--close .Menu-toggle {
+  display: block;
+}
+.Menu--open {
+  width: calc(100% - (2 * 1rem) - (2 * 1rem));
+  max-width: 600px;
+}
+.Menu--open .Menu-contents {
+  display: block;
+}
+.Menu--open .Menu-toggle {
+  display: none;
+}
+
+/**
+ * The Splash component defines a fancy, full-page splash screen
+ */
+.Splash {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 2 * 1rem);
+}
+
+/**
+ * The Icon component is a bunch of rules for styling Icons and
+ * making sure they're themed correctly
+ */
+.Icon {
+  height: 2rem;
+  width: 2rem;
+  display: block;
+}
+.Icon svg {
+  display: block;
+}
+.Icon path,
+.Icon rect {
+  fill: var(--text-color);
+}
+button:hover .Icon path, button:focus .Icon path, .button:hover .Icon path, .button:focus .Icon path,
+button:hover .Icon rect,
+button:focus .Icon rect,
+.button:hover .Icon rect,
+.button:focus .Icon rect {
+  fill: var(--background-color);
+}
+
+/**
+ * The Button Group is a collection of buttons that are spaced
+ * appropriately
+ */
+.ButtonGroup {
+  display: inline-flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ButtonGroup--nowrap {
+  flex-wrap: nowrap;
+}
+
+/**
+ * @TODOs
+ * 
+ * Need to better delineate between "general styling" and "styling for
+ * for the styleguide". Will update that!
+ * ~reccanti 4/10/2021
+ */
