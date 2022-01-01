@@ -6,6 +6,10 @@
 @use 'globals';
 @use "sass:math";
 
+* {
+	text-decoration-thickness: math.div(globals.$borderSize, 2);
+}
+
 /**
  * Setting up the "body" styles 🕺
  */
@@ -132,14 +136,15 @@ input[type="range"] {
 	&:focus,
 	&:active {
 		outline: none;
+
 		&::-webkit-slider-thumb {
-			outline-offset: globals.$borderSize;
-			outline: globals.$borderSize solid var(--text-color);
+			box-shadow: 0 0 0 globals.$borderSize var(--background-color),
+				0 0 0 #{2 * globals.$borderSize} var(--text-color);
 		}
 
 		&::-moz-range-thumb {
-			outline-offset: globals.$borderSize;
-			outline: globals.$borderSize solid var(--text-color);
+			box-shadow: 0 0 0 globals.$borderSize var(--background-color),
+				0 0 0 #{2 * globals.$borderSize} var(--text-color);
 		}
 	}
 }
@@ -271,8 +276,14 @@ a {
 
 	&:focus,
 	&:hover {
+		outline: none;
 		background: var(--text-color);
 		color: var(--background-color);
+	}
+
+	&:focus {
+		outline: globals.$borderSize solid var(--text-color);
+		outline-offset: globals.$borderSize;
 	}
 }
 

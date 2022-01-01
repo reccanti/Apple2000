@@ -406,6 +406,9 @@
 						showing off links to projects!
 					</p>
 					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Link Grid</div>
+						</header>
 						<div class="Box-inner">
 							<ul class="LinkGrid">
 								<li class="LinkGridItem LinkGridItem--recent">
@@ -494,46 +497,21 @@
 				</section>
 
 				<!-- Tag you're it!!! -->
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Tags</h2>
-						<p>They're tags. What more do you want???</p>
-						<hr />
-						<ul class="TagList">
-							<li class="Tag">Tag 1</li>
-							<li class="Tag">Tag 2</li>
-							<li class="Tag">Tag 3</li>
-							<li class="Tag"><a href="#">Fancy Link Tag</a></li>
-						</ul>
-					</div>
-				</section>
-				<!-- Let's get social -->
-				<section class="ShmancySection">
-					<div class="ShmancySection-inner">
-						<h2>Social Media Icons</h2>
-						<p>Wooo!</p>
-						<hr />
-						<a class="button" href="#"
-							><img class="Icon" src="assets/icons/facebook.svg" alt="facebook"
-						/></a>
-						<a class="button" href="#"
-							><img class="Icon" src="assets/icons/github.svg" alt="github"
-						/></a>
-						<a class="button" href="#"
-							><img
-								class="Icon"
-								src="assets/icons/instagram.svg"
-								alt="instagram"
-						/></a>
-						<a class="button" href="#"
-							><img class="Icon" src="assets/icons/gumroad.svg" alt="gumroad"
-						/></a>
-						<a class="button" href="#"
-							><img class="Icon" src="assets/icons/twitch.svg" alt="twitch"
-						/></a>
-						<a class="button" href="#"
-							><img class="Icon" src="assets/icons/twitter.svg" alt="twitter"
-						/></a>
+				<section class="spacer--big">
+					<h2>Tags</h2>
+					<p>They're tags. What more do you want???</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Tag List</div>
+						</header>
+						<div class="Box-inner">
+							<ul class="TagList">
+								<li class="Tag">Tag 1</li>
+								<li class="Tag">Tag 2</li>
+								<li class="Tag">Tag 3</li>
+								<li class="Tag"><a href="#">Fancy Link Tag</a></li>
+							</ul>
+						</div>
 					</div>
 				</section>
 
@@ -714,50 +692,51 @@
 				</section>
 
 				<!-- Let's document all our headers -->
-				<section class="spacer Box">
-					<div class="Box-inner">
-						<h2>Comic Page</h2>
-						<p>
-							Oh yeah, here it is, the moment you've all been waiting for. Let's
-							show the comic page!!!
-						</p>
-						<hr />
-						<div class="Comic">
-							<img
-								class="Comic-image"
-								aria-labelledby="Transcription"
-								src="assets/thewyrm5.jpg"
-							/>
-							<nav class="Comic-nav">
-								<button><<</button>
-								<button><</button>
-								<button>></button>
-								<button>>></button>
-							</nav>
-							<div id="Transcription" class="Comic-transcription">
-								<p>Panel 1</p>
-								<p>Wyrm: "I've burned nations"</p>
-								<p>Wyrm: "Flattened mountains!"</p>
-								<p>Panel 2</p>
-								<p>Wyrm: "And they think I can be killed..."</p>
-								<p>Panel 3</p>
-								<p>Wyrm: "By some abandoned pup?"</p>
+				<section class="spacer--big">
+					<h2>Comic Page</h2>
+					<p>
+						Oh yeah, here it is, the moment you've all been waiting for. Let's
+						show the comic page!!!
+					</p>
+					<div class="spacer Box">
+						<div class="Box-inner">
+							<div class="Comic">
+								<img
+									class="Comic-image"
+									aria-labelledby="Transcription"
+									src="assets/thewyrm5.jpg"
+								/>
+								<nav class="Comic-nav">
+									<button><<</button>
+									<button><</button>
+									<button>></button>
+									<button>>></button>
+								</nav>
+								<div id="Transcription" class="Comic-transcription">
+									<p>Panel 1</p>
+									<p>Wyrm: "I've burned nations"</p>
+									<p>Wyrm: "Flattened mountains!"</p>
+									<p>Panel 2</p>
+									<p>Wyrm: "And they think I can be killed..."</p>
+									<p>Panel 3</p>
+									<p>Wyrm: "By some abandoned pup?"</p>
+								</div>
 							</div>
+							<hr />
+							<label class="required">Comment<textarea></textarea></label>
+							<label class="required"
+								>Name
+								<input type="text" required />
+							</label>
+							<label class="required"
+								>Email
+								<input type="text" required />
+							</label>
+							<label
+								>Website
+								<input type="text" />
+							</label>
 						</div>
-						<hr />
-						<label class="required">Comment<textarea></textarea></label>
-						<label class="required"
-							>Name
-							<input type="text" required />
-						</label>
-						<label class="required"
-							>Email
-							<input type="text" required />
-						</label>
-						<label
-							>Website
-							<input type="text" />
-						</label>
 					</div>
 				</section>
 			</main>
