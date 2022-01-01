@@ -6,7 +6,6 @@
 	"scripts": {
 		"build:site": "npm run eleventy",
 		"dev": "npm run eleventy -- --serve",
-		"prepare": "node ./src/build.js",
 		"lint": "eslint ./src",
 		"eleventy": "eleventy --input=./src --output=./src/_site"
 	},
