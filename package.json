@@ -4,7 +4,6 @@
 	"description": "Apple 2000 repo",
 	"main": "index.js",
 	"scripts": {
-		"build": "node ./src/build.js",
 		"build:site": "npm run eleventy",
 		"dev": "npm run eleventy -- --serve",
 		"prepare": "node ./src/build.js",
