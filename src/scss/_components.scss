@@ -66,6 +66,9 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-row: row;
 		grid-column: 2 / span 1;
 
+		display: flex;
+		align-items: center;
+
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header5);
 		padding: 0 1rem;
@@ -79,12 +82,6 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-column: 3 / span 1;
 		justify-self: end;
 		z-index: 1;
-
-		// &.ButtonGroup {
-		// 	margin-top: -1 * globals.$borderSize;
-		// 	margin-bottom: -1 * globals.$borderSize;
-		// 	margin-right: -1 * globals.$borderSize;
-		// }
 	}
 }
 

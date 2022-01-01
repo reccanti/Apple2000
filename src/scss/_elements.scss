@@ -62,16 +62,19 @@ textarea {
 	box-sizing: border-box;
 	resize: both;
 	border: globals.$borderSize solid var(--text-color);
-	padding: var(--spacing1);
+	padding: globals.$borderSize * 3;
 	font-style: italic;
 	font-size: var(--font-size-base);
 	width: 100%;
 	font-family: var(--font-family-regular);
 
 	&:focus {
-		// outline: none;
-		background-color: var(--text-color);
-		color: var(--background-color);
+		outline: none;
+		border: #{globals.$borderSize * 3} double var(--text-color);
+		padding: globals.$borderSize;
+
+		background-color: var(--light-color);
+		color: var(--dark-color);
 		font-style: normal;
 	}
 }
@@ -86,16 +89,18 @@ input[type="text"] {
 
 	box-sizing: border-box;
 	border: globals.$borderSize solid var(--text-color);
-	padding: var(--spacing1);
+	padding: globals.$borderSize * 3;
 	font-family: var(--font-family-regular);
 	font-style: italic;
 	font-size: var(--font-size-base);
 	width: 100%;
 
 	&:focus {
-		// outline: none;
-		background-color: var(--text-color);
-		color: var(--background-color);
+		outline: none;
+		border: #{globals.$borderSize * 3} double var(--text-color);
+		padding: globals.$borderSize;
+		background-color: var(--light-color);
+		color: var(--dark-color);
 		font-style: normal;
 	}
 }
@@ -123,6 +128,20 @@ input[type="range"] {
 		border-radius: 50%;
 		background-color: var(--background-color);
 	}
+
+	&:focus,
+	&:active {
+		outline: none;
+		&::-webkit-slider-thumb {
+			outline-offset: globals.$borderSize;
+			outline: globals.$borderSize solid var(--text-color);
+		}
+
+		&::-moz-range-thumb {
+			outline-offset: globals.$borderSize;
+			outline: globals.$borderSize solid var(--text-color);
+		}
+	}
 }
 
 input[type="checkbox"] {
@@ -133,6 +152,12 @@ input[type="checkbox"] {
 	width: 1.5rem;
 	padding: math.div(globals.$borderSize, 2);
 	display: flex;
+	margin: globals.$borderSize * 2;
+
+	&:focus {
+		outline: globals.$borderSize solid var(--text-color);
+		outline-offset: globals.$borderSize;
+	}
 
 	&:checked {
 		&::after {
@@ -152,11 +177,33 @@ select {
 	border: globals.$borderSize solid var(--text-color);
 	border-radius: 0;
 	width: 100%;
-	padding: 0.5rem;
-	background-color: var(--background-color);
-	font-family: var(--font-family-header);
+	padding: globals.$borderSize * 3;
+	font-family: var(--font-family-regular);
 	font-size: var(--font-size-badge);
 	color: var(--text-color);
+
+	// @TODO can't get arrows working right now :(
+
+	background-color: var(--background-color);
+	// background-image: linear-gradient(var(--text-color), var(--text-color));
+	// background-clip: content-box;
+
+	// mask-image: url("img/CaretDown.svg");
+	// mask-repeat: no-repeat;
+	// mask-position: center right;
+	// mask-origin: content-box;
+
+	&:focus {
+		outline: none;
+		padding: globals.$borderSize;
+		border: #{globals.$borderSize * 3} double var(--text-color);
+	}
+
+	& option::after {
+		content: "";
+		display: block;
+		background-color: var(--dark-color);
+	}
 }
 
 /**
