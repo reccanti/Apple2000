@@ -359,6 +359,10 @@ textarea {
   --text-color: var(--text-black);
 }
 
+* {
+  text-decoration-thickness: 0.15rem;
+}
+
 /**
  * Setting up the "body" styles 🕺
  */
@@ -508,12 +512,10 @@ input[type=range]:focus, input[type=range]:active {
   outline: none;
 }
 input[type=range]:focus::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb {
-  outline-offset: 0.3rem;
-  outline: 0.3rem solid var(--text-color);
+  box-shadow: 0 0 0 0.3rem var(--background-color), 0 0 0 0.6rem var(--text-color);
 }
 input[type=range]:focus::-moz-range-thumb, input[type=range]:active::-moz-range-thumb {
-  outline-offset: 0.3rem;
-  outline: 0.3rem solid var(--text-color);
+  box-shadow: 0 0 0 0.3rem var(--background-color), 0 0 0 0.6rem var(--text-color);
 }
 
 input[type=checkbox] {
@@ -570,6 +572,7 @@ a.button {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background-color: var(--background-color);
   box-shadow: 0 0 0 0.3rem var(--text-color);
   padding: 0.6rem;
@@ -617,8 +620,13 @@ a {
   font-weight: bold;
 }
 a:focus, a:hover {
+  outline: none;
   background: var(--text-color);
   color: var(--background-color);
+}
+a:focus {
+  outline: 0.3rem solid var(--text-color);
+  outline-offset: 0.3rem;
 }
 
 /**
@@ -759,8 +767,8 @@ button:focus .Icon rect,
 .ButtonGroup {
   display: inline-flex;
   gap: 0.3rem;
+  padding: 0.3rem;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .ButtonGroup--nowrap {
   flex-wrap: nowrap;
@@ -873,6 +881,39 @@ button:focus .Icon rect,
   .LinkGridItem--recent .LinkGridItem-description {
     font-size: var(--font-size-header5);
   }
+}
+
+/**
+* Tag, you're it!
+*/
+.Tag {
+  all: unset;
+  margin: 0 !important;
+  /* Bleh */
+  font-size: var(--tag-font-size);
+  font-family: var(--font-family-header);
+}
+
+.TagList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.TagList > .Tag:not(:first-child)::before {
+  content: "|";
+  margin: 0 var(--spacing1);
+}
+
+/**
+* Comics!!!
+*/
+.Comic-image {
+  width: 100%;
+}
+.Comic-nav {
+  display: flex;
+}
+.Comic-nav > * {
+  flex: 1;
 }
 
 /**
