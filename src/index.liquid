@@ -706,11 +706,27 @@
 									aria-labelledby="Transcription"
 									src="assets/thewyrm5.jpg"
 								/>
-								<nav class="Comic-nav">
-									<button><<</button>
-									<button><</button>
-									<button>></button>
-									<button>>></button>
+								<nav class="Comic-nav ButtonGroup">
+									<button>
+										<span class="Icon">
+											{% image "./src/assets/icons/DoubleArrowBack.svg", "Back to Beginning" %}
+										</span>
+									</button>
+									<button>
+										<span class="Icon">
+											{% image "./src/assets/icons/ArrowBack.svg", "Back" %}
+										</span>
+									</button>
+									<button>
+										<span class="Icon">
+											{% image "./src/assets/icons/ArrowForward.svg", "Forward" %}
+										</span>
+									</button>
+									<button>
+										<span class="Icon">
+											{% image "./src/assets/icons/DoubleArrowForward.svg", "Latest" %}
+										</span>
+									</button>
 								</nav>
 								<div id="Transcription" class="Comic-transcription">
 									<p>Panel 1</p>

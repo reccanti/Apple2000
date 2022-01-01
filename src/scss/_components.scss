@@ -162,8 +162,9 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 .ButtonGroup {
 	display: inline-flex;
 	gap: globals.$borderSize;
+	padding: globals.$borderSize;
 	flex-wrap: wrap;
-	justify-content: center;
+	// justify-content: center;
 
 	&--nowrap {
 		flex-wrap: nowrap;
@@ -330,20 +331,19 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 }
 
-// /**
-// * Comics!!!
-// */
+/**
+* Comics!!!
+*/
+.Comic {
+	&-image {
+		width: 100%;
+	}
 
-// .Comic {
-// 	&-image {
-// 		width: 100%;
-// 	}
+	&-nav {
+		display: flex;
 
-// 	&-nav {
-// 		display: flex;
-
-// 		> * {
-// 			flex: 1;
-// 		}
-// 	}
-// }
+		> * {
+			flex: 1;
+		}
+	}
+}
