@@ -55,11 +55,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-row: row;
 		grid-column: 1 / span 3;
 
-		background-color: var(--background-color);
-		mask-image: url("img/Gradient.svg");
-		mask-size: globals.$borderSize * 2;
-		-webkit-mask-image: url("img/Gradient.svg");
-		-webkit-mask-size: globals.$borderSize * 2;
+		@include globals.CheckeredPattern;
 	}
 
 	&-inner {
@@ -172,11 +168,146 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	&--nowrap {
 		flex-wrap: nowrap;
 	}
+}
 
-	// & button:not(:first-child),
-	// & a.button:not(:first-child) {
-	// 	margin-left: -1 * globals.$borderSize;
-	// }
+/**
+ * You've seen links, but you've never seen
+ * my fancy links ✨
+ */
+
+.LinkGrid {
+	list-style: none;
+	display: grid;
+	grid-auto-flow: dense;
+	grid-template-columns: repeat(1, 1fr);
+	grid-auto-rows: 1fr;
+
+	position: relative;
+	padding: var(--spacing1);
+
+	&::before {
+		content: "";
+
+		display: block;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		position: absolute;
+
+		@include globals.CheckeredPattern(var(--text-color));
+	}
+
+	/**
+   * @TODO - Not sold on these sizes
+   * ~reccanti 4/10/2021
+   */
+	@media (min-width: globals.$bp-large) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.LinkGridItem {
+	$root: &;
+	display: flex;
+	margin: 0 !important; /* Bleh */
+	position: relative;
+
+	&-preview {
+		width: 100%;
+
+		flex: 0 0 auto;
+		filter: grayscale(1) brightness(0.5);
+	}
+
+	&-linkWrapper {
+		display: flex;
+		width: 100%;
+		align-items: center;
+
+		&:hover,
+		&:focus {
+			outline: none;
+
+			&:before {
+				content: "";
+				pointer-events: none;
+
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+
+			#{$root}-preview {
+				filter: none;
+			}
+
+			/**
+       * These effects are a little jarring. Maybe use some
+       * sort of "wipe" effect?
+       */
+			& #{$root}-description {
+				opacity: 1;
+			}
+		}
+
+		&:hover {
+			&:before {
+				box-shadow: inset 0 0 0 #{3 * globals.$borderSize} var(--text-color);
+			}
+		}
+
+		&:focus {
+			&:before {
+				box-shadow: inset 0 0 0 globals.$borderSize var(--text-color),
+					inset 0 0 0 #{2 * globals.$borderSize} var(--background-color),
+					inset 0 0 0 #{3 * globals.$borderSize} var(--text-color);
+			}
+		}
+	}
+
+	&-description {
+		display: inline-block;
+		position: absolute;
+		margin: globals.$borderSize * 5;
+		padding: var(--spacing1);
+		text-align: center;
+		border: globals.$borderSize solid var(--background-color);
+		font-family: var(--font-family-header);
+		font-size: var(--font-size-header5);
+		line-height: 0.8;
+		opacity: 0;
+		top: 0; /* Fixes a weird safari bug where the text was being shifted down :shrug: */
+		background-color: var(--text-color);
+		color: var(--background-color);
+
+		// &:after {
+		// 	content: "";
+		// 	position: absolute;
+		// 	display: block;
+		// 	width: calc(100% + #{globals.$borderSize * 4});
+		// 	height: calc(100% + #{globals.$borderSize * 4});
+		// 	top: -1 * 2 * globals.$borderSize;
+		// 	left: -1 * 2 * globals.$borderSize;
+
+		// 	@include globals.CheckeredPattern(var(--text-color));
+		// }
+	}
+
+	@media (min-width: globals.$bp-large) {
+		#{$root}-description {
+			font-size: var(--font-size-header5);
+		}
+	}
+
+	&--recent {
+		@media (min-width: globals.$bp-large) {
+			grid-column: span 2;
+			grid-row: span 2;
+			#{$root}-description {
+				font-size: var(--font-size-header5);
+			}
+		}
+	}
 }
 
 // 	@media (min-width: globals.$bp-large) {

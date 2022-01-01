@@ -58,3 +58,12 @@ $backgroundColors: (
 $siteWidth: 1200px;
 
 $borderSize: 0.3rem;
+
+// Weird checkered backgrounds
+@mixin CheckeredPattern($color: var(--background-color)) {
+	background-color: $color;
+	mask-image: url("img/Gradient.svg");
+	mask-size: $borderSize * 2;
+	-webkit-mask-image: url("img/Gradient.svg");
+	-webkit-mask-size: $borderSize * 2;
+}

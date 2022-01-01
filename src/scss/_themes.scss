@@ -23,9 +23,6 @@
 	$fib: 0, 1, 2, 3, 5, 8;
 	$cur: 6;
 	@each $num in $fib {
-		// --font-size-header#{$cur}: calc(
-		// 	#{$num} * var(--font-size-multiplier) * 1vw
-		// );
 		--font-size-header#{$cur}: calc(
 			(#{$num} * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
 		);
