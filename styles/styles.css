@@ -767,6 +767,115 @@ button:focus .Icon rect,
 }
 
 /**
+ * You've seen links, but you've never seen
+ * my fancy links ✨
+ */
+.LinkGrid {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 1fr;
+  position: relative;
+  padding: var(--spacing1);
+  /**
+    * @TODO - Not sold on these sizes
+    * ~reccanti 4/10/2021
+    */
+}
+.LinkGrid::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  background-color: var(--text-color);
+  mask-image: url("img/Gradient.svg");
+  mask-size: 0.6rem;
+  -webkit-mask-image: url("img/Gradient.svg");
+  -webkit-mask-size: 0.6rem;
+}
+@media (min-width: 700px) {
+  .LinkGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.LinkGridItem {
+  display: flex;
+  margin: 0 !important;
+  /* Bleh */
+  position: relative;
+}
+.LinkGridItem-preview {
+  width: 100%;
+  flex: 0 0 auto;
+  filter: grayscale(1) brightness(0.5);
+}
+.LinkGridItem-linkWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.LinkGridItem-linkWrapper:hover, .LinkGridItem-linkWrapper:focus {
+  outline: none;
+  /**
+      * These effects are a little jarring. Maybe use some
+      * sort of "wipe" effect?
+      */
+}
+.LinkGridItem-linkWrapper:hover:before, .LinkGridItem-linkWrapper:focus:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.LinkGridItem-linkWrapper:hover .LinkGridItem-preview, .LinkGridItem-linkWrapper:focus .LinkGridItem-preview {
+  filter: none;
+}
+.LinkGridItem-linkWrapper:hover .LinkGridItem-description, .LinkGridItem-linkWrapper:focus .LinkGridItem-description {
+  opacity: 1;
+}
+.LinkGridItem-linkWrapper:hover:before {
+  box-shadow: inset 0 0 0 0.9rem var(--text-color);
+}
+.LinkGridItem-linkWrapper:focus:before {
+  box-shadow: inset 0 0 0 0.3rem var(--text-color), inset 0 0 0 0.6rem var(--background-color), inset 0 0 0 0.9rem var(--text-color);
+}
+.LinkGridItem-description {
+  display: inline-block;
+  position: absolute;
+  margin: 1.5rem;
+  padding: var(--spacing1);
+  text-align: center;
+  border: 0.3rem solid var(--background-color);
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-header5);
+  line-height: 0.8;
+  opacity: 0;
+  top: 0;
+  /* Fixes a weird safari bug where the text was being shifted down :shrug: */
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+@media (min-width: 700px) {
+  .LinkGridItem .LinkGridItem-description {
+    font-size: var(--font-size-header5);
+  }
+}
+@media (min-width: 700px) {
+  .LinkGridItem--recent {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .LinkGridItem--recent .LinkGridItem-description {
+    font-size: var(--font-size-header5);
+  }
+}
+
+/**
  * @TODOs
  * 
  * Need to better delineate between "general styling" and "styling for
