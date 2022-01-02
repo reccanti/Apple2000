@@ -672,6 +672,7 @@ a:focus {
   border: 0.9rem double var(--text-color);
 }
 .Box-inner {
+  --font-header-size-multiplier: 1;
   padding: var(--spacing2);
 }
 .Box-inner > *:not(:first-child) {
@@ -728,6 +729,7 @@ a:focus {
   z-index: 10;
   position: fixed;
   right: 0;
+  top: 0;
   margin: calc(1rem + 1rem);
 }
 .Menu--close .Menu-contents {
@@ -980,6 +982,38 @@ button:focus .Icon rect,
     transform: translate(-100%);
   }
 }
+/**
+ * Skip Nav
+ */
+.SkipNav {
+  --offset: calc(1rem + 1rem);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin: var(--offset);
+  transform: translateY(calc(-100% - 2 * var(--offset)));
+}
+.SkipNav:focus-within {
+  transform: translateY(0);
+}
+
+/**
+ * Text Box
+ */
+.TextBox {
+  padding: var(--spacing4) 0;
+}
+.TextBox--left {
+  text-align: left;
+}
+.TextBox--right {
+  text-align: right;
+}
+.TextBox--center {
+  text-align: center;
+}
+
 /**
  * @TODOs
  * 
