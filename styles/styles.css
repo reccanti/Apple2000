@@ -669,14 +669,25 @@ a:focus {
  */
 .Box {
   background-color: var(--background-color);
-  border: 0.9rem double var(--text-color);
+  /**
+    * @TODO - Not sold on these sizes
+    * ~reccanti 4/10/2021
+    */
 }
 .Box-inner {
   --font-header-size-multiplier: 1;
-  padding: var(--spacing2);
+  padding: var(--spacing2) 0;
 }
 .Box-inner > *:not(:first-child) {
   margin-top: var(--spacing2);
+}
+@media (min-width: 700px) {
+  .Box {
+    border: 0.9rem double var(--text-color);
+  }
+  .Box-inner {
+    padding: var(--spacing2);
+  }
 }
 
 /*
@@ -684,11 +695,14 @@ a:focus {
  */
 .Header {
   background-color: var(--text-color);
-  border-bottom: 0.3rem solid var(--text-color);
   display: grid;
   grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
   grid-template-rows: [row] auto;
   overflow: hidden;
+  /**
+    * @TODO - Not sold on these sizes
+    * ~reccanti 4/10/2021
+    */
 }
 .Header::before {
   content: "";
@@ -718,8 +732,13 @@ a:focus {
   justify-self: end;
   z-index: 1;
 }
-.Header-buttons.ButtonGroup {
-  padding: 0;
+@media (min-width: 700px) {
+  .Header {
+    border-bottom: 0.3rem solid var(--text-color);
+  }
+  .Header-buttons.ButtonGroup {
+    padding: 0;
+  }
 }
 
 /**
@@ -739,14 +758,29 @@ a:focus {
   display: block;
 }
 .Menu--open {
-  width: calc(100% - (2 * 1rem) - (2 * 1rem));
-  max-width: 600px;
+  margin: 0;
+  width: 100%;
+  border: 1rem solid var(--text-color);
 }
 .Menu--open .Menu-contents {
   display: block;
+  height: calc(100vh - 2rem);
+  padding: 1rem;
 }
 .Menu--open .Menu-toggle {
   display: none;
+}
+@media (min-width: 700px) {
+  .Menu--open {
+    margin: calc(1rem + 1rem);
+    width: calc(100% - (2 * 1rem) - (2 * 1rem));
+    max-width: 600px;
+    border: none;
+  }
+  .Menu--open .Menu-contents {
+    height: auto;
+    padding: initial;
+  }
 }
 
 /**
