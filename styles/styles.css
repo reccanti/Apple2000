@@ -225,25 +225,32 @@ textarea {
   --font-family-header: var(--font-fancy);
   --font-family-regular: var(--font-basic);
   /* Font Sizes */
-  --font-size-multiplier: 1.5;
-  --font-size-base: calc(var(--font-size-multiplier) * 1rem);
+  --font-base-size-multiplier: 1.5;
+  --font-header-size-multiplier: var(--font-base-size-multiplier);
+  --font-size-base: calc(var(--font-header-size-multiplier) * 1rem);
   --font-size-header6: calc(
-  	(0 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  	(0 * var(--font-header-size-multiplier) * 1vw) +
+  		var(--font-size-base)
   );
   --font-size-header5: calc(
-  	(1 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  	(1 * var(--font-header-size-multiplier) * 1vw) +
+  		var(--font-size-base)
   );
   --font-size-header4: calc(
-  	(2 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  	(2 * var(--font-header-size-multiplier) * 1vw) +
+  		var(--font-size-base)
   );
   --font-size-header3: calc(
-  	(3 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  	(3 * var(--font-header-size-multiplier) * 1vw) +
+  		var(--font-size-base)
   );
   --font-size-header2: calc(
-  	(5 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  	(5 * var(--font-header-size-multiplier) * 1vw) +
+  		var(--font-size-base)
   );
   --font-size-header1: calc(
-  	(8 * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+  	(8 * var(--font-header-size-multiplier) * 1vw) +
+  		var(--font-size-base)
   );
   --font-size-badge: calc(var(--font-size-base) * 0.8);
   /* Spacing */
@@ -749,7 +756,10 @@ a:focus {
   text-align: center;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 2 * 1rem);
+  min-height: calc(100vh - 2 * 1rem);
+}
+.Splash > *:not(:first-child) {
+  margin-top: var(--spacing2);
 }
 
 /**
@@ -932,6 +942,44 @@ button:focus .Icon rect,
   flex: 1;
 }
 
+/**
+ * A Banner for fun banner things
+ */
+.Banner {
+  background: var(--text-color);
+  color: var(--background-color);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0.3rem 0;
+  text-align: left;
+}
+.Banner-inner {
+  animation: 20s infinite linear ticker;
+  position: relative;
+  font-family: var(--font-family-header);
+  white-space: nowrap;
+  display: inline-block;
+}
+.theme-root--no-motion .Banner {
+  padding: 0.3rem var(--spacing1);
+  text-align: center;
+}
+.theme-root--no-motion .Banner .Banner-inner {
+  animation: none;
+  white-space: normal;
+}
+
+@keyframes ticker {
+  from {
+    left: 100%;
+    transform: translate(0%);
+  }
+  to {
+    left: 0%;
+    transform: translate(-100%);
+  }
+}
 /**
  * @TODOs
  * 
