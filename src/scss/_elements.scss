@@ -31,7 +31,7 @@ body {
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header#{$i});
 		line-height: var(--line-height-header);
-		margin: var(--spacing2) 0;
+		// margin: var(--spacing2) 0;
 	}
 }
 
@@ -261,10 +261,35 @@ hr {
 /**
  * Some text formatting
  */
-p {
-	&:not(:first-child) {
-		margin-top: var(--spacing2);
-	}
+// p {
+// 	&:not(:first-child) {
+// 		margin-top: var(--spacing2);
+// 	}
+// }
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+ul,
+ol {
+	list-style-position: inside;
+	// & > li {
+	// 	&:not(:first-child) {
+	// 		margin-top: var(--spacing1);
+	// 	}
+	// }
+}
+
+code {
+	display: inline-block;
+	background-color: var(--text-color);
+	color: var(--background-color);
+	font-family: monospace;
 }
 
 /**

@@ -33,8 +33,11 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	border: globals.$borderSize * 3 double var(--text-color);
 
 	&-inner {
-		// padding: calc(0.5rem + #{globals.$borderSize}) 0.5rem;
 		padding: var(--spacing2);
+
+		& > *:not(:first-child) {
+			margin-top: var(--spacing2);
+		}
 	}
 }
 
@@ -78,6 +81,10 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		grid-column: 3 / span 1;
 		justify-self: end;
 		z-index: 1;
+
+		&.ButtonGroup {
+			padding: 0;
+		}
 	}
 }
 
