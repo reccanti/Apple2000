@@ -30,15 +30,25 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  */
 .Box {
 	background-color: var(--background-color);
-	border: globals.$borderSize * 3 double var(--text-color);
 
 	&-inner {
 		--font-header-size-multiplier: 1;
-
-		padding: var(--spacing2);
+		padding: var(--spacing2) 0;
 
 		& > *:not(:first-child) {
 			margin-top: var(--spacing2);
+		}
+	}
+
+	/**
+   * @TODO - Not sold on these sizes
+   * ~reccanti 4/10/2021
+   */
+	@media (min-width: globals.$bp-large) {
+		border: globals.$borderSize * 3 double var(--text-color);
+
+		&-inner {
+			padding: var(--spacing2);
 		}
 	}
 }
@@ -48,7 +58,6 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  */
 .Header {
 	background-color: var(--text-color);
-	border-bottom: globals.$borderSize solid var(--text-color);
 	display: grid;
 	grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
 	grid-template-rows: [row] auto;
@@ -84,8 +93,21 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		justify-self: end;
 		z-index: 1;
 
-		&.ButtonGroup {
-			padding: 0;
+		// &.ButtonGroup {
+		// }
+	}
+
+	/**
+   * @TODO - Not sold on these sizes
+   * ~reccanti 4/10/2021
+   */
+	@media (min-width: globals.$bp-large) {
+		border-bottom: globals.$borderSize solid var(--text-color);
+
+		&-buttons {
+			&.ButtonGroup {
+				padding: 0;
+			}
 		}
 	}
 }
@@ -114,15 +136,32 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	&--open {
-		width: calc(100% - (2 * #{$wrapperBorder}) - (2 * 1rem));
-		max-width: 600px;
+		margin: 0;
+		width: 100%;
+		border: $wrapperBorder solid var(--text-color);
 
 		#{$root}-contents {
 			display: block;
+			height: calc(100vh - #{2 * $wrapperBorder});
+			padding: 1rem;
 		}
 
 		#{$root}-toggle {
 			display: none;
+		}
+	}
+
+	@media (min-width: globals.$bp-large) {
+		&--open {
+			margin: calc(#{$wrapperBorder} + 1rem);
+			width: calc(100% - (2 * #{$wrapperBorder}) - (2 * 1rem));
+			max-width: 600px;
+			border: none;
+
+			#{$root}-contents {
+				height: auto;
+				padding: initial;
+			}
 		}
 	}
 }
