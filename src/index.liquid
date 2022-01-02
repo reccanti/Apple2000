@@ -68,6 +68,10 @@
 						Use Simple Text
 						<input type="checkbox" id="use-simple-text" name="use-simple-text" />
 					</label>
+					<label for="turn-off-motion">
+						Turn Off Motion
+						<input type="checkbox" id="turn-off-motion" name="turn-off-motion" />
+					</label>
 				</div>
 			</div>
 		</nav>
@@ -80,6 +84,7 @@
 					<h1 class="Splash-main" data-text="Apple ][000!">
 						<div class="Splash-inner">Apple<br />][000e!</div>
 					</h1>
+					<div class="Banner" style="max-width: 800px"><span data-speed="10s" class="Banner-inner">Nice to see you!</span></div>
 					<nav class="ButtonGroup">
 						<a class="button" href="#">
 							<span class="Icon">
@@ -116,7 +121,7 @@
 
 				<!-- What even is this? -->
 				<section>
-					<h2>Welcome to Apple <span style="word-wrap: no-wrap">][000e</span>!</h2>
+					<h2>Welcome to Apple <span style="word-break: keep-all">][000e</span>!</h2>
 					<p>
 						This is a place to iterate on this new theme. The goal is to
 						replicate the limited capabilites of early computers, while also
@@ -533,6 +538,24 @@
 					</div>
 				</section>
 
+				<!-- A fun 🅱️anner -->
+				<section class="spacer--big">
+					<h2>Banner</h2>
+					<p>The <code>&lt;marquee&gt;</code> lives forever in my heart</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">Banner</div>
+						</header>
+						<div class="Box-inner">
+							<div class="Banner">
+								<span class="Banner-inner">
+									You can put all sorts of text here!
+								</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<!-- Let's show ya how to use this bad boy -->
 				<section class="Splash">
 					<h1 class="Splash-main" data-text="Examples">
@@ -789,6 +812,7 @@
 					this._themeSelect = root.querySelector("select[name='theme-select']");
 					this._textSizeSlider = root.querySelector("input[name='text-size-slider']");
 					this._fancyTextCheckbox = root.querySelector("input[name='use-simple-text']");
+					this._motionCheckbox = root.querySelector("input[name='turn-off-motion']");
 
 					// setup events
 					this._toggleButton.addEventListener("click", this.openMenu);
@@ -796,6 +820,7 @@
 					this._themeSelect.addEventListener("change", this.switchTheme);
 					this._textSizeSlider.addEventListener("input", this.adjustTextSize)
 					this._fancyTextCheckbox.addEventListener("change", this.swapFancyText)
+					this._motionCheckbox.addEventListener("change", this.turnOffMotion)
 				}
 
 				openMenu = () => {
@@ -811,7 +836,7 @@
 				adjustTextSize = e => {
 					const textSize = Number(e.target.value);
 					if (textSize) {
-						document.documentElement.style.setProperty('--font-size-multiplier', textSize)
+						document.documentElement.style.setProperty('--font-base-size-multiplier', textSize)
 					}
 				}
 
@@ -821,6 +846,15 @@
 						document.documentElement.style.setProperty('--font-family-header', 'var(--font-basic)');
 					} else {
 						document.documentElement.style.setProperty('--font-family-header', 'var(--font-fancy)');
+					}
+				}
+
+				turnOffMotion = e => {
+					const isChecked = e.target.checked;
+					if (isChecked) {
+						document.documentElement.classList.add("theme-root--no-motion");
+					} else {
+						document.documentElement.classList.remove("theme-root--no-motion");
 					}
 				}
 

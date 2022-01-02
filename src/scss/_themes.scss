@@ -17,14 +17,16 @@
 	--font-family-regular: var(--font-basic);
 
 	/* Font Sizes */
-	--font-size-multiplier: 1.5;
-	--font-size-base: calc(var(--font-size-multiplier) * 1rem);
+	--font-base-size-multiplier: 1.5;
+	--font-header-size-multiplier: var(--font-base-size-multiplier);
+	--font-size-base: calc(var(--font-header-size-multiplier) * 1rem);
 
 	$fib: 0, 1, 2, 3, 5, 8;
 	$cur: 6;
 	@each $num in $fib {
 		--font-size-header#{$cur}: calc(
-			(#{$num} * var(--font-size-multiplier) * 1vw) + var(--font-size-base)
+			(#{$num} * var(--font-header-size-multiplier) * 1vw) +
+				var(--font-size-base)
 		);
 		$cur: $cur - 1;
 	}

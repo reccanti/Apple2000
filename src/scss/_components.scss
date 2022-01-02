@@ -133,7 +133,11 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	height: $wrappedHeight;
+	min-height: $wrappedHeight;
+
+	& > *:not(:first-child) {
+		margin-top: var(--spacing2);
+	}
 }
 
 /**
@@ -352,5 +356,50 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		> * {
 			flex: 1;
 		}
+	}
+}
+
+/**
+ * A Banner for fun banner things
+ */
+.Banner {
+	$root: &;
+
+	background: var(--text-color);
+	color: var(--background-color);
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	padding: globals.$borderSize 0;
+	text-align: left;
+
+	&-inner {
+		animation: 20s infinite linear ticker;
+
+		position: relative;
+		font-family: var(--font-family-header);
+		white-space: nowrap;
+		display: inline-block;
+	}
+
+	.theme-root--no-motion & {
+		padding: globals.$borderSize var(--spacing1);
+		text-align: center;
+
+		#{$root}-inner {
+			animation: none;
+			white-space: normal;
+		}
+	}
+}
+
+@keyframes ticker {
+	from {
+		left: 100%;
+		transform: translate(0%);
+	}
+	to {
+		left: 0%;
+		transform: translate(-100%);
 	}
 }
