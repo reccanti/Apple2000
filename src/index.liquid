@@ -16,6 +16,9 @@
 		</style>
 	</head>
 	<body id="theme-toggle" class="theme-root theme-root--white">
+		<div class="SkipNav">
+			<a id="skip-nav" href="#main" class="button">Jump to Main Content</a>
+		</div>
 		<!-- Settings Menu -->
 		<nav id="SettingsMenu" class="Menu Menu--close">
 			<button class="Menu-toggle">
@@ -77,7 +80,7 @@
 		</nav>
 		<!-- Content -->
 		<div class="Wrapper">
-			<main class="Wrapper-inner">
+			<main id="main" class="Wrapper-inner">
 
 				<!-- Yay welcome to the theme! -->
 				<section class="Splash">
@@ -275,6 +278,23 @@
 					</h1>
 				</section>
 
+				<!-- A Box, but for Text -->
+				<section class="spacer--big">
+					<h2>TextBox</h2>
+					<p>A box that can be used to position text</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">TextBox</div>
+						</header>
+						<div class="Box-inner">
+							<div class="TextBox TextBox--left">Some left-aligned text</div>
+							<div class="TextBox TextBox--center">Some center-aligned text</div>
+							<div class="TextBox TextBox--right">Some right-aligned text</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Box! -->
 				<section class="spacer--big">
 					<h2>Box</h2>
 					<p>A general-purpose Box for wrapping contents</p>
@@ -556,6 +576,20 @@
 					</div>
 				</section>
 
+				<!-- SkipNav -->
+				<section class="spacer--big">
+					<h2>Skip Nav</h2>
+					<p>A nice little thing to skip to the main content, bypassing top-level navigation</p>
+					<div class="spacer Box">
+						<header class="Header">
+							<div class="Header-inner">SkipNav</div>
+						</header>
+						<div class="Box-inner">
+							You better believe there's a skip nav! <a href="#skip-nav">click here</a> to jump to it!
+						</div>
+					</div>
+				</section>
+
 				<!-- Let's show ya how to use this bad boy -->
 				<section class="Splash">
 					<h1 class="Splash-main" data-text="Examples">
@@ -797,6 +831,7 @@
 						</div>
 					</div>
 				</section>
+				<div class="TextBox TextBox--center">~ See ya! ~</div>
 			</main>
 		</div>
 
