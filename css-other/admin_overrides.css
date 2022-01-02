@@ -1,0 +1,6 @@
+/**
+ * This is for specific overrides to account for admin styles
+ */
+.Wrapper {
+	height: calc(100vh - 32px);
+}

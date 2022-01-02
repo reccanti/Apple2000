@@ -408,6 +408,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  * A Banner for fun banner things
  */
 .Banner {
+	--banner-speed: 20s;
+
 	$root: &;
 
 	background: var(--text-color);
@@ -419,7 +421,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	text-align: left;
 
 	&-inner {
-		animation: 20s infinite linear ticker;
+		animation: var(--banner-speed) infinite linear ticker;
 
 		position: relative;
 		font-family: var(--font-family-header);

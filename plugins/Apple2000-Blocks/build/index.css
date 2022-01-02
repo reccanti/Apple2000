@@ -1,0 +1,105 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-apple2000-shmancy-section {
+  border: 1px solid black;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+.wp-block-apple2000-shmancy-section::before {
+  content: "ShmancySection";
+  color: white;
+  background: black;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+}
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-apple2000-link-grid {
+  border: 1px solid black;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+.wp-block-apple2000-link-grid .block-editor-block-list__layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 500px) {
+  .wp-block-apple2000-link-grid .block-editor-block-list__layout {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.wp-block-apple2000-link-grid::before {
+  content: "LinkGrid";
+  color: white;
+  background: black;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+}
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-apple2000-link-grid-item {
+  border: 1px solid black;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+.wp-block-apple2000-link-grid-item.is-selected {
+  padding-top: 3rem;
+}
+.wp-block-apple2000-link-grid-item::before {
+  content: "LinkGridItem";
+  color: white;
+  background: black;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+}
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-apple2000-splash {
+  border: 1px solid black;
+  padding: 1rem;
+  padding-top: 3rem;
+}
+.wp-block-apple2000-splash::before {
+  content: "Splash";
+  color: white;
+  background: black;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+}
+
+/*# sourceMappingURL=index.css.map*/

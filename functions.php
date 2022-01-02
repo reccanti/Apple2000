@@ -175,3 +175,64 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Theme Settings
  */
 require get_template_directory() . '/inc/theme-options.php';
+
+/**
+ * THIS IS WHERE THE THEME GETS SET UP!!!
+ */
+
+// Load the CSS styles
+function apple_2000_setup() {
+	wp_enqueue_style( 'apple2000', get_template_directory_uri() . '/css/styles.css');
+}
+add_action( 'wp_enqueue_scripts', 'apple_2000_setup');
+
+// Load our custom blocks
+include_once get_template_directory() . '/plugins/Apple2000-Blocks/apple2000-blocks.php';
+include_once get_template_directory() . '/plugins/Apple2000-Blocks/build/index.asset.php';
+function load_block_editor_assets() {
+	wp_enqueue_script('apple-2000e-block-scripts', get_template_directory_uri() . '/plugins/Apple2000-Blocks/build/index.js');
+	wp_enqueue_style('apple-2000e-block-styles', get_template_directory_uri() . '/plugins/Apple2000-Blocks/build/index.css');
+}
+add_action( 'enqueue_block_editor_assets', 'load_block_editor_assets');
+
+// Apply admin overrides
+function apply_admin_overrides() {
+	if (is_admin_bar_showing()) {
+		wp_enqueue_style(
+			'apple-2000e-admin-overrde-styles',
+			get_template_directory_uri() . '/css-other/admin_overrides.css',
+			["apple2000"]
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'apply_admin_overrides');
+
+
+// add_action( 'enqueue_block_editor_assets', 'block05editor_scripts' );
+
+// function block05editor_scripts() {
+// 	wp_enqueue_script(
+// 		'block05editor_scripts',
+// 		get_stylesheet_directory() . '/Jackalope-Gutenberg/05-media-block/block.build.js',
+// 		array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-components' ),
+// 		''
+// 	);
+
+// 	wp_enqueue_style(
+// 		'block05editor_styles',
+// 		get_stylesheet_directory()  . '/Jackalope-Gutenberg/05-media-block/editor.css',
+// 		array(),
+// 		''
+// 	);
+// }
+
+// //- ADD BLOCK ASSETS FOR FRONTEND
+// add_action( 'enqueue_block_assets', 'block05frontend_styles' );
+
+// function block05frontend_styles() {
+// 	wp_enqueue_style(
+// 		'block05frontend_styles',
+// 		get_stylesheet_directory()  . '/Jackalope-Gutenberg/05-media-block/style.css',
+// 		array(),
+// 		''
+// 	);
