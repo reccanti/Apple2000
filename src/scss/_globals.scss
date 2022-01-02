@@ -67,3 +67,9 @@ $borderSize: 0.3rem;
 	-webkit-mask-image: url("img/Gradient.svg");
 	-webkit-mask-size: $borderSize * 2;
 }
+
+@mixin SpaceBetween {
+	& > *:not(:first-child) {
+		margin-top: var(--spacing2);
+	}
+}

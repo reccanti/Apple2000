@@ -34,10 +34,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	&-inner {
 		--font-header-size-multiplier: 1;
 		padding: var(--spacing2) 0;
-
-		& > *:not(:first-child) {
-			margin-top: var(--spacing2);
-		}
+		overflow-x: scroll;
+		@include globals.SpaceBetween;
 	}
 
 	/**
@@ -221,6 +219,11 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 
 	&--nowrap {
 		flex-wrap: nowrap;
+	}
+
+	& button,
+	& a.button {
+		margin: 0;
 	}
 }
 

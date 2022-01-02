@@ -222,8 +222,10 @@ a.button {
 	align-items: center;
 	justify-content: center;
 	background-color: var(--background-color);
+
 	// fixes a weird border issue
 	box-shadow: 0 0 0 globals.$borderSize var(--text-color);
+	margin: globals.$borderSize;
 
 	// we use borderSize * 2 here because, when the user focuses
 	// on the button, we add an offset, so this gives us a nice
@@ -310,4 +312,12 @@ a {
 		outline: globals.$borderSize solid var(--text-color);
 		outline-offset: globals.$borderSize;
 	}
+}
+
+/**
+ * Sections will give you a nice bit of spacing between inner-elements for free, 
+ * so use your semantic HTML, dammit!
+ */
+section {
+	@include globals.SpaceBetween;
 }
