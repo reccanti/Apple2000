@@ -576,6 +576,7 @@ a.button {
   justify-content: center;
   background-color: var(--background-color);
   box-shadow: 0 0 0 0.3rem var(--text-color);
+  margin: 0.3rem;
   padding: 0.6rem;
   text-align: center;
 }
@@ -647,6 +648,14 @@ a:focus {
 }
 
 /**
+ * Sections will give you a nice bit of spacing between inner-elements for free, 
+ * so use your semantic HTML, dammit!
+ */
+section > *:not(:first-child) {
+  margin-top: var(--spacing2);
+}
+
+/**
  * The Wrapper component wraps all of our content and applies a border
  * around it, so it looks like the screen is being framed
  */
@@ -674,9 +683,13 @@ a:focus {
     * ~reccanti 4/10/2021
     */
 }
+.Box > *:not(:first-child) {
+  margin: 0;
+}
 .Box-inner {
   --font-header-size-multiplier: 1;
   padding: var(--spacing2) 0;
+  overflow-x: scroll;
 }
 .Box-inner > *:not(:first-child) {
   margin-top: var(--spacing2);
@@ -773,7 +786,7 @@ a:focus {
 @media (min-width: 700px) {
   .Menu--open {
     margin: calc(1rem + 1rem);
-    width: calc(100% - (2 * 1rem) - (2 * 1rem));
+    width: calc(100% - (2 * 1rem) - 2rem);
     max-width: 600px;
     border: none;
   }
@@ -834,6 +847,9 @@ button:focus .Icon rect,
 }
 .ButtonGroup--nowrap {
   flex-wrap: nowrap;
+}
+.ButtonGroup button, .ButtonGroup a.button {
+  margin: 0;
 }
 
 /**
@@ -982,6 +998,7 @@ button:focus .Icon rect,
  * A Banner for fun banner things
  */
 .Banner {
+  --banner-speed: 20s;
   background: var(--text-color);
   color: var(--background-color);
   width: 100%;
@@ -991,7 +1008,7 @@ button:focus .Icon rect,
   text-align: left;
 }
 .Banner-inner {
-  animation: 20s infinite linear ticker;
+  animation: var(--banner-speed) infinite linear ticker;
   position: relative;
   font-family: var(--font-family-header);
   white-space: nowrap;
