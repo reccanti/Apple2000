@@ -11,19 +11,16 @@
 
 ?>
 
-		<footer id="colophon" class="site-footer">
-			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gutenberg-starter-theme' ) ); ?>"><?php
-					/* translators: %s: CMS name, i.e. WordPress. */
-					printf( esc_html__( 'Proudly powered by %s', 'gutenberg-starter-theme' ), 'WordPress' );
-				?></a>
-				<span class="sep"> | </span>
-				<?php
-					/* translators: 1: Theme name, 2: Theme author. */
-					printf( esc_html__( 'Theme: %s', 'gutenberg-starter-theme' ), '<a href="https://github.com/WordPress/gutenberg-starter-theme/">Gutenberg</a>' );
-				?>
-			</div><!-- .site-info -->
-		</footer><!-- #colophon -->
+		<footer class="TextBox TextBox--center">
+			<?php printf( esc_html__( 'Brought to you by: ' )); ?>
+			<?php
+				printf( esc_html__( '%s', 'gutenberg-starter-theme' ), '<a href="https://github.com/reccanti/Apple2000/">Apple ][000e</a>' );
+			?>
+			<?php printf( esc_html__( ' and ' )); ?>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gutenberg-starter-theme' ) ); ?>">
+				<?php printf( esc_html__( '%s', 'gutenberg-starter-theme' ), 'WordPress' ); ?>
+			</a>
+		</footer>
 	</div>
 </div><!-- #page -->
 

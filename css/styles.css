@@ -683,6 +683,9 @@ section > *:not(:first-child) {
     * ~reccanti 4/10/2021
     */
 }
+.Box > *:not(:first-child) {
+  margin: 0;
+}
 .Box-inner {
   --font-header-size-multiplier: 1;
   padding: var(--spacing2) 0;
@@ -783,7 +786,7 @@ section > *:not(:first-child) {
 @media (min-width: 700px) {
   .Menu--open {
     margin: calc(1rem + 1rem);
-    width: calc(100% - (2 * 1rem) - (2 * 1rem));
+    width: calc(100% - (2 * 1rem) - 2rem);
     max-width: 600px;
     border: none;
   }

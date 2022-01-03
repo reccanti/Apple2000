@@ -22,7 +22,9 @@
 <body <?php body_class(['theme-root', 'theme-root--white']); ?>>
 	<div id="page" class="Wrapper">
 		<div class="Wrapper-inner">
-			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'gutenberg-starter-theme' ); ?></a>
+			<div class="SkipNav">
+				<a class="button" href="#primary"><?php esc_html_e( 'Skip to content', 'gutenberg-starter-theme' ); ?></a>
+			</div>
 			<header id="masthead" class="site-header">
 				<div class="site-branding">
 					<?php
@@ -40,14 +42,4 @@
 					<?php
 					endif; ?>
 				</div><!-- .site-branding -->
-
-				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gutenberg-starter-theme' ); ?></button>
-					<?php
-						wp_nav_menu( array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						) );
-					?>
-				</nav><!-- #site-navigation -->
 			</header><!-- #masthead -->

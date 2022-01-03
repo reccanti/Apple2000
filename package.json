@@ -4,19 +4,21 @@
 	"description": "Apple 2000 repo",
 	"main": "index.js",
 	"scripts": {
-		"build:js": "wp-scripts build plugins/Apple2000-Blocks/src/index.js --ouptput-path=plugins/Apple2000-Blocks/build",
+		"build:js": "wp-scripts build plugins/Apple2000-Blocks/src/index.js --output-path=plugins/Apple2000-Blocks/build",
 		"build:css": "node ./src/build.js",
 		"build:site": "npm run eleventy",
 		"dev": "npm run eleventy -- --serve",
 		"lint": "eslint ./src",
-		"eleventy": "eleventy --input=./src --output=./src/_site"
+		"eleventy": "eleventy --input=./src --output=./src/_site",
+		"start": "wp-scripts start plugins/Apple2000-Blocks/src/index.js --output-path=plugins/Apple2000-Blocks/build",
+		"packages-update": "wp-scripts packages-update"
 	},
 	"author": "reccanti <reccanti@gmail.com>",
 	"license": "AGPL-3.0-or-later",
 	"devDependencies": {
 		"@11ty/eleventy": "^0.12.1",
 		"@11ty/eleventy-img": "^1.0.0",
-		"@wordpress/scripts": "^14.1.1",
+		"@wordpress/scripts": "^19.2.2",
 		"eslint": "^7.25.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-plugin-prettier": "^3.4.0",
@@ -25,10 +27,10 @@
 		"sass": "^1.32.8"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^5.3.2",
-		"@wordpress/blocks": "^8.0.2",
-		"@wordpress/components": "^13.0.2",
-		"@wordpress/element": "^2.20.2",
-		"@wordpress/i18n": "^3.19.2"
+		"@wordpress/block-editor": "^8.0.12",
+		"@wordpress/blocks": "^11.1.5",
+		"@wordpress/components": "^19.1.6",
+		"@wordpress/element": "^4.0.4",
+		"@wordpress/i18n": "^4.2.4"
 	}
 }

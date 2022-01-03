@@ -31,6 +31,10 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 .Box {
 	background-color: var(--background-color);
 
+	& > *:not(:first-child) {
+		margin: 0;
+	}
+
 	&-inner {
 		--font-header-size-multiplier: 1;
 		padding: var(--spacing2) 0;

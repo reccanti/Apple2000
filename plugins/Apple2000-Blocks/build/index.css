@@ -1,3 +1,31 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./plugins/Apple2000-Blocks/src/Box/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-apple2000-box {
+  border: 1px solid black;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+.wp-block-apple2000-box::before {
+  content: "Box";
+  color: white;
+  background: black;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./plugins/Apple2000-Blocks/src/ShmancySection/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied inside the editor only.
  *
@@ -20,6 +48,9 @@
   margin-bottom: 1rem;
   font-size: 0.7rem;
 }
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./plugins/Apple2000-Blocks/src/LinkGrid/editor.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied inside the editor only.
  *
@@ -54,6 +85,9 @@
   margin-bottom: 1rem;
   font-size: 0.7rem;
 }
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./plugins/Apple2000-Blocks/src/LinkGridItem/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied inside the editor only.
  *
@@ -79,6 +113,9 @@
   margin-bottom: 1rem;
   font-size: 0.7rem;
 }
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./plugins/Apple2000-Blocks/src/Splash/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied inside the editor only.
  *

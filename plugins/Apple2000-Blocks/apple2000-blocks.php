@@ -6,9 +6,9 @@
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            reccanti <reccanti@gmail.com>
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       apple2000-shamncysection
+ * License:           AGPL-3.0
+ * License URI:       https://www.gnu.org/licenses/agpl-3.0.html
+ * Text Domain:       apple2000e-blocks
  *
  * @package           apple-2000
  */

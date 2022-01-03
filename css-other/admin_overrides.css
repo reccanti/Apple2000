@@ -4,3 +4,17 @@
 .Wrapper {
 	height: calc(100vh - 32px);
 }
+
+.SkipNav {
+	margin-top: calc(32px + 2rem);
+}
+
+@media (max-width: 782px) {
+	.Wrapper {
+		height: calc(100vh - 46px);
+	}
+
+	.SkipNav {
+		margin-top: calc(46px + 2rem);
+	}
+}
