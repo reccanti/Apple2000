@@ -2,6 +2,34 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@wordpress/icons/build-module/library/separator.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/separator.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * WordPress dependencies
+ */
+
+const separator = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.SVG, {
+  viewBox: "0 0 24 24",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.Path, {
+  d: "M20.2 7v4H3.8V7H2.2v9h1.6v-3.5h16.4V16h1.6V7z"
+}));
+/* harmony default export */ __webpack_exports__["default"] = (separator);
+//# sourceMappingURL=separator.js.map
+
+/***/ }),
+
 /***/ "./plugins/Apple2000-Blocks/src/Box/attributes.js":
 /*!********************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/Box/attributes.js ***!
@@ -258,6 +286,118 @@ function Save(_ref2) {
   }, attributes.headerText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     class: "Box-inner"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InnerBlocks.Content, null)));
+}
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/HorizontalRule/edit.js":
+/*!*************************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/HorizontalRule/edit.js ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Edit": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./plugins/Apple2000-Blocks/src/HorizontalRule/editor.scss");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Edit() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)());
+}
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/HorizontalRule/index.js":
+/*!**************************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/HorizontalRule/index.js ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Edit": function() { return /* reexport safe */ _edit__WEBPACK_IMPORTED_MODULE_1__.Edit; },
+/* harmony export */   "Save": function() { return /* reexport safe */ _save__WEBPACK_IMPORTED_MODULE_2__.Save; },
+/* harmony export */   "icon": function() { return /* reexport safe */ _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"]; },
+/* harmony export */   "name": function() { return /* binding */ name; }
+/* harmony export */ });
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./plugins/Apple2000-Blocks/src/HorizontalRule/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./plugins/Apple2000-Blocks/src/HorizontalRule/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./plugins/Apple2000-Blocks/src/HorizontalRule/save.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/separator.js");
+// import { separator as icon } from "@wordpress/icons";
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const name = "apple2000/horizontal-rule";
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/HorizontalRule/save.js":
+/*!*************************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/HorizontalRule/save.js ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Save": function() { return /* binding */ Save; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Save() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null);
 }
 
 /***/ }),
@@ -845,29 +985,6 @@ function Save() {
 
 /***/ }),
 
-/***/ "./plugins/Apple2000-Blocks/src/Splash/attributes.js":
-/*!***********************************************************!*\
-  !*** ./plugins/Apple2000-Blocks/src/Splash/attributes.js ***!
-  \***********************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "attributes": function() { return /* binding */ attributes; }
-/* harmony export */ });
-const attributes = {
-  /**
-   * This refers to the text that will appear in the header
-   */
-  header: {
-    type: "string",
-    selector: ".Splash-inner",
-    source: "text"
-  }
-};
-
-/***/ }),
-
 /***/ "./plugins/Apple2000-Blocks/src/Splash/edit.js":
 /*!*****************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/Splash/edit.js ***!
@@ -893,37 +1010,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Edit(_ref) {
-  let {
-    attributes,
-    setAttributes
-  } = _ref;
-  const [isBig, setIsBig] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.isBig);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    setAttributes({ ...attributes,
-      isBig
-    });
-  }, [isBig]);
-
-  const onChangeHeaderText = value => {
-    setAttributes({ ...attributes,
-      header: value
-    });
-  };
-
-  const toggleIsBig = () => {
-    setIsBig(!isBig);
-  };
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-    label: "Use Large Text?",
-    checked: isBig,
-    onChange: toggleIsBig
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-    label: "InnerContent",
-    value: attributes.header,
-    onChange: onChangeHeaderText
-  }));
+function Edit() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null));
 }
 
 /***/ }),
@@ -938,18 +1026,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Edit": function() { return /* reexport safe */ _edit__WEBPACK_IMPORTED_MODULE_1__.Edit; },
 /* harmony export */   "Save": function() { return /* reexport safe */ _save__WEBPACK_IMPORTED_MODULE_2__.Save; },
-/* harmony export */   "attributes": function() { return /* reexport safe */ _attributes__WEBPACK_IMPORTED_MODULE_3__.attributes; },
 /* harmony export */   "name": function() { return /* binding */ name; }
 /* harmony export */ });
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./plugins/Apple2000-Blocks/src/Splash/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./plugins/Apple2000-Blocks/src/Splash/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./plugins/Apple2000-Blocks/src/Splash/save.js");
-/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attributes */ "./plugins/Apple2000-Blocks/src/Splash/attributes.js");
 
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -978,19 +1063,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Save(_ref) {
-  let {
-    attributes
-  } = _ref;
+function Save() {
   const props = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save();
-  const classNames = `${props.className} Splash ${attributes.isBig ? "Splash--big" : ""}`;
+  const classNames = `${props.className} Splash`;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("section", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
     className: classNames
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", {
-    className: "Splash-main"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "Splash-inner"
-  }, attributes.header)));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null));
 }
 
 /***/ }),
@@ -1005,10 +1083,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Box */ "./plugins/Apple2000-Blocks/src/Box/index.js");
-/* harmony import */ var _ShmancySection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ShmancySection */ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js");
-/* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
-/* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
-/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
+/* harmony import */ var _HorizontalRule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HorizontalRule */ "./plugins/Apple2000-Blocks/src/HorizontalRule/index.js");
+/* harmony import */ var _ShmancySection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ShmancySection */ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js");
+/* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
+/* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
+/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -1025,6 +1104,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * @TODO I don't really like how this is setup. Let's refactor this one
  * once we update the npm package it's based on
@@ -1032,7 +1112,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_2__, _LinkGrid__WEBPACK_IMPORTED_MODULE_3__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_4__, _Splash__WEBPACK_IMPORTED_MODULE_5__, _Box__WEBPACK_IMPORTED_MODULE_1__];
+const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_3__, _LinkGrid__WEBPACK_IMPORTED_MODULE_4__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_5__, _Splash__WEBPACK_IMPORTED_MODULE_6__, _Box__WEBPACK_IMPORTED_MODULE_1__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_2__];
 blocks.forEach(_ref => {
   let {
     name,
@@ -1066,6 +1146,30 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/Box/style.scss ***!
   \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/HorizontalRule/editor.scss":
+/*!*****************************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/HorizontalRule/editor.scss ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/HorizontalRule/style.scss":
+/*!****************************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/HorizontalRule/style.scss ***!
+  \****************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1227,6 +1331,16 @@ module.exports = window["wp"]["element"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/primitives":
+/*!************************************!*\
+  !*** external ["wp","primitives"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["primitives"];
 
 /***/ }),
 

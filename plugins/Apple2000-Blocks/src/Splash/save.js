@@ -1,16 +1,12 @@
 import { __ } from "@wordpress/i18n";
-import { useBlockProps } from "@wordpress/block-editor";
+import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 
-export function Save({ attributes }) {
+export function Save() {
 	const props = useBlockProps.save();
-	const classNames = `${props.className} Splash ${
-		attributes.isBig ? "Splash--big" : ""
-	}`;
+	const classNames = `${props.className} Splash`;
 	return (
 		<section {...props} className={classNames}>
-			<h2 className="Splash-main">
-				<div className="Splash-inner">{attributes.header}</div>
-			</h2>
+			<InnerBlocks.Content />
 		</section>
 	);
 }

@@ -179,6 +179,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	align-items: center;
 	min-height: $wrappedHeight;
 
+	padding: var(--spacing4);
+
 	& > *:not(:first-child) {
 		margin-top: var(--spacing2);
 	}

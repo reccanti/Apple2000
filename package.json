@@ -31,6 +31,7 @@
 		"@wordpress/blocks": "^11.1.5",
 		"@wordpress/components": "^19.1.6",
 		"@wordpress/element": "^4.0.4",
-		"@wordpress/i18n": "^4.2.4"
+		"@wordpress/i18n": "^4.2.4",
+		"@wordpress/icons": "^6.1.1"
 	}
 }
