@@ -244,11 +244,15 @@ add_filter("root_styles", function($styles = []) {
 	return $styles;
 });
 
+add_filter("theme_classes", function($classes = []) {
+	return $classes;
+});
+
 function cacheCookie() {
 	$settingsString = $_COOKIE['apple-2000e-settings'];
 	$settingsState = json_decode(stripslashes($settingsString));
 
-	$body_classes = ["theme-root"];
+	$theme_classes = ["theme-root"];
 	$root_styles = [];
 
 	foreach ($settingsState as $key => $value) {
@@ -259,60 +263,60 @@ function cacheCookie() {
 			case "theme":
 				switch($value) {
 					case "blue":
-						array_push($body_classes, "theme-root--blue");
+						array_push($theme_classes, "theme-root--blue");
 						break;
 					case "brown":
-						array_push($body_classes, "theme-root--brown");
+						array_push($theme_classes, "theme-root--brown");
 						break;	
 					case "darkGray":
-						array_push($body_classes, "theme-root--darkGray");
+						array_push($theme_classes, "theme-root--darkGray");
 						break;	
 					case "darkGreen":
-						array_push($body_classes, "theme-root--darkGreen");
+						array_push($theme_classes, "theme-root--darkGreen");
 						break;	
 					case "purple":
-						array_push($body_classes, "theme-root--purple");
+						array_push($theme_classes, "theme-root--purple");
 						break;	
 					case "salmon":
-						array_push($body_classes, "theme-root--salmon");
+						array_push($theme_classes, "theme-root--salmon");
 						break;	
 					case "black":
-						array_push($body_classes, "theme-root--black");
+						array_push($theme_classes, "theme-root--black");
 						break;	
 					case "darkBlue":
-						array_push($body_classes, "theme-root--darkBlue");
+						array_push($theme_classes, "theme-root--darkBlue");
 						break;
 					case "lightBlue":
-						array_push($body_classes, "theme-root--lightBlue");
+						array_push($theme_classes, "theme-root--lightBlue");
 						break;	
 					case "lightGray":
-						array_push($body_classes, "theme-root--lightGray");
+						array_push($theme_classes, "theme-root--lightGray");
 						break;	
 					case "lightGreen":
-						array_push($body_classes, "theme-root--lightGreen");
+						array_push($theme_classes, "theme-root--lightGreen");
 						break;	
 					case "magenta":
-						array_push($body_classes, "theme-root--magenta");
+						array_push($theme_classes, "theme-root--magenta");
 						break;
 					case "orange":
-						array_push($body_classes, "theme-root--orange");
+						array_push($theme_classes, "theme-root--orange");
 						break;	
 					case "pink":
-						array_push($body_classes, "theme-root--pink");
+						array_push($theme_classes, "theme-root--pink");
 						break;	
 					case "white":
-						array_push($body_classes, "theme-root--white");
+						array_push($theme_classes, "theme-root--white");
 						break;	
 					case "yellow":
-						array_push($body_classes, "theme-root--yellow");
+						array_push($theme_classes, "theme-root--yellow");
 						break;
 				}
 				break;
 		}
 	}
 
-	add_filter( 'body_class', function( $classes ) use ($body_classes) {	
-		return array_merge($classes, $body_classes);
+	add_filter( 'theme_classes', function( $classes ) use ($theme_classes) {	
+		return array_merge($classes, $theme_classes);
 	});
 
 	add_filter( 'root_styles', function( $styles ) use ($root_styles) {	

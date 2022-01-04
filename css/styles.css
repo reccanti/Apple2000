@@ -373,7 +373,7 @@ textarea {
 /**
  * Setting up the "body" styles 🕺
  */
-body {
+.theme-root {
   background-color: var(--text-color);
   color: var(--text-color);
   font-weight: 100;

@@ -25,7 +25,8 @@
 
             // register all elements
             this._root = root;
-            this._themeRoot = document.querySelector("body");
+            this._themeRoot = document.querySelector("#theme-root");
+            this._documentRoot = document.querySelector("html");
             this._openButton = this._root.querySelector(".Menu-open");
             this._closeButton = this._root.querySelector(".Menu-close");
 
@@ -42,9 +43,25 @@
             // add event listeners
             this._openButton.addEventListener("click", this.openMenu);
             this._closeButton.addEventListener("click", this.closeMenu);
-            this._themeSelect.addEventListener("change", this.switchTheme);
-            this._textSizeSlider.addEventListener("input", this.adjustTextSize);
+
+            this._themeSelect.addEventListener("change", e => {
+              const newColor = e.target.value
+              if (newColor) {
+                this.setState("theme", newColor);
+                this.appendClasses();
+              }
+            });
+            this._textSizeSlider.addEventListener("input", e => {
+              const textSize = Number(e.target.value);
+              if (textSize) { 
+                this.setState("fontSizeMultiplier", textSize);
+                this.appendStyles();
+              }
+            });
+
+
             this._saveButton.addEventListener("click", this.saveState);
+            this._resetButton.addEventListener("click", this.reset);
           }
 
           // handler functions
@@ -59,71 +76,72 @@
             this._root.classList.remove("Menu--open");
           }
 
-          adjustTextSize = e => {
-            const textSize = Number(e.target.value);
-            if (textSize) {
-              this.setState("fontSizeMultiplier", textSize);
-              document.documentElement.style.setProperty('--font-base-size-multiplier', textSize);
-            }
+          // create classes and styles
+
+          getFontSizeMultiplier = size => {
+            return '--font-base-size-multiplier: ' + size;
           }
 
-          switchTheme = e => {
-            const newColor = e.target.value
-            if (newColor) {
-              this.setState("theme", newColor);
+          getThemeClass = theme => {
+            switch(theme) {
+              case "blue":
+                return "theme-root--blue";
+              case "brown":
+                return "theme-root--brown";
+              case "darkGray":
+                return "theme-root--darkGray";
+              case "darkGreen":
+                return "theme-root--darkGreen";
+              case "purple":
+                return "theme-root--purple";
+              case "salmon":
+                return "theme-root--salmon";
+              case "black":
+                return "theme-root--black";
+              case "darkBlue":
+                return "theme-root--darkBlue";
+              case "lightBlue":
+                return "theme-root--lightBlue";
+              case "lightGray":
+                return "theme-root--lightGray";
+              case "lightGreen":
+                return "theme-root--lightGreen";
+              case "magenta":
+                return "theme-root--magenta";
+              case "orange":
+                return "theme-root--orange";
+              case "pink":
+                return "theme-root--pink";
+              case "white":
+                return "theme-root--white";
+              case "yellow":
+                return "theme-root--yellow";
+            }
+            return "theme-root--white";
+          }
 
-              this._themeRoot.className = "theme-root";
-              switch(newColor) {
-                case "blue":
-                  this._themeRoot.classList.add("theme-root--blue");
-                  break;
-                case "brown":
-                  this._themeRoot.classList.add("theme-root--brown");
-                  break;	
-                case "darkGray":
-                  this._themeRoot.classList.add("theme-root--darkGray");
-                  break;	
-                case "darkGreen":
-                  this._themeRoot.classList.add("theme-root--darkGreen");
-                  break;	
-                case "purple":
-                  this._themeRoot.classList.add("theme-root--purple");
-                  break;	
-                case "salmon":
-                  this._themeRoot.classList.add("theme-root--salmon");
-                  break;	
-                case "black":
-                  this._themeRoot.classList.add("theme-root--black");
-                  break;	
-                case "darkBlue":
-                  this._themeRoot.classList.add("theme-root--darkBlue");
-                  break;
-                case "lightBlue":
-                  this._themeRoot.classList.add("theme-root--lightBlue");
-                  break;	
-                case "lightGray":
-                  this._themeRoot.classList.add("theme-root--lightGray");
-                  break;	
-                case "lightGreen":
-                  this._themeRoot.classList.add("theme-root--lightGreen");
-                  break;	
-                case "magenta":
-                  this._themeRoot.classList.add("theme-root--magenta");
-                  break;
-                case "orange":
-                  this._themeRoot.classList.add("theme-root--orange");
-                  break;	
-                case "pink":
-                  this._themeRoot.classList.add("theme-root--pink");
-                  break;	
-                case "white":
-                  this._themeRoot.classList.add("theme-root--white");
-                  break;	
-                case "yellow":
-                  this._themeRoot.classList.add("theme-root--yellow");
+          appendClasses = () => {
+            const classes = ["theme-root"];
+            Object.entries(this._state).forEach(([key, value]) => {
+              switch (key) {
+                case "theme":
+                  classes.push(this.getThemeClass(value));
                   break;
               }
-            }
+            });
+            this._themeRoot.classList = classes.join(" ");
+          }
+
+          appendStyles = () => {
+            const styles = [];
+            Object.entries(this._state).forEach(([key, value]) => {
+              switch (key) {
+                case "fontSizeMultiplier":
+                  styles.push(this.getFontSizeMultiplier(value));
+                  break;
+              }
+            });
+            this._documentRoot.style = styles.join("; ");
           }
 
           // state/cookie functions
@@ -163,8 +181,9 @@
             }
           }
 
-          resetState = () => {
+          reset = () => {
             this._state = this._initialState;
+            this.appendClasses();
           }
         }
         window.addEventListener("load", () => { new SettingsMenu(document.querySelector("#SettingsMenu")); });
