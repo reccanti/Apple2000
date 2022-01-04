@@ -11,6 +11,7 @@ import { registerBlockType, registerBlockVariation } from "@wordpress/blocks";
  * to how Storybook does it!
  */
 import * as Box from "./Box";
+import * as Banner from "./Banner";
 import * as HorizontalRule from "./HorizontalRule";
 import * as ShmancySectionBlock from "./ShmancySection";
 import * as LinkGridBlock from "./LinkGrid";
@@ -28,6 +29,7 @@ const blocks = [
 	LinkGridItemBlock,
 	SplashBlock,
 	Box,
+	Banner,
 	HorizontalRule,
 ];
 

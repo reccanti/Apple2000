@@ -30,6 +30,195 @@ const separator = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createEleme
 
 /***/ }),
 
+/***/ "./plugins/Apple2000-Blocks/src/Banner/attributes.js":
+/*!***********************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/Banner/attributes.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "attributes": function() { return /* binding */ attributes; }
+/* harmony export */ });
+const attributes = {
+  bannerSpeed: {
+    type: "number",
+    default: 20
+  },
+  bannerMessage: {
+    type: "string",
+    selector: ".Banner-inner",
+    source: "text"
+  }
+};
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/Banner/edit.js":
+/*!*****************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/Banner/edit.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Edit": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./plugins/Apple2000-Blocks/src/Banner/editor.scss");
+
+
+
+
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Edit(_ref) {
+  let {
+    attributes,
+    setAttributes
+  } = _ref;
+
+  const handleTextUpdate = bannerMessage => {
+    setAttributes({ ...attributes,
+      bannerMessage
+    });
+  };
+
+  const handleSpeedUpdate = bannerSpeed => {
+    setAttributes({ ...attributes,
+      bannerSpeed
+    });
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
+    label: "Banner Speed",
+    min: 1,
+    step: 1,
+    value: attributes.bannerSpeed,
+    onChange: handleSpeedUpdate
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Banner Text",
+    value: attributes.bannerMessage,
+    onChange: handleTextUpdate
+  }));
+}
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/Banner/index.js":
+/*!******************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/Banner/index.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Edit": function() { return /* reexport safe */ _edit__WEBPACK_IMPORTED_MODULE_1__.Edit; },
+/* harmony export */   "Save": function() { return /* reexport safe */ _save__WEBPACK_IMPORTED_MODULE_2__.Save; },
+/* harmony export */   "attributes": function() { return /* reexport safe */ _attributes__WEBPACK_IMPORTED_MODULE_3__.attributes; },
+/* harmony export */   "name": function() { return /* binding */ name; }
+/* harmony export */ });
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./plugins/Apple2000-Blocks/src/Banner/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./plugins/Apple2000-Blocks/src/Banner/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./plugins/Apple2000-Blocks/src/Banner/save.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attributes */ "./plugins/Apple2000-Blocks/src/Banner/attributes.js");
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+const name = "apple2000/banner";
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/Banner/save.js":
+/*!*****************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/Banner/save.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Save": function() { return /* binding */ Save; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Save(_ref) {
+  let {
+    attributes
+  } = _ref;
+  const props = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save();
+  const classNames = `${props.className} Banner`;
+  const speedStyle = `--banner-speed: ${attributes.bannerSpeed}s;`;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: speedStyle,
+    className: classNames
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "Banner-inner"
+  }, attributes.bannerMessage));
+}
+
+/***/ }),
+
 /***/ "./plugins/Apple2000-Blocks/src/Box/attributes.js":
 /*!********************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/Box/attributes.js ***!
@@ -1083,11 +1272,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Box */ "./plugins/Apple2000-Blocks/src/Box/index.js");
-/* harmony import */ var _HorizontalRule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HorizontalRule */ "./plugins/Apple2000-Blocks/src/HorizontalRule/index.js");
-/* harmony import */ var _ShmancySection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ShmancySection */ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js");
-/* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
-/* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
-/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
+/* harmony import */ var _Banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Banner */ "./plugins/Apple2000-Blocks/src/Banner/index.js");
+/* harmony import */ var _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HorizontalRule */ "./plugins/Apple2000-Blocks/src/HorizontalRule/index.js");
+/* harmony import */ var _ShmancySection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShmancySection */ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js");
+/* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
+/* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
+/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -1105,6 +1295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * @TODO I don't really like how this is setup. Let's refactor this one
  * once we update the npm package it's based on
@@ -1112,7 +1303,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_3__, _LinkGrid__WEBPACK_IMPORTED_MODULE_4__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_5__, _Splash__WEBPACK_IMPORTED_MODULE_6__, _Box__WEBPACK_IMPORTED_MODULE_1__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_2__];
+const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_4__, _LinkGrid__WEBPACK_IMPORTED_MODULE_5__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__, _Splash__WEBPACK_IMPORTED_MODULE_7__, _Box__WEBPACK_IMPORTED_MODULE_1__, _Banner__WEBPACK_IMPORTED_MODULE_2__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__];
 blocks.forEach(_ref => {
   let {
     name,
@@ -1127,6 +1318,30 @@ blocks.forEach(_ref => {
     ...data
   });
 });
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/Banner/editor.scss":
+/*!*********************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/Banner/editor.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/Banner/style.scss":
+/*!********************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/Banner/style.scss ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
