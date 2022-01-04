@@ -21,7 +21,7 @@
 		</div>
 		<!-- Settings Menu -->
 		<nav id="SettingsMenu" class="Menu Menu--close">
-			<button class="Menu-toggle">
+			<button class="Menu-open">
 				<span class="Icon">
 					{% image "./src/scss/img/icons/gear.svg", "menu" %}
 				</span>
@@ -841,7 +841,7 @@
 					// setup elements
 					this._rootElem = root;
 					this._themeRoot = document.querySelector("#theme-toggle");
-					this._toggleButton = root.querySelector(".Menu-toggle");
+					this._toggleButton = root.querySelector(".Menu-open");
 					this._menu = root.querySelector(".Menu-content");
 					this._closeButton = root.querySelector(".Menu-close");
 					this._themeSelect = root.querySelector("select[name='theme-select']");

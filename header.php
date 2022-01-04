@@ -9,8 +9,16 @@
  * @package gutenberg-starter-theme
  */
 ?>
+
+<?php 
+	function root_styles() {
+		$styles = apply_filters("root_styles", []);
+		return implode("; ", $styles);
+	}
+?>
+
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> style="<?php echo root_styles(); ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,12 +27,15 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(['theme-root', 'theme-root--white']); ?>>
+<body <?php body_class(); ?>>
+	<div class="SkipNav">
+		<a class="button" href="#primary"><?php esc_html_e( 'Skip to content', 'gutenberg-starter-theme' ); ?></a>
+	</div>
+	<?php 
+		get_template_part("template-parts/themenu");
+	?>
 	<div id="page" class="Wrapper">
 		<div class="Wrapper-inner">
-			<div class="SkipNav">
-				<a class="button" href="#primary"><?php esc_html_e( 'Skip to content', 'gutenberg-starter-theme' ); ?></a>
-			</div>
 			<header id="masthead" class="site-header">
 				<div class="site-branding">
 					<?php

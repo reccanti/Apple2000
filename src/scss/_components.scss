@@ -132,7 +132,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 			display: none;
 		}
 
-		#{$root}-toggle {
+		#{$root}-open {
 			display: block;
 		}
 	}
@@ -148,7 +148,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 			padding: 1rem;
 		}
 
-		#{$root}-toggle {
+		#{$root}-open {
 			display: none;
 		}
 	}

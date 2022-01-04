@@ -239,6 +239,88 @@ function apply_admin_overrides() {
 }
 add_action( 'wp_enqueue_scripts', 'apply_admin_overrides');
 
+// cache setting values
+add_filter("root_styles", function($styles = []) {
+	return $styles;
+});
+
+function cacheCookie() {
+	$settingsString = $_COOKIE['apple-2000e-settings'];
+	$settingsState = json_decode(stripslashes($settingsString));
+
+	$body_classes = ["theme-root"];
+	$root_styles = [];
+
+	foreach ($settingsState as $key => $value) {
+		switch ($key) {
+			case "fontSizeMultiplier":
+				array_push($root_styles, "--font-base-size-multiplier: " . $value);
+				break;
+			case "theme":
+				switch($value) {
+					case "blue":
+						array_push($body_classes, "theme-root--blue");
+						break;
+					case "brown":
+						array_push($body_classes, "theme-root--brown");
+						break;	
+					case "darkGray":
+						array_push($body_classes, "theme-root--darkGray");
+						break;	
+					case "darkGreen":
+						array_push($body_classes, "theme-root--darkGreen");
+						break;	
+					case "purple":
+						array_push($body_classes, "theme-root--purple");
+						break;	
+					case "salmon":
+						array_push($body_classes, "theme-root--salmon");
+						break;	
+					case "black":
+						array_push($body_classes, "theme-root--black");
+						break;	
+					case "darkBlue":
+						array_push($body_classes, "theme-root--darkBlue");
+						break;
+					case "lightBlue":
+						array_push($body_classes, "theme-root--lightBlue");
+						break;	
+					case "lightGray":
+						array_push($body_classes, "theme-root--lightGray");
+						break;	
+					case "lightGreen":
+						array_push($body_classes, "theme-root--lightGreen");
+						break;	
+					case "magenta":
+						array_push($body_classes, "theme-root--magenta");
+						break;
+					case "orange":
+						array_push($body_classes, "theme-root--orange");
+						break;	
+					case "pink":
+						array_push($body_classes, "theme-root--pink");
+						break;	
+					case "white":
+						array_push($body_classes, "theme-root--white");
+						break;	
+					case "yellow":
+						array_push($body_classes, "theme-root--yellow");
+						break;
+				}
+				break;
+		}
+	}
+
+	add_filter( 'body_class', function( $classes ) use ($body_classes) {	
+		return array_merge($classes, $body_classes);
+	});
+
+	add_filter( 'root_styles', function( $styles ) use ($root_styles) {	
+		return array_merge($styles, $root_styles);
+	});
+
+}
+add_action( 'init', 'cacheCookie');
 
 // add_action( 'enqueue_block_editor_assets', 'block05editor_scripts' );
 

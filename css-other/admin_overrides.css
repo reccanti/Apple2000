@@ -1,20 +1,21 @@
 /**
  * This is for specific overrides to account for admin styles
  */
-.Wrapper {
-	height: calc(100vh - 32px);
-}
 
-.SkipNav {
-	margin-top: calc(32px + 2rem);
+:root {
+	--admin-bar-height: 32px;
 }
-
 @media (max-width: 782px) {
-	.Wrapper {
-		height: calc(100vh - 46px);
+	:root {
+		--admin-bar-height: 46px;
 	}
+}
 
-	.SkipNav {
-		margin-top: calc(46px + 2rem);
-	}
+.Wrapper {
+	height: calc(100vh - var(--admin-bar-height));
+}
+
+.SkipNav,
+.Menu {
+	margin-top: calc(2rem + var(--admin-bar-height));
 }
