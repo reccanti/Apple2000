@@ -767,7 +767,7 @@ section > *:not(:first-child) {
 .Menu--close .Menu-contents {
   display: none;
 }
-.Menu--close .Menu-toggle {
+.Menu--close .Menu-open {
   display: block;
 }
 .Menu--open {
@@ -780,7 +780,7 @@ section > *:not(:first-child) {
   height: calc(100vh - 2rem);
   padding: 1rem;
 }
-.Menu--open .Menu-toggle {
+.Menu--open .Menu-open {
   display: none;
 }
 @media (min-width: 700px) {
