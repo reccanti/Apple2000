@@ -16,6 +16,8 @@ import * as HorizontalRule from "./HorizontalRule";
 import * as ShmancySectionBlock from "./ShmancySection";
 import * as LinkGridBlock from "./LinkGrid";
 import * as LinkGridItemBlock from "./LinkGridItem";
+import * as TextBox from "./TextBox";
+
 /**
  * @TODO I don't really like how this is setup. Let's refactor this one
  * once we update the npm package it's based on
@@ -31,6 +33,7 @@ const blocks = [
 	Box,
 	Banner,
 	HorizontalRule,
+	TextBox,
 ];
 
 blocks.forEach(({ name, Edit, Save, ...data }) => {

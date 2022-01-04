@@ -30,6 +30,34 @@ const separator = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createEleme
 
 /***/ }),
 
+/***/ "./node_modules/@wordpress/icons/build-module/library/typography.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/typography.js ***!
+  \**************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * WordPress dependencies
+ */
+
+const typography = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__.Path, {
+  d: "M6.9 7L3 17.8h1.7l1-2.8h4.1l1 2.8h1.7L8.6 7H6.9zm-.7 6.6l1.5-4.3 1.5 4.3h-3zM21.6 17c-.1.1-.2.2-.3.2-.1.1-.2.1-.4.1s-.3-.1-.4-.2c-.1-.1-.1-.3-.1-.6V12c0-.5 0-1-.1-1.4-.1-.4-.3-.7-.5-1-.2-.2-.5-.4-.9-.5-.4 0-.8-.1-1.3-.1s-1 .1-1.4.2c-.4.1-.7.3-1 .4-.2.2-.4.3-.6.5-.1.2-.2.4-.2.7 0 .3.1.5.2.8.2.2.4.3.8.3.3 0 .6-.1.8-.3.2-.2.3-.4.3-.7 0-.3-.1-.5-.2-.7-.2-.2-.4-.3-.6-.4.2-.2.4-.3.7-.4.3-.1.6-.1.8-.1.3 0 .6 0 .8.1.2.1.4.3.5.5.1.2.2.5.2.9v1.1c0 .3-.1.5-.3.6-.2.2-.5.3-.9.4-.3.1-.7.3-1.1.4-.4.1-.8.3-1.1.5-.3.2-.6.4-.8.7-.2.3-.3.7-.3 1.2 0 .6.2 1.1.5 1.4.3.4.9.5 1.6.5.5 0 1-.1 1.4-.3.4-.2.8-.6 1.1-1.1 0 .4.1.7.3 1 .2.3.6.4 1.2.4.4 0 .7-.1.9-.2.2-.1.5-.3.7-.4h-.3zm-3-.9c-.2.4-.5.7-.8.8-.3.2-.6.2-.8.2-.4 0-.6-.1-.9-.3-.2-.2-.3-.6-.3-1.1 0-.5.1-.9.3-1.2s.5-.5.8-.7c.3-.2.7-.3 1-.5.3-.1.6-.3.7-.6v3.4z"
+}));
+/* harmony default export */ __webpack_exports__["default"] = (typography);
+//# sourceMappingURL=typography.js.map
+
+/***/ }),
+
 /***/ "./plugins/Apple2000-Blocks/src/Banner/attributes.js":
 /*!***********************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/Banner/attributes.js ***!
@@ -1262,6 +1290,226 @@ function Save() {
 
 /***/ }),
 
+/***/ "./plugins/Apple2000-Blocks/src/TextBox/attributes.js":
+/*!************************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/TextBox/attributes.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "attributes": function() { return /* binding */ attributes; }
+/* harmony export */ });
+const attributes = {
+  orientation: {
+    enum: ["left", "center", "right"],
+    default: "left"
+  }
+};
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/TextBox/edit.js":
+/*!******************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/TextBox/edit.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Edit": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./plugins/Apple2000-Blocks/src/TextBox/editor.scss");
+
+
+
+
+
+
+
+const setTextAlign = value => {
+  switch (value) {
+    case "right":
+      return {
+        "text-align": "right"
+      };
+
+    case "center":
+      return {
+        "text-align": "center"
+      };
+
+    default:
+      return {
+        "text-align": "left"
+      };
+  }
+};
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+
+function Edit(_ref) {
+  let {
+    attributes,
+    setAttributes
+  } = _ref;
+  const [directionStyle, setDirectionStyle] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(setTextAlign(attributes.orientation));
+
+  const handleOrientationChange = orientation => {
+    setAttributes({ ...attributes,
+      orientation
+    });
+    setDirectionStyle(setTextAlign(orientation));
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: "Orientation",
+    value: attributes.orientation,
+    onChange: handleOrientationChange,
+    options: [{
+      label: "Left",
+      value: "left"
+    }, {
+      label: "Center",
+      value: "center"
+    }, {
+      label: "Right",
+      value: "right"
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: directionStyle
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)));
+}
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/TextBox/index.js":
+/*!*******************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/TextBox/index.js ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Edit": function() { return /* reexport safe */ _edit__WEBPACK_IMPORTED_MODULE_1__.Edit; },
+/* harmony export */   "Save": function() { return /* reexport safe */ _save__WEBPACK_IMPORTED_MODULE_2__.Save; },
+/* harmony export */   "attributes": function() { return /* reexport safe */ _attributes__WEBPACK_IMPORTED_MODULE_3__.attributes; },
+/* harmony export */   "icon": function() { return /* reexport safe */ _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"]; },
+/* harmony export */   "name": function() { return /* binding */ name; }
+/* harmony export */ });
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./plugins/Apple2000-Blocks/src/TextBox/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./plugins/Apple2000-Blocks/src/TextBox/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./plugins/Apple2000-Blocks/src/TextBox/save.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attributes */ "./plugins/Apple2000-Blocks/src/TextBox/attributes.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/typography.js");
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+const name = "apple2000/text-box";
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/TextBox/save.js":
+/*!******************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/TextBox/save.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Save": function() { return /* binding */ Save; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Save(_ref) {
+  let {
+    attributes
+  } = _ref;
+  const props = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save();
+  let directionModifier = "TextBox--left";
+
+  switch (attributes.orientation) {
+    case "center":
+      directionModifier = "TextBox--center";
+      break;
+
+    case "right":
+      directionModifier = "TextBox--right";
+      break;
+
+    default:
+      directionModifier = "TextBox--left";
+  }
+
+  const classNames = `${props.className} TextBox ${directionModifier}`;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: classNames
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null));
+}
+
+/***/ }),
+
 /***/ "./plugins/Apple2000-Blocks/src/index.js":
 /*!***********************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/index.js ***!
@@ -1277,7 +1525,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ShmancySection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShmancySection */ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js");
 /* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
 /* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
-/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
+/* harmony import */ var _TextBox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TextBox */ "./plugins/Apple2000-Blocks/src/TextBox/index.js");
+/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -1296,6 +1545,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * @TODO I don't really like how this is setup. Let's refactor this one
  * once we update the npm package it's based on
@@ -1303,7 +1553,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_4__, _LinkGrid__WEBPACK_IMPORTED_MODULE_5__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__, _Splash__WEBPACK_IMPORTED_MODULE_7__, _Box__WEBPACK_IMPORTED_MODULE_1__, _Banner__WEBPACK_IMPORTED_MODULE_2__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__];
+const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_4__, _LinkGrid__WEBPACK_IMPORTED_MODULE_5__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__, _Splash__WEBPACK_IMPORTED_MODULE_8__, _Box__WEBPACK_IMPORTED_MODULE_1__, _Banner__WEBPACK_IMPORTED_MODULE_2__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__, _TextBox__WEBPACK_IMPORTED_MODULE_7__];
 blocks.forEach(_ref => {
   let {
     name,
@@ -1481,6 +1731,30 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/Splash/style.scss ***!
   \********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/TextBox/editor.scss":
+/*!**********************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/TextBox/editor.scss ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./plugins/Apple2000-Blocks/src/TextBox/style.scss":
+/*!*********************************************************!*\
+  !*** ./plugins/Apple2000-Blocks/src/TextBox/style.scss ***!
+  \*********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
