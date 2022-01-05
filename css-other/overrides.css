@@ -31,3 +31,8 @@
 main > *:not(:first-child) {
 	margin-top: var(--spacing4);
 }
+
+.site-header {
+	padding: var(--spacing2) 0;
+	font-family: var(--font-family-header);
+}
