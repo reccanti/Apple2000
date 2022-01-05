@@ -31,6 +31,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  */
 .Box {
 	background-color: var(--background-color);
+	display: flex;
+	flex-direction: column;
 
 	& > *:not(:first-child) {
 		margin: 0;
@@ -39,7 +41,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	&-inner {
 		--font-header-size-multiplier: 1;
 		padding: var(--spacing2) 0;
-		overflow-x: scroll;
+		overflow: scroll;
 		@include globals.SpaceBetween;
 	}
 
@@ -133,9 +135,9 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 			display: none;
 		}
 
-		#{$root}-open {
-			display: block;
-		}
+		// #{$root}-open {
+		// 	display: initial;
+		// }
 	}
 
 	&--open {
@@ -144,7 +146,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		border: $wrapperBorder solid var(--text-color);
 
 		#{$root}-contents {
-			display: block;
+			// display: initial;
 			height: calc(100vh - #{2 * $wrapperBorder});
 			padding: 1rem;
 		}
@@ -162,6 +164,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 			border: none;
 
 			#{$root}-contents {
+				max-height: calc(100vh - (2 * (#{$wrapperBorder} + 1rem)));
 				height: auto;
 				padding: initial;
 			}
@@ -192,8 +195,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  * making sure they're themed correctly
  */
 .Icon {
-	height: 2rem;
-	width: 2rem;
+	height: calc(var(--font-size-base) * 4 / 3);
+	width: calc(var(--font-size-base) * 4 / 3);
 	display: block;
 
 	svg {

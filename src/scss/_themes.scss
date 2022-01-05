@@ -25,7 +25,7 @@
 	/* Font Sizes */
 	--font-base-size-multiplier: 1.5;
 	--font-header-size-multiplier: var(--font-base-size-multiplier);
-	--font-size-base: calc(var(--font-header-size-multiplier) * 1rem);
+	--font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
 	--site-width-font-modifier: min(1vw, calc(var(--site-width) / 100));
 
 	$fib: 0, 1, 2, 3, 5, 8;
