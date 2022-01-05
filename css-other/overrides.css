@@ -1,0 +1,33 @@
+/** 
+ * Comments 
+ */
+
+/* Make Logged-in links look like Tags */
+.logged-in-as {
+	display: flex;
+	flex-wrap: wrap;
+}
+.logged-in-as > a {
+	display: inline-block;
+	font-size: var(--tag-font-size);
+	font-family: var(--font-family-header);
+}
+.logged-in-as > a:not(:first-child) {
+	/* content: "|"; */
+	margin: 0 var(--spacing1);
+}
+
+/* Add spacing between comment items */
+.comment-form {
+	margin-top: var(--spacing2);
+}
+.comment-form > *:not(:first-child) {
+	margin-top: var(--spacing2);
+}
+
+/**
+ * Miscellaneous
+ */
+main > *:not(:first-child) {
+	margin-top: var(--spacing4);
+}

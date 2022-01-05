@@ -228,7 +228,7 @@ function load_block_editor_assets() {
 add_action( 'enqueue_block_editor_assets', 'load_block_editor_assets');
 
 // Apply admin overrides
-function apply_admin_overrides() {
+function apply_css_overrides() {
 	if (is_admin_bar_showing()) {
 		wp_enqueue_style(
 			'apple-2000e-admin-overrde-styles',
@@ -236,8 +236,13 @@ function apply_admin_overrides() {
 			["apple2000"]
 		);
 	}
+	wp_enqueue_style(
+		'apple-2000e-overrde-styles',
+		get_template_directory_uri() . '/css-other/overrides.css',
+		["apple2000"]
+	);
 }
-add_action( 'wp_enqueue_scripts', 'apply_admin_overrides');
+add_action( 'wp_enqueue_scripts', 'apply_css_overrides');
 
 // cache setting values
 add_filter("root_styles", function($styles = []) {

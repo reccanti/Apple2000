@@ -134,10 +134,6 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		#{$root}-contents {
 			display: none;
 		}
-
-		// #{$root}-open {
-		// 	display: initial;
-		// }
 	}
 
 	&--open {
@@ -146,7 +142,6 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 		border: $wrapperBorder solid var(--text-color);
 
 		#{$root}-contents {
-			// display: initial;
 			height: calc(100vh - #{2 * $wrapperBorder});
 			padding: 1rem;
 		}

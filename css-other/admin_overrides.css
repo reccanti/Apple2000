@@ -15,7 +15,17 @@
 	height: calc(100vh - var(--admin-bar-height));
 }
 
-.SkipNav,
 .Menu {
+	margin-top: var(--admin-bar-height);
+}
+
+.SkipNav,
+.Menu.Menu--close {
 	margin-top: calc(2rem + var(--admin-bar-height));
+}
+
+@media (min-width: 700px) {
+	.Menu {
+		margin-top: calc(2rem + var(--admin-bar-height));
+	}
 }
