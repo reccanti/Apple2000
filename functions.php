@@ -257,6 +257,11 @@ function cacheCookie() {
 
 	foreach ($settingsState as $key => $value) {
 		switch ($key) {
+			case "enableMotion":
+				if (!$value) {
+					array_push($theme_classes, "theme-root--no-motion");
+				}
+				break;
 			case "fontSizeMultiplier":
 				array_push($root_styles, "--font-base-size-multiplier: " . $value);
 				break;

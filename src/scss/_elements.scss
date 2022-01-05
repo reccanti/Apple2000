@@ -73,7 +73,7 @@ textarea {
 
 	&:focus {
 		outline: none;
-		border: #{globals.$borderSize * 3} double var(--text-color);
+		border: #{globals.$borderSize * 3} double var(--dark-color);
 		padding: globals.$borderSize;
 
 		background-color: var(--light-color);
@@ -100,7 +100,7 @@ input[type="text"] {
 
 	&:focus {
 		outline: none;
-		border: #{globals.$borderSize * 3} double var(--text-color);
+		border: #{globals.$borderSize * 3} double var(--dark-color);
 		padding: globals.$borderSize;
 		background-color: var(--light-color);
 		color: var(--dark-color);
@@ -200,7 +200,9 @@ select {
 	&:focus {
 		outline: none;
 		padding: globals.$borderSize;
-		border: #{globals.$borderSize * 3} double var(--text-color);
+		border: #{globals.$borderSize * 3} double var(--dark-color);
+		background-color: var(--light-color);
+		color: var(--dark-color);
 	}
 
 	& option::after {

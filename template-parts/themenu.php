@@ -15,11 +15,14 @@
       <script>
         const SETTINGS_COOKIE = "apple-2000e-settings";
         class SettingsMenu {
+
           constructor(root) {
+
             // setup initial state
             this._initialState = {
               theme: "white",
               fontSizeMultiplier: 1.5,
+              enableMotion: true,
             };
             this._state = this.initializeState();
 
@@ -32,13 +35,13 @@
 
             this._themeSelect = this._root.querySelector("select[name='theme-select']");
             this._textSizeSlider = this._root.querySelector("input[name='text-size-slider']");
+            this._motionCheckbox = this._root.querySelector("input[name='turn-off-motion']");
 
             this._saveButton = this._root.querySelector("#save-settings");
             this._resetButton = this._root.querySelector("#reset-settings");
 
             // set initial values
-            this._themeSelect.value = this._state.theme;
-            this._textSizeSlider.value = this._state.fontSizeMultiplier;
+            this.syncInputs();
 
             // add event listeners
             this._openButton.addEventListener("click", this.openMenu);
@@ -58,6 +61,15 @@
                 this.appendStyles();
               }
             });
+            this._motionCheckbox.addEventListener("change", e => {
+              const isChecked = e.target.checked;
+              if (isChecked) {
+                this.setState("enableMotion", true);
+              } else {
+                this.setState("enableMotion", false);
+              }
+              this.appendClasses();
+            });
 
 
             this._saveButton.addEventListener("click", this.saveState);
@@ -76,7 +88,7 @@
             this._root.classList.remove("Menu--open");
           }
 
-          // create classes and styles
+          // state sync stuff
 
           getFontSizeMultiplier = size => {
             return '--font-base-size-multiplier: ' + size;
@@ -127,6 +139,11 @@
                 case "theme":
                   classes.push(this.getThemeClass(value));
                   break;
+                case "enableMotion":
+                  if (!value) {
+                    classes.push("theme-root--no-motion");
+                  }
+                  break;
               }
             });
             this._themeRoot.classList = classes.join(" ");
@@ -142,6 +159,21 @@
               }
             });
             this._documentRoot.style = styles.join("; ");
+          }
+
+          syncInputs = () => {
+            Object.entries(this._state).forEach(([key, value]) => {
+              switch (key) {
+                case "theme":
+                  this._themeSelect.value = value;
+                  break;
+                case "fontSizeMultiplier":
+                  this._textSizeSlider.value = value;
+                  break;
+                case "enableMotion":
+                  this._motionCheckbox.checked = value
+              }
+            });
           }
 
           // state/cookie functions
@@ -184,6 +216,8 @@
           reset = () => {
             this._state = this._initialState;
             this.appendClasses();
+            this.appendStyles();
+            this.syncInputs();
           }
         }
         window.addEventListener("load", () => { new SettingsMenu(document.querySelector("#SettingsMenu")); });
@@ -250,7 +284,7 @@
         <input type="checkbox" id="use-simple-text" name="use-simple-text" />
       </label>
       <label for="turn-off-motion">
-        Turn Off Motion
+        Enable Motion
         <input type="checkbox" id="turn-off-motion" name="turn-off-motion" />
       </label>
       <div class="ButtonGroup">
