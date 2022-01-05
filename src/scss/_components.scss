@@ -10,6 +10,7 @@
  */
 $wrapperBorder: 1rem;
 $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
+
 .Wrapper {
 	border: $wrapperBorder solid var(--text-color);
 	background-color: var(--background-color);
@@ -18,7 +19,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	margin: 0;
 
 	&-inner {
-		max-width: 1200px;
+		max-width: var(--site-width);
 		width: 100%;
 		margin: 0 auto;
 		padding: 1rem;

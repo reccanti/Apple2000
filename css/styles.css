@@ -186,6 +186,8 @@ textarea {
  * ~reccanti 4/12/2021
  */
 :root {
+  /* Site Width */
+  --site-width: 1100px;
   /* Colors */
   --background-black: #0d0e10;
   --background-blue: #3f5df5;
@@ -228,28 +230,53 @@ textarea {
   --font-base-size-multiplier: 1.5;
   --font-header-size-multiplier: var(--font-base-size-multiplier);
   --font-size-base: calc(var(--font-header-size-multiplier) * 1rem);
+  --site-width-font-modifier: min(1vw, calc(var(--site-width) / 100));
   --font-size-header6: calc(
-  	(0 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			0 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header5: calc(
-  	(1 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			1 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header4: calc(
-  	(2 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			2 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header3: calc(
-  	(3 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			3 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header2: calc(
-  	(5 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			5 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header1: calc(
-  	(8 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			8 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-badge: calc(var(--font-size-base) * 0.8);
@@ -370,27 +397,51 @@ textarea {
   --font-header-size-multiplier: calc(var(--font-base-size-multiplier) * 0.6);
   --font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
   --font-size-header6: calc(
-  	(0 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			0 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header5: calc(
-  	(1 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			1 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header4: calc(
-  	(2 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			2 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header3: calc(
-  	(3 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			3 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header2: calc(
-  	(5 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			5 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header1: calc(
-  	(8 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			8 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-badge: calc(var(--font-size-base) * 0.8);
@@ -705,7 +756,7 @@ section > *:not(:first-child) {
   margin: 0;
 }
 .Wrapper-inner {
-  max-width: 1200px;
+  max-width: var(--site-width);
   width: 100%;
   margin: 0 auto;
   padding: 1rem;

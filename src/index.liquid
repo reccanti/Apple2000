@@ -63,6 +63,10 @@
 							</optgroup>
 						</select>
 					</label>
+					<label for="site-width-slider">
+						Site Width
+						<input type="range" name="site-width-slider" id="site-width-slider" min="1" max="2000" step="1" value="1100" />
+					</label>
 					<label for="text-size-slider">
 						Text Size
 						<input type="range" name="text-size-slider" id="text-size-slider" min="1" max="3" step="0.01" value="1.5" />
@@ -141,9 +145,7 @@
 
 				<!--  Let's put all our "elements" here -->
 				<section class="Splash">
-					<h1 class="Splash-main" data-text="Elements">
-						<div class="Splash-inner">Elements</div>
-					</h1>
+					<h1>Elements</h1>
 				</section>
 
 				<!-- I know writers who use "Text" and they're all cowards!-->
@@ -846,6 +848,7 @@
 					this._closeButton = root.querySelector(".Menu-close");
 					this._themeSelect = root.querySelector("select[name='theme-select']");
 					this._textSizeSlider = root.querySelector("input[name='text-size-slider']");
+					this._siteWidthSlider = root.querySelector("input[name='site-width-slider']");
 					this._fancyTextCheckbox = root.querySelector("input[name='use-simple-text']");
 					this._motionCheckbox = root.querySelector("input[name='turn-off-motion']");
 
@@ -853,9 +856,10 @@
 					this._toggleButton.addEventListener("click", this.openMenu);
 					this._closeButton.addEventListener("click", this.closeMenu);
 					this._themeSelect.addEventListener("change", this.switchTheme);
-					this._textSizeSlider.addEventListener("input", this.adjustTextSize)
-					this._fancyTextCheckbox.addEventListener("change", this.swapFancyText)
-					this._motionCheckbox.addEventListener("change", this.turnOffMotion)
+					this._textSizeSlider.addEventListener("input", this.adjustTextSize);
+					this._siteWidthSlider.addEventListener("input", this.adjustSiteWidth);
+					this._fancyTextCheckbox.addEventListener("change", this.swapFancyText);
+					this._motionCheckbox.addEventListener("change", this.turnOffMotion);
 				}
 
 				openMenu = () => {
@@ -890,6 +894,13 @@
 						document.documentElement.classList.add("theme-root--no-motion");
 					} else {
 						document.documentElement.classList.remove("theme-root--no-motion");
+					}
+				}
+
+				adjustSiteWidth = e => {
+					const siteWidth = Number(e.target.value);
+					if (siteWidth) {
+						document.documentElement.style.setProperty('--site-width', siteWidth + "px");
 					}
 				}
 
