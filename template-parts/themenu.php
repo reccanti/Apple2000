@@ -36,6 +36,7 @@
 
             this._themeSelect = this._root.querySelector("select[name='theme-select']");
             this._textSizeSlider = this._root.querySelector("input[name='text-size-slider']");
+            this._siteWidthSlider = this._root.querySelector("input[name='site-width-slider']");
             this._simpleTextCheckbox = this._root.querySelector("input[name='use-simple-text']");
             this._motionCheckbox = this._root.querySelector("input[name='turn-off-motion']");
 
@@ -54,6 +55,13 @@
               if (newColor) {
                 this.setState("theme", newColor);
                 this.appendClasses();
+              }
+            });
+            this._siteWidthSlider.addEventListener("input", e => {
+              const siteWidth = Number(e.target.value);
+              if (siteWidth) { 
+                this.setState("siteWidth", siteWidth);
+                this.appendStyles();
               }
             });
             this._textSizeSlider.addEventListener("input", e => {
@@ -100,6 +108,10 @@
           }
 
           // state sync stuff
+
+          getSiteWidth = siteWidth => {
+            return '--site-width: ' + siteWidth + "px";
+          }
 
           getFontSizeMultiplier = size => {
             return '--font-base-size-multiplier: ' + size;
@@ -172,6 +184,9 @@
                 case "fontSizeMultiplier":
                   styles.push(this.getFontSizeMultiplier(value));
                   break;
+                case "siteWidth":
+                  styles.push(this.getSiteWidth(value));
+                  break;
               }
             });
             this._documentRoot.style = styles.join("; ");
@@ -182,6 +197,9 @@
               switch (key) {
                 case "theme":
                   this._themeSelect.value = value;
+                  break;
+                case "siteWidth":
+                  this._siteWidthSlider.value = value;
                   break;
                 case "fontSizeMultiplier":
                   this._textSizeSlider.value = value;
@@ -294,6 +312,10 @@
             <option value="yellow">Yellow</option>
           </optgroup>
         </select>
+      </label>
+      <label for="site-width-slider">
+        Site Width
+        <input type="range" name="site-width-slider" id="site-width-slider" min="1" max="2000" step="1" value="1100" />
       </label>
       <label for="text-size-slider">
         Text Size

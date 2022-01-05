@@ -267,6 +267,9 @@ function cacheCookie() {
 					array_push($theme_classes, "theme-root--simple-text");
 				}
 				break;
+			case "siteWidth":
+				array_push($root_styles, "--site-width: " . $value . "px");
+				break;
 			case "fontSizeMultiplier":
 				array_push($root_styles, "--font-base-size-multiplier: " . $value);
 				break;
@@ -334,4 +337,5 @@ function cacheCookie() {
 	});
 
 }
+
 add_action( 'init', 'cacheCookie');
