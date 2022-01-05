@@ -216,7 +216,8 @@ select {
  * "Button" up!
  */
 button,
-a.button {
+a.button,
+input[type="submit"] {
 	all: unset;
 	cursor: pointer;
 

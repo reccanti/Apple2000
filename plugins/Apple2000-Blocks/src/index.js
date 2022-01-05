@@ -13,7 +13,6 @@ import { registerBlockType, registerBlockVariation } from "@wordpress/blocks";
 import * as Box from "./Box";
 import * as Banner from "./Banner";
 import * as HorizontalRule from "./HorizontalRule";
-import * as ShmancySectionBlock from "./ShmancySection";
 import * as LinkGridBlock from "./LinkGrid";
 import * as LinkGridItemBlock from "./LinkGridItem";
 import * as TextBox from "./TextBox";
@@ -26,7 +25,6 @@ import * as TextBox from "./TextBox";
 import * as SplashBlock from "./Splash";
 
 const blocks = [
-	ShmancySectionBlock,
 	LinkGridBlock,
 	LinkGridItemBlock,
 	SplashBlock,

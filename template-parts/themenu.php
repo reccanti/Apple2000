@@ -222,7 +222,7 @@
             const serializedValue = JSON.stringify(this._state);
             const expirationDate = (1000 * 60 * 60 * 24 * 365) + Date.now(); // 1 year from now
 
-            const cookieString = `${SETTINGS_COOKIE}=${serializedValue}; expires=${expirationDate}; Secure`
+            const cookieString = `${SETTINGS_COOKIE}=${serializedValue}; expires=${expirationDate}; path=/; Secure`
             document.cookie = cookieString;
           }
 

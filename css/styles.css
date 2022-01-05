@@ -601,7 +601,8 @@ select option::after {
  * "Button" up!
  */
 button,
-a.button {
+a.button,
+input[type=submit] {
   all: unset;
   cursor: pointer;
   display: inline-flex;
@@ -614,17 +615,21 @@ a.button {
   text-align: center;
 }
 button img,
-a.button img {
+a.button img,
+input[type=submit] img {
   display: block;
 }
 button:hover, button:focus,
 a.button:hover,
-a.button:focus {
+a.button:focus,
+input[type=submit]:hover,
+input[type=submit]:focus {
   background: var(--text-color);
   color: var(--background-color);
 }
 button:focus,
-a.button:focus {
+a.button:focus,
+input[type=submit]:focus {
   outline: 0.3rem solid var(--background-color);
   outline-offset: -0.3rem;
 }
@@ -882,7 +887,7 @@ button:focus .Icon rect,
 .ButtonGroup--nowrap {
   flex-wrap: nowrap;
 }
-.ButtonGroup button, .ButtonGroup a.button {
+.ButtonGroup button, .ButtonGroup a.button, .ButtonGroup input[type=submit] {
   margin: 0;
 }
 
@@ -1020,12 +1025,24 @@ button:focus .Icon rect,
 */
 .Comic-image {
   width: 100%;
+  height: auto;
 }
 .Comic-nav {
-  display: flex;
+  display: grid;
+  grid-template-areas: "First Prev Next Last";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.Comic-nav > * {
-  flex: 1;
+.Comic-first {
+  grid-area: First !important;
+}
+.Comic-prev {
+  grid-area: Prev !important;
+}
+.Comic-next {
+  grid-area: Next !important;
+}
+.Comic-last {
+  grid-area: Last !important;
 }
 
 /**

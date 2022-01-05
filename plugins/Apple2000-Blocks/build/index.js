@@ -819,7 +819,7 @@ const attributes = {
    */
   previewText: {
     type: "string",
-    selector: ".LinkGridItem-innerDescription",
+    selector: ".LinkGridItem-description",
     // in this case, we're getting the value from the inner text of the HTML element
     source: "text"
   },
@@ -1045,159 +1045,12 @@ function Save(_ref) {
     href: attributes.url
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "LinkGridItem-description"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "LinkGridItem-innerDescription"
-  }, attributes.previewText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+  }, attributes.previewText), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
     className: "LinkGridItem-preview",
     src: attributes.previewImageSrc,
     srcset: attributes.previewImageSrcset,
     role: "presentation"
   })));
-}
-
-/***/ }),
-
-/***/ "./plugins/Apple2000-Blocks/src/ShmancySection/edit.js":
-/*!*************************************************************!*\
-  !*** ./plugins/Apple2000-Blocks/src/ShmancySection/edit.js ***!
-  \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Edit": function() { return /* binding */ Edit; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./plugins/Apple2000-Blocks/src/ShmancySection/editor.scss");
-
-
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
-
-function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null));
-}
-
-/***/ }),
-
-/***/ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js":
-/*!**************************************************************!*\
-  !*** ./plugins/Apple2000-Blocks/src/ShmancySection/index.js ***!
-  \**************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Edit": function() { return /* reexport safe */ _edit__WEBPACK_IMPORTED_MODULE_1__.Edit; },
-/* harmony export */   "Save": function() { return /* reexport safe */ _save__WEBPACK_IMPORTED_MODULE_2__.Save; },
-/* harmony export */   "name": function() { return /* binding */ name; }
-/* harmony export */ });
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./plugins/Apple2000-Blocks/src/ShmancySection/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./plugins/Apple2000-Blocks/src/ShmancySection/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./plugins/Apple2000-Blocks/src/ShmancySection/save.js");
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-/**
- * Internal dependencies
- */
-
-
-
-const name = "apple2000/shmancy-section";
-
-/***/ }),
-
-/***/ "./plugins/Apple2000-Blocks/src/ShmancySection/save.js":
-/*!*************************************************************!*\
-  !*** ./plugins/Apple2000-Blocks/src/ShmancySection/save.js ***!
-  \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Save": function() { return /* binding */ Save; }
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
-
-function Save() {
-  const props = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save();
-  const classNames = `${props.className} ShmancySection`;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("section", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
-    className: classNames
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "ShmancySection-inner"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null)));
 }
 
 /***/ }),
@@ -1522,11 +1375,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Box */ "./plugins/Apple2000-Blocks/src/Box/index.js");
 /* harmony import */ var _Banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Banner */ "./plugins/Apple2000-Blocks/src/Banner/index.js");
 /* harmony import */ var _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HorizontalRule */ "./plugins/Apple2000-Blocks/src/HorizontalRule/index.js");
-/* harmony import */ var _ShmancySection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShmancySection */ "./plugins/Apple2000-Blocks/src/ShmancySection/index.js");
-/* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
-/* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
-/* harmony import */ var _TextBox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TextBox */ "./plugins/Apple2000-Blocks/src/TextBox/index.js");
-/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
+/* harmony import */ var _LinkGrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LinkGrid */ "./plugins/Apple2000-Blocks/src/LinkGrid/index.js");
+/* harmony import */ var _LinkGridItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkGridItem */ "./plugins/Apple2000-Blocks/src/LinkGridItem/index.js");
+/* harmony import */ var _TextBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TextBox */ "./plugins/Apple2000-Blocks/src/TextBox/index.js");
+/* harmony import */ var _Splash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Splash */ "./plugins/Apple2000-Blocks/src/Splash/index.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -1545,7 +1397,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * @TODO I don't really like how this is setup. Let's refactor this one
  * once we update the npm package it's based on
@@ -1553,7 +1404,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-const blocks = [_ShmancySection__WEBPACK_IMPORTED_MODULE_4__, _LinkGrid__WEBPACK_IMPORTED_MODULE_5__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_6__, _Splash__WEBPACK_IMPORTED_MODULE_8__, _Box__WEBPACK_IMPORTED_MODULE_1__, _Banner__WEBPACK_IMPORTED_MODULE_2__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__, _TextBox__WEBPACK_IMPORTED_MODULE_7__];
+const blocks = [_LinkGrid__WEBPACK_IMPORTED_MODULE_4__, _LinkGridItem__WEBPACK_IMPORTED_MODULE_5__, _Splash__WEBPACK_IMPORTED_MODULE_7__, _Box__WEBPACK_IMPORTED_MODULE_1__, _Banner__WEBPACK_IMPORTED_MODULE_2__, _HorizontalRule__WEBPACK_IMPORTED_MODULE_3__, _TextBox__WEBPACK_IMPORTED_MODULE_6__];
 blocks.forEach(_ref => {
   let {
     name,
@@ -1683,30 +1534,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************!*\
   !*** ./plugins/Apple2000-Blocks/src/LinkGridItem/style.scss ***!
   \**************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./plugins/Apple2000-Blocks/src/ShmancySection/editor.scss":
-/*!*****************************************************************!*\
-  !*** ./plugins/Apple2000-Blocks/src/ShmancySection/editor.scss ***!
-  \*****************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./plugins/Apple2000-Blocks/src/ShmancySection/style.scss":
-/*!****************************************************************!*\
-  !*** ./plugins/Apple2000-Blocks/src/ShmancySection/style.scss ***!
-  \****************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);

@@ -30,11 +30,7 @@ export function Save({ attributes }) {
 	return (
 		<li {...props} className={classNames}>
 			<a className="LinkGridItem-linkWrapper" href={attributes.url}>
-				<div className="LinkGridItem-description">
-					<div className="LinkGridItem-innerDescription">
-						{attributes.previewText}
-					</div>
-				</div>
+				<div className="LinkGridItem-description">{attributes.previewText}</div>
 				<img
 					className="LinkGridItem-preview"
 					src={attributes.previewImageSrc}

@@ -228,7 +228,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	& button,
-	& a.button {
+	& a.button,
+	& input[type="submit"] {
 		margin: 0;
 	}
 }
@@ -399,14 +400,30 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 .Comic {
 	&-image {
 		width: 100%;
+		height: auto;
 	}
 
 	&-nav {
-		display: flex;
+		display: grid;
+		grid-template-areas: "First Prev Next Last";
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 
-		> * {
-			flex: 1;
-		}
+		// > * {
+		// 	flex: 1 !important; // >:(
+		// }
+	}
+
+	&-first {
+		grid-area: First !important; // >:(
+	}
+	&-prev {
+		grid-area: Prev !important; // >:(
+	}
+	&-next {
+		grid-area: Next !important; // >:(
+	}
+	&-last {
+		grid-area: Last !important; // >:(
 	}
 }
 

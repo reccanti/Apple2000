@@ -39,7 +39,7 @@ export const attributes = {
 	 */
 	previewText: {
 		type: "string",
-		selector: ".LinkGridItem-innerDescription",
+		selector: ".LinkGridItem-description",
 		// in this case, we're getting the value from the inner text of the HTML element
 		source: "text",
 	},
