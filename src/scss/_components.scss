@@ -48,7 +48,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
    * ~reccanti 4/10/2021
    */
 	@media (min-width: globals.$bp-large) {
-		border: globals.$borderSize * 3 double var(--text-color);
+		border: calc(var(--border-size) * 3) double var(--text-color);
 
 		&-inner {
 			padding: var(--spacing2);
@@ -105,7 +105,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
    * ~reccanti 4/10/2021
    */
 	@media (min-width: globals.$bp-large) {
-		border-bottom: globals.$borderSize solid var(--text-color);
+		border-bottom: var(--border-size) solid var(--text-color);
 
 		&-buttons {
 			&.ButtonGroup {
@@ -219,8 +219,8 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
  */
 .ButtonGroup {
 	display: inline-flex;
-	gap: globals.$borderSize;
-	padding: globals.$borderSize;
+	gap: var(--border-size);
+	padding: var(--border-size);
 	flex-wrap: wrap;
 	// justify-content: center;
 
@@ -317,15 +317,15 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 
 		&:hover {
 			&:before {
-				box-shadow: inset 0 0 0 #{3 * globals.$borderSize} var(--text-color);
+				box-shadow: inset 0 0 0 calc(3 * var(--border-size)) var(--text-color);
 			}
 		}
 
 		&:focus {
 			&:before {
-				box-shadow: inset 0 0 0 globals.$borderSize var(--text-color),
-					inset 0 0 0 #{2 * globals.$borderSize} var(--background-color),
-					inset 0 0 0 #{3 * globals.$borderSize} var(--text-color);
+				box-shadow: inset 0 0 0 var(--border-size) var(--text-color),
+					inset 0 0 0 calc(2 * var(--border-size)) var(--background-color),
+					inset 0 0 0 calc(3 * var(--border-size)) var(--text-color);
 			}
 		}
 	}
@@ -333,10 +333,10 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	&-description {
 		display: inline-block;
 		position: absolute;
-		margin: globals.$borderSize * 5;
+		margin: calc(5 * var(--border-size));
 		padding: var(--spacing1);
 		text-align: center;
-		border: globals.$borderSize solid var(--background-color);
+		border: var(--border-size) solid var(--background-color);
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header5);
 		line-height: 0.8;
@@ -441,7 +441,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-	padding: globals.$borderSize 0;
+	padding: var(--border-size) 0;
 	text-align: left;
 
 	&-inner {
@@ -454,7 +454,7 @@ $wrappedHeight: calc(100vh - 2 * #{$wrapperBorder});
 	}
 
 	.theme-root--no-motion & {
-		padding: globals.$borderSize var(--spacing1);
+		padding: var(--border-size) var(--spacing1);
 		text-align: center;
 
 		#{$root}-inner {

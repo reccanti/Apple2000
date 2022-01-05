@@ -1,6 +1,9 @@
 @use 'globals';
 
 :root {
+	/* border size */
+	--border-size: #{globals.$borderSize};
+
 	/* Site Width */
 	--site-width: #{globals.$siteWidth};
 
