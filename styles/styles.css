@@ -186,6 +186,10 @@ textarea {
  * ~reccanti 4/12/2021
  */
 :root {
+  /* border size */
+  --border-size: 0.3rem;
+  /* Site Width */
+  --site-width: 1100px;
   /* Colors */
   --background-black: #0d0e10;
   --background-blue: #3f5df5;
@@ -228,28 +232,53 @@ textarea {
   --font-base-size-multiplier: 1.5;
   --font-header-size-multiplier: var(--font-base-size-multiplier);
   --font-size-base: calc(var(--font-header-size-multiplier) * 1rem);
+  --site-width-font-modifier: min(1vw, calc(var(--site-width) / 100));
   --font-size-header6: calc(
-  	(0 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			0 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header5: calc(
-  	(1 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			1 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header4: calc(
-  	(2 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			2 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header3: calc(
-  	(3 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			3 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header2: calc(
-  	(5 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			5 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header1: calc(
-  	(8 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			8 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-badge: calc(var(--font-size-base) * 0.8);
@@ -370,27 +399,51 @@ textarea {
   --font-header-size-multiplier: calc(var(--font-base-size-multiplier) * 0.6);
   --font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
   --font-size-header6: calc(
-  	(0 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			0 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header5: calc(
-  	(1 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			1 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header4: calc(
-  	(2 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			2 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header3: calc(
-  	(3 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			3 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header2: calc(
-  	(5 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			5 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-header1: calc(
-  	(8 * var(--font-header-size-multiplier) * 1vw) +
+  	(
+  			8 *
+  				var(--font-header-size-multiplier) *
+  				var(--site-width-font-modifier)
+  		) +
   		var(--font-size-base)
   );
   --font-size-badge: calc(var(--font-size-base) * 0.8);
@@ -398,7 +451,7 @@ textarea {
 }
 
 * {
-  text-decoration-thickness: 0.15rem;
+  text-decoration-thickness: calc(var(--border-size) / 2);
 }
 
 /**
@@ -479,8 +532,8 @@ textarea {
   color: var(--text-color);
   box-sizing: border-box;
   resize: both;
-  border: 0.3rem solid var(--text-color);
-  padding: 0.9rem;
+  border: var(--border-size) solid var(--text-color);
+  padding: calc(3 * var(--border-size));
   font-style: italic;
   font-size: var(--font-size-base);
   width: 100%;
@@ -488,8 +541,8 @@ textarea {
 }
 textarea:focus {
   outline: none;
-  border: 0.9rem double var(--dark-color);
-  padding: 0.3rem;
+  border: calc(3 * var(--border-size)) double var(--dark-color);
+  padding: var(--border-size);
   background-color: var(--light-color);
   color: var(--dark-color);
   font-style: normal;
@@ -502,8 +555,8 @@ input[type=text] {
   background-color: var(--background-color);
   color: var(--text-color);
   box-sizing: border-box;
-  border: 0.3rem solid var(--text-color);
-  padding: 0.9rem;
+  border: var(--border-size) solid var(--text-color);
+  padding: calc(3 * var(--border-size));
   font-family: var(--font-family-regular);
   font-style: italic;
   font-size: var(--font-size-base);
@@ -511,8 +564,8 @@ input[type=text] {
 }
 input[type=text]:focus {
   outline: none;
-  border: 0.9rem double var(--dark-color);
-  padding: 0.3rem;
+  border: calc(3 * var(--border-size)) double var(--dark-color);
+  padding: var(--border-size);
   background-color: var(--light-color);
   color: var(--dark-color);
   font-style: normal;
@@ -521,7 +574,7 @@ input[type=text]:focus {
 input[type=range] {
   appearance: none;
   -webkit-appearance: none;
-  height: 0.3rem;
+  height: var(--border-size);
   background-color: var(--text-color);
   width: 100%;
   margin: var(--spacing1) 0;
@@ -531,12 +584,12 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 1.5rem;
   height: 1.5rem;
-  border: 0.3rem solid var(--text-color);
+  border: var(--border-size) solid var(--text-color);
   border-radius: 50%;
   background-color: var(--background-color);
 }
 input[type=range]::-moz-range-thumb {
-  border: 0.3rem solid var(--text-color);
+  border: var(--border-size) solid var(--text-color);
   border-radius: 50%;
   background-color: var(--background-color);
 }
@@ -544,25 +597,25 @@ input[type=range]:focus, input[type=range]:active {
   outline: none;
 }
 input[type=range]:focus::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.3rem var(--background-color), 0 0 0 0.6rem var(--text-color);
+  box-shadow: 0 0 0 var(--border-size) var(--background-color), 0 0 0 calc(2 * var(--border-size)) var(--text-color);
 }
 input[type=range]:focus::-moz-range-thumb, input[type=range]:active::-moz-range-thumb {
-  box-shadow: 0 0 0 0.3rem var(--background-color), 0 0 0 0.6rem var(--text-color);
+  box-shadow: 0 0 0 var(--border-size) var(--background-color), 0 0 0 calc(2 * var(--border-size)) var(--text-color);
 }
 
 input[type=checkbox] {
   appearance: none;
   -webkit-appearance: none;
-  border: 0.3rem solid var(--text-color);
+  border: var(--border-size) solid var(--text-color);
   height: 1.5rem;
   width: 1.5rem;
-  padding: 0.15rem;
+  padding: calc(var(--border-size) / 2);
   display: flex;
-  margin: 0.6rem;
+  margin: calc(2 * var(--border-size));
 }
 input[type=checkbox]:focus {
-  outline: 0.3rem solid var(--text-color);
-  outline-offset: 0.3rem;
+  outline: var(--border-size) solid var(--text-color);
+  outline-offset: var(--border-size);
 }
 input[type=checkbox]:checked::after {
   content: "";
@@ -575,10 +628,10 @@ input[type=checkbox]:checked::after {
 select {
   appearance: none;
   -webkit-appearance: none;
-  border: 0.3rem solid var(--text-color);
+  border: var(--border-size) solid var(--text-color);
   border-radius: 0;
   width: 100%;
-  padding: 0.9rem;
+  padding: calc(3 * var(--border-size));
   font-family: var(--font-family-regular);
   font-size: var(--font-size-badge);
   color: var(--text-color);
@@ -586,8 +639,8 @@ select {
 }
 select:focus {
   outline: none;
-  padding: 0.3rem;
-  border: 0.9rem double var(--dark-color);
+  padding: var(--border-size);
+  border: calc(3 * var(--border-size)) double var(--dark-color);
   background-color: var(--light-color);
   color: var(--dark-color);
 }
@@ -609,9 +662,9 @@ input[type=submit] {
   align-items: center;
   justify-content: center;
   background-color: var(--background-color);
-  box-shadow: 0 0 0 0.3rem var(--text-color);
-  margin: 0.3rem;
-  padding: 0.6rem;
+  box-shadow: 0 0 0 var(--border-size) var(--text-color);
+  margin: var(--border-size);
+  padding: calc(2 * var(--border-size));
   text-align: center;
 }
 button img,
@@ -630,8 +683,8 @@ input[type=submit]:focus {
 button:focus,
 a.button:focus,
 input[type=submit]:focus {
-  outline: 0.3rem solid var(--background-color);
-  outline-offset: -0.3rem;
+  outline: var(--border-size) solid var(--background-color);
+  outline-offset: calc(-1 * var(--border-size));
 }
 
 /**
@@ -639,7 +692,7 @@ input[type=submit]:focus {
  */
 hr {
   border: none;
-  border-bottom: 0.9rem double;
+  border-bottom: calc(3 * var(--border-size)) double var(--text-color);
   color: var(--text-color);
   margin: 1rem 0;
 }
@@ -681,8 +734,8 @@ a:focus, a:hover {
   color: var(--background-color);
 }
 a:focus {
-  outline: 0.3rem solid var(--text-color);
-  outline-offset: 0.3rem;
+  outline: var(--border-size) solid var(--text-color);
+  outline-offset: var(--border-size);
 }
 
 /**
@@ -705,7 +758,7 @@ section > *:not(:first-child) {
   margin: 0;
 }
 .Wrapper-inner {
-  max-width: 1200px;
+  max-width: var(--site-width);
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
@@ -734,7 +787,7 @@ section > *:not(:first-child) {
 }
 @media (min-width: 700px) {
   .Box {
-    border: 0.9rem double var(--text-color);
+    border: calc(var(--border-size) * 3) double var(--text-color);
   }
   .Box-inner {
     padding: var(--spacing2);
@@ -785,7 +838,7 @@ section > *:not(:first-child) {
 }
 @media (min-width: 700px) {
   .Header {
-    border-bottom: 0.3rem solid var(--text-color);
+    border-bottom: var(--border-size) solid var(--text-color);
   }
   .Header-buttons.ButtonGroup {
     padding: 0;
@@ -880,8 +933,8 @@ button:focus .Icon rect,
  */
 .ButtonGroup {
   display: inline-flex;
-  gap: 0.3rem;
-  padding: 0.3rem;
+  gap: var(--border-size);
+  padding: var(--border-size);
   flex-wrap: wrap;
 }
 .ButtonGroup--nowrap {
@@ -964,18 +1017,18 @@ button:focus .Icon rect,
   opacity: 1;
 }
 .LinkGridItem-linkWrapper:hover:before {
-  box-shadow: inset 0 0 0 0.9rem var(--text-color);
+  box-shadow: inset 0 0 0 calc(3 * var(--border-size)) var(--text-color);
 }
 .LinkGridItem-linkWrapper:focus:before {
-  box-shadow: inset 0 0 0 0.3rem var(--text-color), inset 0 0 0 0.6rem var(--background-color), inset 0 0 0 0.9rem var(--text-color);
+  box-shadow: inset 0 0 0 var(--border-size) var(--text-color), inset 0 0 0 calc(2 * var(--border-size)) var(--background-color), inset 0 0 0 calc(3 * var(--border-size)) var(--text-color);
 }
 .LinkGridItem-description {
   display: inline-block;
   position: absolute;
-  margin: 1.5rem;
+  margin: calc(5 * var(--border-size));
   padding: var(--spacing1);
   text-align: center;
-  border: 0.3rem solid var(--background-color);
+  border: var(--border-size) solid var(--background-color);
   font-family: var(--font-family-header);
   font-size: var(--font-size-header5);
   line-height: 0.8;
@@ -1055,7 +1108,7 @@ button:focus .Icon rect,
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 0.3rem 0;
+  padding: var(--border-size) 0;
   text-align: left;
 }
 .Banner-inner {
@@ -1066,7 +1119,7 @@ button:focus .Icon rect,
   display: inline-block;
 }
 .theme-root--no-motion .Banner {
-  padding: 0.3rem var(--spacing1);
+  padding: var(--border-size) var(--spacing1);
   text-align: center;
 }
 .theme-root--no-motion .Banner .Banner-inner {
