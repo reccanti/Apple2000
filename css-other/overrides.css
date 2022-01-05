@@ -24,12 +24,10 @@
 .comment-form > *:not(:first-child) {
 	margin-top: var(--spacing2);
 }
-.comment-respond {
+.comment-respond:not(:first-child) {
 	margin-top: var(--spacing2);
 	padding-top: var(--spacing2);
 	border-top: calc(var(--border-size) * 3) double var(--text-color);
-}
-.children .comment-respond {
 }
 
 /**
