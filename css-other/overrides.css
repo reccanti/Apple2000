@@ -9,7 +9,7 @@
 }
 .logged-in-as > a {
 	display: inline-block;
-	font-size: var(--tag-font-size);
+	font-size: var(--font-size-badge);
 	font-family: var(--font-family-header);
 }
 .logged-in-as > a:not(:first-child) {
@@ -23,6 +23,77 @@
 }
 .comment-form > *:not(:first-child) {
 	margin-top: var(--spacing2);
+}
+.comment-respond {
+	margin-top: var(--spacing2);
+	padding-top: var(--spacing2);
+	border-top: calc(var(--border-size) * 3) double var(--text-color);
+}
+.children .comment-respond {
+}
+
+/**
+ * Comments
+ */
+.comment-list,
+.comment-list .children {
+	list-style: none;
+}
+.comment-list .children {
+	border-left: var(--border-size) solid var(--text-color);
+	padding-left: var(--spacing2);
+
+	border-top: var(--border-size) solid var(--text-color);
+	padding-top: var(--spacing2);
+}
+.comment-list .children > *:not(:first-child) {
+	margin-top: var(--spacing2);
+}
+.comment:not(:last-child) .children .comment-respond {
+	margin-bottom: var(--spacing2);
+	padding-bottom: var(--spacing2);
+	border-bottom: calc(var(--border-size) * 3) double var(--text-color);
+}
+
+.comment-meta > *:not(:first-child) {
+	margin-top: var(--spacing1);
+}
+
+.comment-metadata {
+	display: flex;
+}
+.comment-metadata > * {
+	display: inline-block;
+	font-size: var(--font-size-badge);
+	font-family: var(--font-family-header);
+}
+.comment-metadata > *:not(:first-child)::before {
+	content: "|";
+	margin: 0 var(--spacing1);
+}
+
+.comment-author {
+	display: flex;
+	gap: var(--spacing1);
+}
+
+.comment-body {
+	margin-bottom: var(--spacing1);
+}
+.comment-body > *:not(:first-child) {
+	margin-top: var(--spacing1);
+}
+.comment-body .reply {
+	/* display: inline-block; */
+	font-size: var(--font-size-badge);
+	font-family: var(--font-family-header);
+}
+
+.comment-reply-title {
+	font-size: calc(1.5 * var(--font-size-badge));
+	font-family: var(--font-family-header);
+	display: flex;
+	gap: var(--spacing1);
 }
 
 /**

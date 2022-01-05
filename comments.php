@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 <section id="comments" class="Box comments-area">
 	<header class="Header">
 		<h2 class="Header-inner comments-title">
-			Comments
+			Potentially Cool Comments
 		</h2><!-- .comments-title -->
 	</header>
 	<div class="Box-inner">
