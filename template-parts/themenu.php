@@ -23,6 +23,7 @@
               theme: "white",
               fontSizeMultiplier: 1.5,
               enableMotion: true,
+              useSimpleText: false
             };
             this._state = this.initializeState();
 
@@ -35,6 +36,7 @@
 
             this._themeSelect = this._root.querySelector("select[name='theme-select']");
             this._textSizeSlider = this._root.querySelector("input[name='text-size-slider']");
+            this._simpleTextCheckbox = this._root.querySelector("input[name='use-simple-text']");
             this._motionCheckbox = this._root.querySelector("input[name='turn-off-motion']");
 
             this._saveButton = this._root.querySelector("#save-settings");
@@ -67,6 +69,15 @@
                 this.setState("enableMotion", true);
               } else {
                 this.setState("enableMotion", false);
+              }
+              this.appendClasses();
+            });
+            this._simpleTextCheckbox.addEventListener("change", e => {
+              const isChecked = e.target.checked;
+              if (isChecked) {
+                this.setState("useSimpleText", true);
+              } else {
+                this.setState("useSimpleText", false);
               }
               this.appendClasses();
             });
@@ -144,6 +155,11 @@
                     classes.push("theme-root--no-motion");
                   }
                   break;
+                case "useSimpleText":
+                  if (value) {
+                    classes.push("theme-root--simple-text");
+                  }
+                  break;
               }
             });
             this._themeRoot.classList = classes.join(" ");
@@ -171,7 +187,11 @@
                   this._textSizeSlider.value = value;
                   break;
                 case "enableMotion":
-                  this._motionCheckbox.checked = value
+                  this._motionCheckbox.checked = value;
+                  break;
+                case "useSimpleText":
+                  this._simpleTextCheckbox.checked = value;
+                  break;
               }
             });
           }

@@ -159,4 +159,28 @@
 		--background-color: var(--background-white);
 		--text-color: var(--text-black);
 	}
+
+	// text stuff
+
+	&--simple-text {
+		// use basic text for the font headers
+		--font-family-header: var(--font-basic);
+
+		// adjust header sizes
+		--font-header-size-multiplier: calc(var(--font-base-size-multiplier) * 0.6);
+		--font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
+
+		$fib: 0, 1, 2, 3, 5, 8;
+		$cur: 6;
+		@each $num in $fib {
+			--font-size-header#{$cur}: calc(
+				(#{$num} * var(--font-header-size-multiplier) * 1vw) +
+					var(--font-size-base)
+			);
+			$cur: $cur - 1;
+		}
+		--font-size-badge: calc(var(--font-size-base) * 0.8);
+
+		--line-height-header: 1.3;
+	}
 }

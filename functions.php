@@ -262,6 +262,11 @@ function cacheCookie() {
 					array_push($theme_classes, "theme-root--no-motion");
 				}
 				break;
+			case "useSimpleText":
+				if ($value) {
+					array_push($theme_classes, "theme-root--simple-text");
+				}
+				break;
 			case "fontSizeMultiplier":
 				array_push($root_styles, "--font-base-size-multiplier: " . $value);
 				break;
