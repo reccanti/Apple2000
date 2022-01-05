@@ -231,7 +231,7 @@ textarea {
   /* Font Sizes */
   --font-base-size-multiplier: 1.5;
   --font-header-size-multiplier: var(--font-base-size-multiplier);
-  --font-size-base: calc(var(--font-header-size-multiplier) * 1rem);
+  --font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
   --site-width-font-modifier: min(1vw, calc(var(--site-width) / 100));
   --font-size-header6: calc(
   	(
@@ -473,36 +473,42 @@ h1 {
   font-family: var(--font-family-header);
   font-size: var(--font-size-header1);
   line-height: var(--line-height-header);
+  overflow-wrap: anywhere;
 }
 
 h2 {
   font-family: var(--font-family-header);
   font-size: var(--font-size-header2);
   line-height: var(--line-height-header);
+  overflow-wrap: anywhere;
 }
 
 h3 {
   font-family: var(--font-family-header);
   font-size: var(--font-size-header3);
   line-height: var(--line-height-header);
+  overflow-wrap: anywhere;
 }
 
 h4 {
   font-family: var(--font-family-header);
   font-size: var(--font-size-header4);
   line-height: var(--line-height-header);
+  overflow-wrap: anywhere;
 }
 
 h5 {
   font-family: var(--font-family-header);
   font-size: var(--font-size-header5);
   line-height: var(--line-height-header);
+  overflow-wrap: anywhere;
 }
 
 h6 {
   font-family: var(--font-family-header);
   font-size: var(--font-size-header6);
   line-height: var(--line-height-header);
+  overflow-wrap: anywhere;
 }
 
 /**
@@ -769,6 +775,8 @@ section > *:not(:first-child) {
  */
 .Box {
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
   /**
     * @TODO - Not sold on these sizes
     * ~reccanti 4/10/2021
@@ -780,7 +788,7 @@ section > *:not(:first-child) {
 .Box-inner {
   --font-header-size-multiplier: 1;
   padding: var(--spacing2) 0;
-  overflow-x: scroll;
+  overflow: scroll;
 }
 .Box-inner > *:not(:first-child) {
   margin-top: var(--spacing2);
@@ -858,16 +866,12 @@ section > *:not(:first-child) {
 .Menu--close .Menu-contents {
   display: none;
 }
-.Menu--close .Menu-open {
-  display: block;
-}
 .Menu--open {
   margin: 0;
   width: 100%;
   border: 1rem solid var(--text-color);
 }
 .Menu--open .Menu-contents {
-  display: block;
   height: calc(100vh - 2rem);
   padding: 1rem;
 }
@@ -882,6 +886,7 @@ section > *:not(:first-child) {
     border: none;
   }
   .Menu--open .Menu-contents {
+    max-height: calc(100vh - 2 * (1rem + 1rem));
     height: auto;
     padding: initial;
   }
@@ -908,8 +913,8 @@ section > *:not(:first-child) {
  * making sure they're themed correctly
  */
 .Icon {
-  height: 2rem;
-  width: 2rem;
+  height: calc(var(--font-size-base) * 4 / 3);
+  width: calc(var(--font-size-base) * 4 / 3);
   display: block;
 }
 .Icon svg {
