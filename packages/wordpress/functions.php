@@ -260,76 +260,78 @@ function cacheCookie() {
 	$theme_classes = ["theme-root"];
 	$root_styles = [];
 
-	foreach ($settingsState as $key => $value) {
-		switch ($key) {
-			case "enableMotion":
-				if (!$value) {
-					array_push($theme_classes, "theme-root--no-motion");
-				}
-				break;
-			case "useSimpleText":
-				if ($value) {
-					array_push($theme_classes, "theme-root--simple-text");
-				}
-				break;
-			case "siteWidth":
-				array_push($root_styles, "--site-width: " . $value . "px");
-				break;
-			case "fontSizeMultiplier":
-				array_push($root_styles, "--font-base-size-multiplier: " . $value);
-				break;
-			case "theme":
-				switch($value) {
-					case "blue":
-						array_push($theme_classes, "theme-root--blue");
-						break;
-					case "brown":
-						array_push($theme_classes, "theme-root--brown");
-						break;	
-					case "darkGray":
-						array_push($theme_classes, "theme-root--darkGray");
-						break;	
-					case "darkGreen":
-						array_push($theme_classes, "theme-root--darkGreen");
-						break;	
-					case "purple":
-						array_push($theme_classes, "theme-root--purple");
-						break;	
-					case "salmon":
-						array_push($theme_classes, "theme-root--salmon");
-						break;	
-					case "black":
-						array_push($theme_classes, "theme-root--black");
-						break;	
-					case "darkBlue":
-						array_push($theme_classes, "theme-root--darkBlue");
-						break;
-					case "lightBlue":
-						array_push($theme_classes, "theme-root--lightBlue");
-						break;	
-					case "lightGray":
-						array_push($theme_classes, "theme-root--lightGray");
-						break;	
-					case "lightGreen":
-						array_push($theme_classes, "theme-root--lightGreen");
-						break;	
-					case "magenta":
-						array_push($theme_classes, "theme-root--magenta");
-						break;
-					case "orange":
-						array_push($theme_classes, "theme-root--orange");
-						break;	
-					case "pink":
-						array_push($theme_classes, "theme-root--pink");
-						break;	
-					case "white":
-						array_push($theme_classes, "theme-root--white");
-						break;	
-					case "yellow":
-						array_push($theme_classes, "theme-root--yellow");
-						break;
-				}
-				break;
+	if ($settingsState) {
+		foreach ($settingsState as $key => $value) {
+			switch ($key) {
+				case "enableMotion":
+					if (!$value) {
+						array_push($theme_classes, "theme-root--no-motion");
+					}
+					break;
+				case "useSimpleText":
+					if ($value) {
+						array_push($theme_classes, "theme-root--simple-text");
+					}
+					break;
+				case "siteWidth":
+					array_push($root_styles, "--site-width: " . $value . "px");
+					break;
+				case "fontSizeMultiplier":
+					array_push($root_styles, "--font-base-size-multiplier: " . $value);
+					break;
+				case "theme":
+					switch($value) {
+						case "blue":
+							array_push($theme_classes, "theme-root--blue");
+							break;
+						case "brown":
+							array_push($theme_classes, "theme-root--brown");
+							break;	
+						case "darkGray":
+							array_push($theme_classes, "theme-root--darkGray");
+							break;	
+						case "darkGreen":
+							array_push($theme_classes, "theme-root--darkGreen");
+							break;	
+						case "purple":
+							array_push($theme_classes, "theme-root--purple");
+							break;	
+						case "salmon":
+							array_push($theme_classes, "theme-root--salmon");
+							break;	
+						case "black":
+							array_push($theme_classes, "theme-root--black");
+							break;	
+						case "darkBlue":
+							array_push($theme_classes, "theme-root--darkBlue");
+							break;
+						case "lightBlue":
+							array_push($theme_classes, "theme-root--lightBlue");
+							break;	
+						case "lightGray":
+							array_push($theme_classes, "theme-root--lightGray");
+							break;	
+						case "lightGreen":
+							array_push($theme_classes, "theme-root--lightGreen");
+							break;	
+						case "magenta":
+							array_push($theme_classes, "theme-root--magenta");
+							break;
+						case "orange":
+							array_push($theme_classes, "theme-root--orange");
+							break;	
+						case "pink":
+							array_push($theme_classes, "theme-root--pink");
+							break;	
+						case "white":
+							array_push($theme_classes, "theme-root--white");
+							break;	
+						case "yellow":
+							array_push($theme_classes, "theme-root--yellow");
+							break;
+					}
+					break;
+			}
 		}
 	}
 

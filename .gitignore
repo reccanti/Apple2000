@@ -1,3 +1,5 @@
 node_modules
-src/_site
+**/node_modules
+
+packages/wordpress/src/_site
 .DS_Store
