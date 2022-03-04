@@ -18,9 +18,16 @@
     "url": "git+https://github.com/reccanti/Apple2000.git"
   },
   "scripts": {
+    "build": "node ./build.js",
+    "eleventy": "eleventy --input=./dev --output=./dev/_site",
+    "dev": "npm run eleventy -- --serve",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/reccanti/Apple2000/issues"
+  },
+  "devDependencies": {
+    "eleventy": "^1.0.6",
+    "sass": "^1.49.9"
   }
 }

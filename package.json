@@ -4,15 +4,7 @@
   "description": "Apple 2000e repo",
   "main": "index.js",
   "scripts": {
-    "build:js": "wp-scripts build plugins/Apple2000-Blocks/src/index.js --output-path=plugins/Apple2000-Blocks/build",
-    "build:css": "node ./src/build.js",
-    "build:site": "npm run eleventy",
-    "dev": "npm run eleventy -- --serve",
-    "lint": "eslint ./src",
-    "eleventy": "eleventy --input=./src --output=./src/_site",
-    "start": "wp-scripts start plugins/Apple2000-Blocks/src/index.js --output-path=plugins/Apple2000-Blocks/build",
-    "packages-update": "wp-scripts packages-update",
-    "zip": "npm run build:css && npm run build:js && ditto . ../Apple2000e-temp && rm -rf ../Apple2000e-temp/src && rm -rf ../Apple2000e-temp/node_modules && zip -r ../Apple2000e.zip ../Apple2000e-temp && rm -rf ../Apple2000e-temp"
+    "build": "lerna run build"
   },
   "author": "reccanti <reccanti@gmail.com>",
   "license": "AGPL-3.0-or-later",
