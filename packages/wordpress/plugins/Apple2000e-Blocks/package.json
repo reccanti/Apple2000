@@ -1,7 +1,7 @@
 {
-	"name": "apple2000-blocks",
+	"name": "apple2000e-blocks",
 	"version": "0.1.0",
-	"description": "These are blocks associated with the Apple 2000 theme. Probably need to come up with a better way of integrating it with the Wordpress theme!",
+	"description": "These are blocks associated with the Apple 2000e theme. Probably need to come up with a better way of integrating it with the Wordpress theme!",
 	"author": "reccanti <reccanti@gmail.com>",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

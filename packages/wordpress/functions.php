@@ -213,17 +213,17 @@ require get_template_directory() . '/inc/theme-options.php';
  */
 
 // Load the CSS styles
-function apple_2000_setup() {
-	wp_enqueue_style( 'apple2000', get_template_directory_uri() . '/css/styles.css');
+function apple_2000e_setup() {
+	wp_enqueue_style( 'apple2000e', get_template_directory_uri() . '/node_modules/css/dist/styles.css');
 }
-add_action( 'wp_enqueue_scripts', 'apple_2000_setup');
+add_action( 'wp_enqueue_scripts', 'apple_2000e_setup');
 
 // Load our custom blocks
-include_once get_template_directory() . '/plugins/Apple2000-Blocks/apple2000-blocks.php';
-include_once get_template_directory() . '/plugins/Apple2000-Blocks/build/index.asset.php';
+include_once get_template_directory() . '/plugins/Apple2000e-Blocks/apple2000-blocks.php';
+include_once get_template_directory() . '/plugins/Apple2000e-Blocks/build/index.asset.php';
 function load_block_editor_assets() {
-	wp_enqueue_script('apple-2000e-block-scripts', get_template_directory_uri() . '/plugins/Apple2000-Blocks/build/index.js');
-	wp_enqueue_style('apple-2000e-block-styles', get_template_directory_uri() . '/plugins/Apple2000-Blocks/build/index.css');
+	wp_enqueue_script('apple-2000e-block-scripts', get_template_directory_uri() . '/plugins/Apple2000e-Blocks/build/index.js');
+	wp_enqueue_style('apple-2000e-block-styles', get_template_directory_uri() . '/plugins/Apple2000e-Blocks/build/index.css');
 }
 add_action( 'enqueue_block_editor_assets', 'load_block_editor_assets');
 
@@ -233,13 +233,13 @@ function apply_css_overrides() {
 		wp_enqueue_style(
 			'apple-2000e-admin-overrde-styles',
 			get_template_directory_uri() . '/css-other/admin_overrides.css',
-			["apple2000"]
+			["apple2000e"]
 		);
 	}
 	wp_enqueue_style(
 		'apple-2000e-overrde-styles',
 		get_template_directory_uri() . '/css-other/overrides.css',
-		["apple2000"]
+		["apple2000e"]
 	);
 }
 add_action( 'wp_enqueue_scripts', 'apply_css_overrides');
