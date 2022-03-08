@@ -32,6 +32,6 @@
 		"url": "https://github.com/reccanti/Apple2000/issues"
 	},
 	"dependencies": {
-		"css": "file:../css"
+		"css": "^0.0.0"
 	}
 }

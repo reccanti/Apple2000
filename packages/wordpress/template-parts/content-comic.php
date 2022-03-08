@@ -7,10 +7,10 @@
   $last_link  = get_webcomic_url(null, [ "relation" => "last"]);
 
   // create icons  
-  $first_icon = file_get_contents(get_template_directory() . '/css/img/icons/DoubleArrowBack.svg');
-  $prev_icon  = file_get_contents(get_template_directory() . '/css/img/icons/ArrowBack.svg');
-  $next_icon  = file_get_contents(get_template_directory() . '/css/img/icons/ArrowForward.svg');
-  $last_icon  = file_get_contents(get_template_directory() . '/css/img/icons/DoubleArrowForward.svg');
+  $first_icon = file_get_contents(get_template_directory() . '/node_modules/css/dist/img/icons/DoubleArrowBack.svg');
+  $prev_icon  = file_get_contents(get_template_directory() . '/node_modules/css/dist/css/img/icons/ArrowBack.svg');
+  $next_icon  = file_get_contents(get_template_directory() . '/node_modules/css/dist/css/img/icons/ArrowForward.svg');
+  $last_icon  = file_get_contents(get_template_directory() . '/node_modules/css/dist/css/img/icons/DoubleArrowForward.svg');
 
 ?>
 

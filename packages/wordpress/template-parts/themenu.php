@@ -266,8 +266,8 @@
 ?>
 
 <?php 
-  $menu_icon = file_get_contents(get_template_directory() . '/css/img/icons/gear.svg');
-  $close_icon = file_get_contents(get_template_directory() . '/css/img/icons/close.svg');
+  $menu_icon = file_get_contents(get_template_directory() . '/node_modules/css/dist/img/icons/gear.svg');
+  $close_icon = file_get_contents(get_template_directory() . '/node_modules/css/dist/img/icons/close.svg');
 ?>
 
 <nav id="SettingsMenu" class="Menu Menu--close">

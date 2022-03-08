@@ -4,6 +4,7 @@
   "description": "Apple 2000e repo",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build"
   },
   "author": "reccanti <reccanti@gmail.com>",

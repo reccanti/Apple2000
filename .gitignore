@@ -5,3 +5,5 @@ node_modules
 
 packages/wordpress/src/_site
 .DS_Store
+
+.env
