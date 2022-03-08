@@ -130,7 +130,9 @@ function gutenberg_starter_theme_fonts_url() {
 function gutenberg_starter_theme_scripts() {
 	wp_enqueue_style( 'gutenbergbase-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'gutenberg-starter-themeblocks-style', get_template_directory_uri() . '/css/blocks.css' );
+	wp_enqueue_style( 'gutenberg-starter-themeblocks-style', get_template_directory_uri() . '/blocks.css' );
+	// var_dump(get_template_directory_uri() . '/styles/blocks.css');
+	// exit();
 
 	wp_enqueue_style( 'gutenberg-starter-theme-fonts', gutenberg_starter_theme_fonts_url() );
 
@@ -212,6 +214,35 @@ require get_template_directory() . '/inc/theme-options.php';
  * ==========================================================================
  */
 
+if ( ! function_exists( 'full_site_support' ) ) :
+
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * @since Twenty Twenty-Two 1.0
+	 *
+	 * @return void
+	 */
+	function full_site_support() {
+
+		// Add support for block styles.
+		// add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'editor-styles');
+
+
+		// Enqueue editor styles.
+		wp_enqueue_style( 'gutenberg-starter-themeblocks-style', get_template_directory_uri() . '/style.css' );
+		add_editor_style( 'style.css' );
+		// wp_enqueue_style( 'gutenberg-starter-themeblocks-style', get_template_directory_uri() . '/styles/blocks.css' );
+
+		// var_dump(get_template_directory_uri() . '/styles/blocks.css');
+	}
+
+endif;
+
+add_action( 'after_setup_theme', 'full_site_support' );
+
+
 // Load the CSS styles
 function apple_2000e_setup() {
 	wp_enqueue_style( 'apple2000e', get_template_directory_uri() . '/node_modules/css/dist/styles.css');
@@ -232,13 +263,13 @@ function apply_css_overrides() {
 	if (is_admin_bar_showing()) {
 		wp_enqueue_style(
 			'apple-2000e-admin-overrde-styles',
-			get_template_directory_uri() . '/css-other/admin_overrides.css',
+			get_template_directory_uri() . '/styles/admin_overrides.css',
 			["apple2000e"]
 		);
 	}
 	wp_enqueue_style(
 		'apple-2000e-overrde-styles',
-		get_template_directory_uri() . '/css-other/overrides.css',
+		get_template_directory_uri() . '/styles/overrides.css',
 		["apple2000e"]
 	);
 }
