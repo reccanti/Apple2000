@@ -1,11 +1,13 @@
 import { render } from "react-dom";
-import { Banner } from "../lib";
+import { Banner, Wrapper } from "../lib";
 
 function App() {
   return (
     <div className="theme-root theme-root--white">
-      <Banner />
-      <Banner speed={5} />
+      <Wrapper>
+        <Banner />
+        <Banner speed={5} />
+      </Wrapper>
     </div>
   );
 }
