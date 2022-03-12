@@ -1,10 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, ReactNode } from "react";
 
 interface Props {
   speed?: number;
+  children: ReactNode;
 }
 
-export function Banner({ speed }: Props) {
+export function Banner({ speed, children }: Props) {
   const style = useMemo(() => {
     let styleObj = {};
     if (speed) {
@@ -17,7 +18,7 @@ export function Banner({ speed }: Props) {
 
   return (
     <div className="Banner" style={style}>
-      <span className="Banner-inner">You can put all sorts of text here!</span>
+      <span className="Banner-inner">{children}</span>
     </div>
   );
 }
