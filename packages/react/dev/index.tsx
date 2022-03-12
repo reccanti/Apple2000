@@ -3,18 +3,16 @@ import { Banner, Wrapper, Splash } from "../lib";
 
 function App() {
   return (
-    <div className="theme-root theme-root--white">
-      <Wrapper>
-        <Splash>
-          <h1>
-            Apple
-            <br />
-            ][000e
-          </h1>
-          <Banner>Now in React!!!</Banner>
-        </Splash>
-      </Wrapper>
-    </div>
+    <Wrapper>
+      <Splash>
+        <h1>
+          Apple
+          <br />
+          ][000e
+        </h1>
+        <Banner>Now in React!!!</Banner>
+      </Splash>
+    </Wrapper>
   );
 }
 
