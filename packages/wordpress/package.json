@@ -18,7 +18,7 @@
 		"url": "git+https://github.com/reccanti/Apple2000.git"
 	},
 	"scripts": {
-		"build:js": "wp-scripts build plugins/Apple2000e-Blocks/src/index.js --output-path=plugins/Apple2000e-Blocks/build",
+		"build": "wp-scripts build plugins/Apple2000e-Blocks/src/index.js --output-path=plugins/Apple2000e-Blocks/build",
 		"lint": "eslint ./src",
 		"start": "wp-scripts start plugins/Apple2000-Blocks/src/index.js --output-path=plugins/Apple2000-Blocks/build",
 		"packages-update": "wp-scripts packages-update",
