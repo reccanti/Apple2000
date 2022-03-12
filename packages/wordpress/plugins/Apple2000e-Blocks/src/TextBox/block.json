@@ -1,8 +1,8 @@
 {
 	"apiVersion": 2,
-	"name": "apple2000/text-box",
+	"name": "apple2000e/text-box",
 	"title": "TextBox",
-	"category": "apple2000",
+	"category": "apple2000e",
 	"description": "A TextBox for the Apple ][000e Theme that can position text in different directions.",
 	"supports": {
 		"html": false

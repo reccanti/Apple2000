@@ -13,4 +13,4 @@ import "./style.scss";
 export { Edit } from "./edit";
 export { Save } from "./save";
 
-export const name = "apple2000/link-grid";
+export const name = "apple2000e/link-grid";

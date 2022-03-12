@@ -1,8 +1,8 @@
 {
 	"apiVersion": 2,
-	"name": "apple2000/banner",
+	"name": "apple2000e/banner",
 	"title": "Banner",
-	"category": "apple2000",
+	"category": "apple2000e",
 	"icon": "block-default",
 	"description": "A Banner for the Apple ][000e Theme.",
 	"supports": {

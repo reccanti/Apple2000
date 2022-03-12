@@ -15,4 +15,4 @@ export { Save } from "./save";
 export { attributes } from "./attributes";
 export { typography as icon } from "@wordpress/icons";
 
-export const name = "apple2000/text-box";
+export const name = "apple2000e/text-box";

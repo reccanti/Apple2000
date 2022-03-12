@@ -29,7 +29,7 @@ import "./editor.scss";
  *
  * @return {WPElement} Element to render.
  */
-const ALLOWED_BLOCKS = ["apple2000/link-grid-item"];
+const ALLOWED_BLOCKS = ["apple2000e/link-grid-item"];
 export function Edit() {
 	return (
 		<div {...useBlockProps()}>

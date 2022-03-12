@@ -6,4 +6,4 @@ import "./style.scss";
 export { Edit } from "./edit";
 export { Save } from "./save";
 
-export const name = "apple2000/splash";
+export const name = "apple2000e/splash";

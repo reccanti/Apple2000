@@ -15,8 +15,8 @@
 
 function create_apple2000_category( $categories, $post ) {
 	$apple2000_category = array(
-		'slug' => 'apple2000',
-		'title' => __( 'Apple 2000', 'apple2000' ),
+		'slug' => 'apple2000e',
+		'title' => __( 'Apple ][000e', 'apple2000e' ),
 	);
 	if (in_array($apple2000_category, $categories)) {
 		return $categories;

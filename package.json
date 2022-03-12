@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "docker:bootstrap": "docker-compose exec --workdir /root/node/app wp npm run bootstrap"
   },
   "author": "reccanti <reccanti@gmail.com>",
   "license": "AGPL-3.0-or-later",

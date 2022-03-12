@@ -1,10 +1,10 @@
 {
 	"apiVersion": 2,
-	"name": "apple2000/link-grid-item",
+	"name": "apple2000e/link-grid-item",
 	"title": "Link Grid Item",
-	"category": "apple2000",
+	"category": "apple2000e",
 	"icon": "format-image",
-	"description": "The LinkGridItem block for the Apple 2000 Theme.",
+	"description": "The LinkGridItem block for the Apple ][000e Theme.",
 	"supports": {
 		"html": false
 	},

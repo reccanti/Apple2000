@@ -4,13 +4,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-apple2000-text-box {
+.wp-block-apple2000e-text-box {
 	border: 1px solid black;
 	padding: 1rem;
 	padding-top: 2rem;
 
 	&::before {
 		content: "TextBox";
+		font-family: sans-serif;
 		color: white;
 		background: black;
 		display: inline-block;

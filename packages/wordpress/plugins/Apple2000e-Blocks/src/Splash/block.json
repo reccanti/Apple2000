@@ -1,10 +1,10 @@
 {
 	"apiVersion": 2,
-	"name": "apple2000/splash",
+	"name": "apple2000e/splash",
 	"title": "Splash",
-	"category": "apple2000",
+	"category": "apple2000e",
 	"icon": "editor-expand",
-	"description": "The Splash section block for the Apple 2000 Theme.",
+	"description": "The Splash section block for the Apple ][000e Theme.",
 	"supports": {
 		"html": false
 	},

@@ -16,4 +16,4 @@ export { Edit } from "./edit";
 export { Save } from "./save";
 export { separator as icon } from "@wordpress/icons";
 
-export const name = "apple2000/horizontal-rule";
+export const name = "apple2000e/horizontal-rule";

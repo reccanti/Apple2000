@@ -1,8 +1,8 @@
 {
 	"apiVersion": 2,
-	"name": "apple2000/box",
+	"name": "apple2000e/box",
 	"title": "Box",
-	"category": "apple2000",
+	"category": "apple2000e",
 	"icon": "block-default",
 	"description": "A Box for the Apple ][000e Theme.",
 	"supports": {
