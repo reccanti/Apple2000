@@ -16,7 +16,7 @@ function didSassFileChange(files) {
 module.exports = function (config) {
   const ASSET_DIR = path.relative(
     __dirname,
-    path.join(__dirname, "src", "assets")
+    path.join(__dirname, "dev", "assets")
   );
   const SASS_DIR = path.relative(
     __dirname,
@@ -30,7 +30,7 @@ module.exports = function (config) {
    */
   compile({
     entryFile: path.join(SASS_DIR, "styles.scss"),
-    outDir: path.join(__dirname, "src", "_site", "styles"),
+    outDir: path.join(__dirname, "dev", "_site", "styles"),
   });
 
   // config.addWatchTarget(path.resolve(SASS_DIR));
