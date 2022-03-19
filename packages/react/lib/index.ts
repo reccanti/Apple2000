@@ -2,6 +2,6 @@
 
 import "../node_modules/css/dist/styles.css";
 
-export { Banner } from "./banner";
-export { Wrapper } from "./wrapper";
-export { Splash } from "./splash";
+export { Banner } from "./Banner";
+export { Wrapper } from "./Wrapper";
+export { Splash } from "./Splash";

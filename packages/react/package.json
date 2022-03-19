@@ -20,7 +20,7 @@
   "scripts": {
     "build": "parcel build lib/index.ts",
     "eleventy": "eleventy --input=./dev --output=./dev/_site",
-    "dev": "parcel dev/index.html --dist-dir=dev/_site",
+    "dev": "parcel dev/index.html --dist-dir=dev/_site --no-cache",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
