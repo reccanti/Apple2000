@@ -20,14 +20,18 @@
   "scripts": {
     "build": "node ./build.js",
     "eleventy": "eleventy --input=./dev --output=./dev/_site",
-    "dev": "npm run eleventy -- --serve",
+    "dev": "parcel dev/index.pug --dist-dir=dev/_site --no-cache",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/reccanti/Apple2000/issues"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.3.2",
+    "@parcel/transformer-pug": "^2.3.2",
+    "@parcel/transformer-sass": "^2.3.2",
     "eleventy": "^1.0.6",
+    "parcel": "^2.3.2",
     "sass": "^1.49.9"
   }
 }
