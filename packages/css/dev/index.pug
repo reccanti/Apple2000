@@ -13,56 +13,56 @@ head
     margin-top: var(--spacing6);
     }
 
-body(class="theme-root theme-root--white")
+body(id="root", class="theme-root theme-root--color--white")
   .SkipNav
     a#skip-nav.button(href='#main') Jump to Main Content
 
   // Settings Menu
-  nav#SettingsMenu.Menu.Menu--close
-    button.Menu-open
-      span.Icon
-        include ../lib/scss/img/icons/gear.svg
-    .Menu-contents.Box
-      nav.Header
-        header.Header-inner Settings
-        .Header-buttons.ButtonGroup.ButtonGroup--nowrap
-          button.Menu-close
-            span.Icon
-              include ../lib/scss/img/icons/close.svg
-      .Box-inner.Menu-inner
-        label(for='theme-select')
-          | Theme
-          select#theme-select(name='theme-select')
-            optgroup(label='WCAG AA')
-              option(value='blue') Blue
-              option(value='brown') Brown
-              option(value='darkGray') Dark Gray
-              option(value='darkGreen') Dark Green
-              option(value='purple') Purple
-              option(value='salmon') Salmon
-            optgroup(label='WCAG AAA')
-              option(value='black') Black
-              option(value='darkBlue') Dark Blue
-              option(value='lightBlue') Light Blue
-              option(value='lightGray') Light Gray
-              option(value='lightGreen') Light Green
-              option(value='magenta') Magenta
-              option(value='orange') Orange
-              option(value='pink') Pink
-              option(selected='' value='white') White
-              option(value='yellow') Yellow
-        label(for='site-width-slider')
-          | Site Width
-          input#site-width-slider(type='range' name='site-width-slider' min='1' max='2000' step='1' value='1100')
-        label(for='text-size-slider')
-          | Text Size
-          input#text-size-slider(type='range' name='text-size-slider' min='1' max='3' step='0.01' value='1.5')
-        label(for='use-simple-text')
-          | Use Simple Text
-          input#use-simple-text(type='checkbox' name='use-simple-text')
-        label(for='turn-off-motion')
-          | Turn Off Motion
-          input#turn-off-motion(type='checkbox' name='turn-off-motion')
+  //- nav#SettingsMenu.Menu.Menu--close
+  //-   button.Menu-open
+  //-     span.Icon
+  //-       include ../lib/scss/img/icons/gear.svg
+  //-   .Menu-contents.Box
+  //-     nav.Header
+  //-       header.Header-inner Settings
+  //-       .Header-buttons.ButtonGroup.ButtonGroup--nowrap
+  //-         button.Menu-close
+  //-           span.Icon
+  //-             include ../lib/scss/img/icons/close.svg
+  //-     .Box-inner.Menu-inner
+  //-       label(for='theme-select')
+  //-         | Theme
+  //-         select#theme-select(name='theme-select')
+  //-           optgroup(label='WCAG AA')
+  //-             option(value='blue') Blue
+  //-             option(value='brown') Brown
+  //-             option(value='darkGray') Dark Gray
+  //-             option(value='darkGreen') Dark Green
+  //-             option(value='purple') Purple
+  //-             option(value='salmon') Salmon
+  //-           optgroup(label='WCAG AAA')
+  //-             option(value='black') Black
+  //-             option(value='darkBlue') Dark Blue
+  //-             option(value='lightBlue') Light Blue
+  //-             option(value='lightGray') Light Gray
+  //-             option(value='lightGreen') Light Green
+  //-             option(value='magenta') Magenta
+  //-             option(value='orange') Orange
+  //-             option(value='pink') Pink
+  //-             option(selected='' value='white') White
+  //-             option(value='yellow') Yellow
+  //-       label(for='site-width-slider')
+  //-         | Site Width
+  //-         input#site-width-slider(type='range' name='site-width-slider' min='1' max='2000' step='1' value='1100')
+  //-       label(for='text-size-slider')
+  //-         | Text Size
+  //-         input#text-size-slider(type='range' name='text-size-slider' min='1' max='3' step='0.01' value='1.5')
+  //-       label(for='use-simple-text')
+  //-         | Use Simple Text
+  //-         input#use-simple-text(type='checkbox' name='use-simple-text')
+  //-       label(for='turn-off-motion')
+  //-         | Turn Off Motion
+  //-         input#turn-off-motion(type='checkbox' name='turn-off-motion')
 
   // Content
   .Wrapper
@@ -626,3 +626,5 @@ body(class="theme-root theme-root--white")
       
       // the end
       .TextBox.TextBox--center ~ See ya! ~
+      //- script(type="module", src="../lib/css.ts")
+      script(type="module", src="./menu.ts")

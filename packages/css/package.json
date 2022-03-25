@@ -5,7 +5,6 @@
   "author": "Blair Wilcox <reccanti@gmail.com>",
   "homepage": "https://github.com/reccanti/Apple2000#readme",
   "license": "AGPL-3.0-or-later",
-  "main": "lib/css.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -28,9 +27,13 @@
   },
   "devDependencies": {
     "@parcel/config-default": "^2.3.2",
+    "@parcel/transformer-inline-string": "^2.3.2",
     "@parcel/transformer-pug": "^2.3.2",
     "@parcel/transformer-sass": "^2.3.2",
+    "change-case": "^4.1.2",
     "eleventy": "^1.0.6",
+    "html-template-string": "^1.2.6",
+    "nanohtml": "^1.9.1",
     "parcel": "^2.3.2",
     "sass": "^1.49.9"
   }
