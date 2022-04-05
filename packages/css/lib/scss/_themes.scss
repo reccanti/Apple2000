@@ -188,6 +188,13 @@
     --text-color: var(--text-black);
   }
 
+  &--color--black {
+    --light-color: var(--background-white);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-black);
+    --text-color: var(--text-white);
+  }
+
   // text stuff
 
   &--simple-text {

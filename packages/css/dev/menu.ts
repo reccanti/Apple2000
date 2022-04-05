@@ -1,9 +1,7 @@
 import html from "nanohtml";
 import raw from "nanohtml/raw";
 
-import { capitalCase } from "change-case";
-
-import { Apple2000eTheme, ThemeManager } from "../lib/css";
+import "../lib/css";
 
 // @ts-ignore
 import OpenIcon from "bundle-text:../lib/scss/img/icons/gear.svg";
@@ -11,13 +9,6 @@ import OpenIcon from "bundle-text:../lib/scss/img/icons/gear.svg";
 import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
 
 (() => {
-  // get the manager
-  const manager = new ThemeManager();
-
-  // get the color themes from the manager
-  const aaThemes = manager.getAAThemes();
-  const aaaThemes = manager.getAAAThemes();
-
   // construct UI
   const openBtn = html`<button class="Menu-open">
     <span class="Icon">${raw(OpenIcon)}</span>
@@ -36,7 +27,7 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
       min="1"
       max="2000"
       step="1"
-      value="1100"
+      is="site-width-input"
     />
   </label>`;
 
@@ -49,36 +40,33 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
       min="1"
       max="3"
       step="0.01"
-      value="1.5"
+      is="font-size-input"
     />
   </label>`;
 
   const themeSelect = html`<label for="theme-select">
     Theme
-    <select id="theme-select" name="theme-select">
-      <optgroup label="WCAG AA">
-        ${aaThemes.map(
-          (theme) =>
-            html` <option value="${theme}">${capitalCase(theme)}</option> `
-        )}
-      </optgroup>
-      <optgroup label="WCAG AAA">
-        ${aaaThemes.map(
-          (theme) =>
-            html` <option value="${theme}">${capitalCase(theme)}</option> `
-        )}
-      </optgroup>
-    </select>
+    <select id="theme-select" name="theme-select" is="theme-select"></select>
   </label>`;
 
   const simpleTextToggle = html`<label for="use-simple-text">
     Use Simple Text
-    <input type="checkbox" id="use-simple-text" name="use-simple-text" />
+    <input
+      type="checkbox"
+      id="use-simple-text"
+      name="use-simple-text"
+      is="simple-text-input"
+    />
   </label>`;
 
-  const motionToggle = html`<label for="turn-off-motion">
-    Disable Motion
-    <input type="checkbox" id="turn-off-motion" name="turn-off-motion" />
+  const motionToggle = html`<label for="motion-enabled">
+    Enable Motion
+    <input
+      type="checkbox"
+      id="motion-enabled"
+      name="motion-enabled"
+      is="motion-input"
+    />
   </label>`;
 
   const root = html`<nav class="Menu Menu--open">
@@ -106,62 +94,15 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
 
   // create event listeners and apply them
 
-  const handleChangeTheme = (event) => {
-    const theme = event.target.value as Apple2000eTheme;
-    manager.theme = theme;
-  };
-  themeSelect.addEventListener("change", handleChangeTheme);
-
   const openMenu = () => {
-    console.log(root.children[0]);
     root.classList.add("Menu--open");
     root.classList.remove("Menu--close");
   };
   openBtn.addEventListener("click", openMenu);
 
   const closeMenu = () => {
-    console.log(root.children[0]);
     root.classList.add("Menu--close");
     root.classList.remove("Menu--open");
   };
   closeBtn.addEventListener("click", closeMenu);
-
-  const adjustSiteWidth = (event) => {
-    const siteWidth = Number(event.target.value);
-    if (siteWidth) {
-      manager.siteWidth = siteWidth;
-    }
-  };
-  siteWidthSlider.addEventListener("input", adjustSiteWidth);
-
-  const adjustTextSize = (event) => {
-    const textSize = Number(event.target.value);
-    if (textSize) {
-      manager.fontSize = textSize;
-    }
-  };
-  textSizeSlider.addEventListener("input", adjustTextSize);
-
-  const toggleSimpleText = (event) => {
-    const isChecked = event.target.checked;
-    if (isChecked) {
-      manager.simpleTextEnabled = true;
-    } else {
-      manager.simpleTextEnabled = false;
-    }
-  };
-  simpleTextToggle.addEventListener("change", toggleSimpleText);
-
-  const toggleMotion = (event) => {
-    const isChecked = event.target.checked;
-    if (isChecked) {
-      manager.motionEnabled = false;
-    } else {
-      manager.motionEnabled = true;
-    }
-  };
-  motionToggle.addEventListener("change", toggleMotion);
-
-  // @ts-ignore
-  window.manager = new ThemeManager();
 })();
