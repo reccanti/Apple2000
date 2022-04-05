@@ -108,7 +108,7 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
 
   const handleChangeTheme = (event) => {
     const theme = event.target.value as Apple2000eTheme;
-    manager.switchTheme(theme);
+    manager.theme = theme;
   };
   themeSelect.addEventListener("change", handleChangeTheme);
 
@@ -129,7 +129,7 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
   const adjustSiteWidth = (event) => {
     const siteWidth = Number(event.target.value);
     if (siteWidth) {
-      manager.setSiteWidth(siteWidth);
+      manager.siteWidth = siteWidth;
     }
   };
   siteWidthSlider.addEventListener("input", adjustSiteWidth);
@@ -137,7 +137,7 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
   const adjustTextSize = (event) => {
     const textSize = Number(event.target.value);
     if (textSize) {
-      manager.setFontSize(textSize);
+      manager.fontSize = textSize;
     }
   };
   textSizeSlider.addEventListener("input", adjustTextSize);
@@ -145,9 +145,9 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
   const toggleSimpleText = (event) => {
     const isChecked = event.target.checked;
     if (isChecked) {
-      manager.useSimpleText(true);
+      manager.simpleTextEnabled = true;
     } else {
-      manager.useSimpleText(false);
+      manager.simpleTextEnabled = false;
     }
   };
   simpleTextToggle.addEventListener("change", toggleSimpleText);
@@ -155,10 +155,13 @@ import CloseIcon from "bundle-text:../lib/scss/img/icons/close.svg";
   const toggleMotion = (event) => {
     const isChecked = event.target.checked;
     if (isChecked) {
-      manager.useMotion(false);
+      manager.motionEnabled = false;
     } else {
-      manager.useMotion(true);
+      manager.motionEnabled = true;
     }
   };
   motionToggle.addEventListener("change", toggleMotion);
+
+  // @ts-ignore
+  window.manager = new ThemeManager();
 })();

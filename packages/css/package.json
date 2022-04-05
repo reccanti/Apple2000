@@ -21,7 +21,7 @@
     "build": "node ./build.js && parcel build ./lib/css.ts --dist-dir=./dist",
     "eleventy": "eleventy --input=./dev --output=./dev/_site",
     "dev": "parcel dev/index.pug --dist-dir=dev/_site --no-cache",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
   },
   "bugs": {
     "url": "https://github.com/reccanti/Apple2000/issues"
@@ -31,11 +31,14 @@
     "@parcel/transformer-inline-string": "^2.3.2",
     "@parcel/transformer-pug": "^2.3.2",
     "@parcel/transformer-sass": "^2.3.2",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@types/jest": "^27.4.1",
     "change-case": "^4.1.2",
     "eleventy": "^1.0.6",
     "html-template-string": "^1.2.6",
     "nanohtml": "^1.9.1",
     "parcel": "^2.3.2",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "ts-jest": "^27.1.4"
   }
 }
