@@ -1,0 +1,14 @@
+{
+	"apiVersion": 2,
+	"name": "apple2000e/horizontal-rule",
+	"title": "Horizontal Rule",
+	"category": "apple2000e",
+	"description": "A Horizontal Rule for the Apple ][000e Theme.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "horizontal-rule",
+	"editorScript": "file:../../build/index.js",
+	"editorStyle": "file:../../build/index.css",
+	"style": "file:../../build/style-index.css"
+}

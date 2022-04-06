@@ -1,0 +1,327 @@
+// /**
+//  * This file is used to describe our core elements. These are the
+//  * base styles for most elements, as well as anything that wasn't
+//  * covered in the CSS reset
+//  */
+@use "globals";
+@use "sass:math";
+
+* {
+  text-decoration-thickness: calc(var(--border-size) / 2);
+}
+
+/**
+ * Setting up the "body" styles 🕺
+ */
+.theme-root {
+  background-color: var(--text-color);
+  color: var(--text-color);
+
+  font-weight: 100;
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-text);
+}
+
+/**
+ * That's using your "head!!!" 🗣
+ */
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-header#{$i});
+    line-height: var(--line-height-header);
+    overflow-wrap: anywhere;
+  }
+}
+
+/**
+ * Time to get "form-"al. 🎩
+ */
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: var(--font-size-badge);
+  font-family: var(--font-family-header);
+
+  /**
+   * @TODO - I don't like that I need to use this weird class,
+   * but I don't have a better way of dealing with this right
+   * now. Maybe use a :has() polyfill?
+   */
+  &.required::after {
+    content: "(required)";
+  }
+
+  &:not(:first-child) {
+    margin-top: var(--spacing1);
+  }
+}
+
+textarea {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  box-sizing: border-box;
+  resize: both;
+  border: var(--border-size) solid var(--text-color);
+  padding: calc(3 * var(--border-size));
+  font-style: italic;
+  font-size: var(--font-size-base);
+  width: 100%;
+  font-family: var(--font-family-regular);
+
+  &:focus {
+    outline: none;
+    border: calc(3 * var(--border-size)) double var(--dark-color);
+    padding: var(--border-size);
+
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-style: normal;
+  }
+}
+
+input[type="text"] {
+  /* resets */
+  background: unset;
+  font: unset;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  box-sizing: border-box;
+  border: var(--border-size) solid var(--text-color);
+  padding: calc(3 * var(--border-size));
+  font-family: var(--font-family-regular);
+  font-style: italic;
+  font-size: var(--font-size-base);
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: calc(3 * var(--border-size)) double var(--dark-color);
+    padding: var(--border-size);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-style: normal;
+  }
+}
+
+input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: var(--border-size);
+  background-color: var(--text-color);
+  width: 100%;
+  margin: var(--spacing1) 0;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: var(--border-size) solid var(--text-color);
+    border-radius: 50%;
+    background-color: var(--background-color);
+  }
+
+  &::-moz-range-thumb {
+    border: var(--border-size) solid var(--text-color);
+    border-radius: 50%;
+    background-color: var(--background-color);
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 var(--border-size) var(--background-color),
+        0 0 0 calc(2 * var(--border-size)) var(--text-color);
+    }
+
+    &::-moz-range-thumb {
+      box-shadow: 0 0 0 var(--border-size) var(--background-color),
+        0 0 0 calc(2 * var(--border-size)) var(--text-color);
+    }
+  }
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: var(--border-size) solid var(--text-color);
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: calc(var(--border-size) / 2);
+  display: flex;
+  margin: calc(2 * var(--border-size));
+
+  &:focus {
+    outline: var(--border-size) solid var(--text-color);
+    outline-offset: var(--border-size);
+  }
+
+  &:checked {
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: var(--text-color);
+    }
+  }
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: var(--border-size) solid var(--text-color);
+  border-radius: 0;
+  width: 100%;
+  padding: calc(3 * var(--border-size));
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-badge);
+  color: var(--text-color);
+
+  // @TODO can't get arrows working right now :(
+
+  background-color: var(--background-color);
+  // background-image: linear-gradient(var(--text-color), var(--text-color));
+  // background-clip: content-box;
+
+  // mask-image: url("img/CaretDown.svg");
+  // mask-repeat: no-repeat;
+  // mask-position: center right;
+  // mask-origin: content-box;
+
+  &:focus {
+    outline: none;
+    padding: var(--border-size);
+    border: calc(3 * var(--border-size)) double var(--dark-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+
+  & option::after {
+    content: "";
+    display: block;
+    background-color: var(--dark-color);
+  }
+}
+
+/**
+ * "Button" up!
+ */
+button,
+a.button,
+input[type="submit"] {
+  all: unset;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+
+  // fixes a weird border issue
+  box-shadow: 0 0 0 var(--border-size) var(--text-color);
+  margin: var(--border-size);
+
+  // we use borderSize * 2 here because, when the user focuses
+  // on the button, we add an offset, so this gives us a nice
+  // outer-border + outline + inner-border
+  padding: calc(2 * var(--border-size));
+  text-align: center;
+
+  img {
+    display: block;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--text-color);
+    color: var(--background-color);
+  }
+
+  &:focus {
+    outline: var(--border-size) solid var(--background-color);
+    outline-offset: calc(-1 * var(--border-size));
+  }
+}
+
+/**
+ * Let's make those horizontal rules fancy 🎩
+ */
+hr {
+  border: none;
+  border-bottom: calc(3 * var(--border-size)) double var(--text-color);
+  color: var(--text-color);
+  margin: 1rem 0;
+}
+
+/**
+ * Some text formatting
+ */
+// p {
+// 	&:not(:first-child) {
+// 		margin-top: var(--spacing2);
+// 	}
+// }
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul,
+ol {
+  list-style-position: inside;
+  // & > li {
+  // 	&:not(:first-child) {
+  // 		margin-top: var(--spacing1);
+  // 	}
+  // }
+}
+
+code {
+  display: inline-block;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-family: monospace;
+}
+
+/**
+ * Heck yeah. Time for links, baby
+ */
+a {
+  display: inline-block;
+  color: var(--text-color);
+  font-weight: bold;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background: var(--text-color);
+    color: var(--background-color);
+  }
+
+  &:focus {
+    outline: var(--border-size) solid var(--text-color);
+    outline-offset: var(--border-size);
+  }
+}
+
+/**
+ * Sections will give you a nice bit of spacing between inner-elements for free, 
+ * so use your semantic HTML, dammit!
+ */
+section {
+  @include globals.SpaceBetween;
+}

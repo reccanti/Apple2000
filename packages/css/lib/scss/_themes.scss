@@ -1,0 +1,225 @@
+@use "globals";
+
+:root {
+  /* border size */
+  --border-size: #{globals.$borderSize};
+
+  /* Site Width */
+  --site-width: #{globals.$siteWidth};
+
+  /* Colors */
+  @each $color, $value in globals.$backgroundColors {
+    --background-#{$color}: #{$value};
+  }
+  @each $color, $value in globals.$textColors {
+    --text-#{$color}: #{$value};
+  }
+
+  /* Font Families */
+  --font-basic: "Fira Sans";
+  --font-fancy: "ChronoType";
+
+  --font-family-header: var(--font-fancy);
+  --font-family-regular: var(--font-basic);
+
+  /* Font Sizes */
+  --font-base-size-multiplier: 1.5;
+  --font-header-size-multiplier: var(--font-base-size-multiplier);
+
+  /* Line Height */
+  --line-height-text: 1.35;
+  --line-height-header: 1;
+}
+
+* {
+  --font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
+  --site-width-font-modifier: min(1vw, calc(var(--site-width) / 100));
+
+  $fib: 0, 1, 2, 3, 5, 8;
+  $cur: 6;
+  @each $num in $fib {
+    --font-size-header#{$cur}: calc(
+      (
+          #{$num} *
+            var(--font-header-size-multiplier) *
+            var(--site-width-font-modifier)
+        ) +
+        var(--font-size-base)
+    );
+    $cur: $cur - 1;
+  }
+  --font-size-badge: calc(var(--font-size-base) * 0.8);
+
+  /* Spacing */
+  $fib: (0.5, 1, 2, 3, 5, 8);
+  $cur: 1;
+  @each $num in $fib {
+    --spacing#{$cur}: calc(var(--font-size-base) * #{$num});
+    $cur: $cur + 1;
+  }
+}
+
+// Japanese text styling
+[lang="ja"] * {
+  /* Font Families */
+  // --font-basic: "Jackey";
+  --font-fancy: "Jackey";
+
+  --font-family-header: var(--font-fancy);
+  // --font-family-regular: var(--font-basic);
+
+  .theme-root--simple-text & {
+    --font-fancy: var(--font-basic);
+  }
+}
+
+/**
+ * The Theme Root is where all of our variables and themes are set up.
+ * Anything that requires a toggle should go here.
+ */
+.theme-root {
+  --light-color: var(--background-white);
+  --dark-color: var(--text-black);
+  --background-color: var(--background-white);
+  --text-color: var(--text-black);
+
+  &--color--lightGray {
+    --light-color: var(--background-lightGray);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-lightGray);
+    --text-color: var(--text-black);
+  }
+
+  &--color--darkGray {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-darkGray);
+    --background-color: var(--background-darkGray);
+    --text-color: var(--text-white);
+  }
+
+  &--color--blue {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-blue);
+    --background-color: var(--background-blue);
+    --text-color: var(--text-white);
+  }
+
+  &--color--magenta {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-magenta);
+    --background-color: var(--background-magenta);
+    --text-color: var(--text-white);
+  }
+
+  &--color--orange {
+    --light-color: var(--background-orange);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-orange);
+    --text-color: var(--text-black);
+  }
+
+  &--color--darkGreen {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-darkGreen);
+    --background-color: var(--background-darkGreen);
+    --text-color: var(--text-white);
+  }
+
+  &--color--pink {
+    --light-color: var(--background-pink);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-pink);
+    --text-color: var(--text-black);
+  }
+
+  &--color--purple {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-purple);
+    --background-color: var(--background-purple);
+    --text-color: var(--text-white);
+  }
+
+  &--color--lightGreen {
+    --light-color: var(--background-lightGreen);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-lightGreen);
+    --text-color: var(--text-black);
+  }
+
+  &--color--yellow {
+    --light-color: var(--background-yellow);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-yellow);
+    --text-color: var(--text-black);
+  }
+
+  &--color--salmon {
+    --light-color: var(--background-salmon);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-salmon);
+    --text-color: var(--text-black);
+  }
+
+  &--color--brown {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-brown);
+    --background-color: var(--background-brown);
+    --text-color: var(--text-white);
+  }
+
+  &--color--darkBlue {
+    --light-color: var(--text-white);
+    --dark-color: var(--background-darkBlue);
+    --background-color: var(--background-darkBlue);
+    --text-color: var(--text-white);
+  }
+
+  &--color--lightBlue {
+    --light-color: var(--background-lightBlue);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-lightBlue);
+    --text-color: var(--text-black);
+  }
+
+  &--color--white {
+    --light-color: var(--background-white);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-white);
+    --text-color: var(--text-black);
+  }
+
+  &--color--black {
+    --light-color: var(--background-white);
+    --dark-color: var(--text-black);
+    --background-color: var(--background-black);
+    --text-color: var(--text-white);
+  }
+
+  // text stuff
+
+  &--simple-text {
+    // use basic text for the font headers
+    --font-family-header: var(--font-basic);
+
+    // adjust header sizes
+    --font-header-size-multiplier: calc(var(--font-base-size-multiplier) * 0.6);
+    --font-size-base: calc(var(--font-base-size-multiplier) * 1rem);
+
+    $fib: 0, 1, 2, 3, 5, 8;
+    $cur: 6;
+    @each $num in $fib {
+      --font-size-header#{$cur}: calc(
+        (
+            #{$num} *
+              var(--font-header-size-multiplier) *
+              var(--site-width-font-modifier)
+          ) +
+          var(--font-size-base)
+      );
+      $cur: $cur - 1;
+    }
+    --font-size-badge: calc(var(--font-size-base) * 0.8);
+
+    --line-height-header: 1.3;
+  }
+}

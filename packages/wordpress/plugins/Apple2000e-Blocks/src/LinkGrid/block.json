@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "apple2000e/link-grid",
+	"title": "Link Grid",
+	"category": "apple2000e",
+	"icon": "grid-view",
+	"description": "The LinkGrid block for the Apple ][000e Theme.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "link-grid",
+	"editorScript": "file:../../build/index.js",
+	"editorStyle": "file:../../build/index.css",
+	"style": "file:../../build/style-index.css"
+}

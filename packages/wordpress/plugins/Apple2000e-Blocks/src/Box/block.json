@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "apple2000e/box",
+	"title": "Box",
+	"category": "apple2000e",
+	"icon": "block-default",
+	"description": "A Box for the Apple ][000e Theme.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "box",
+	"editorScript": "file:../../build/index.js",
+	"editorStyle": "file:../../build/index.css",
+	"style": "file:../../build/style-index.css"
+}

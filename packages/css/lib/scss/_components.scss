@@ -1,0 +1,512 @@
+// /**
+//  * This file is where we set up our more complex components,
+//  * things that require
+//  */
+@use "globals";
+
+/**
+ * The Wrapper component wraps all of our content and applies a border
+ * around it, so it looks like the screen is being framed
+ */
+$wrapperBorder: 1rem;
+$wrapperPadding: 1rem;
+
+.Wrapper {
+  border: $wrapperBorder solid var(--text-color);
+  background-color: var(--background-color);
+  overflow-y: scroll;
+  height: 100vh;
+  margin: 0;
+
+  &-inner {
+    max-width: var(--site-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: $wrapperPadding;
+  }
+}
+
+/**
+ * The Box component can be used to wrap content. Useful for things like menus or asides
+ */
+.Box {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+
+  & > *:not(:first-child) {
+    margin: 0;
+  }
+
+  &-inner {
+    --font-header-size-multiplier: 1;
+    padding: var(--spacing2) 0;
+    overflow: scroll;
+    @include globals.SpaceBetween;
+  }
+
+  /**
+   * @TODO - Not sold on these sizes
+   * ~reccanti 4/10/2021
+   */
+  @media (min-width: globals.$bp-large) {
+    border: calc(var(--border-size) * 3) double var(--text-color);
+
+    &-inner {
+      padding: var(--spacing2);
+    }
+  }
+}
+
+/*
+ * A fancy header for use in a Box
+ */
+.Header {
+  background-color: var(--text-color);
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
+  grid-template-rows: [row] auto;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+
+    grid-row: row;
+    grid-column: 1 / span 3;
+
+    @include globals.CheckeredPattern;
+  }
+
+  &-inner {
+    grid-row: row;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-header5);
+    padding: 0 1rem;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    z-index: 1;
+  }
+
+  &-buttons {
+    grid-row: row;
+    grid-column: 3 / span 1;
+    justify-self: end;
+    z-index: 1;
+
+    // &.ButtonGroup {
+    // }
+  }
+
+  /**
+   * @TODO - Not sold on these sizes
+   * ~reccanti 4/10/2021
+   */
+  @media (min-width: globals.$bp-large) {
+    border-bottom: var(--border-size) solid var(--text-color);
+
+    &-buttons {
+      &.ButtonGroup {
+        padding: 0;
+      }
+    }
+  }
+}
+
+/**
+ * The Menu appears in the upper-right corner of the screen and
+ */
+.Menu {
+  $root: &;
+  z-index: 10;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: calc(#{$wrapperBorder} + 1rem);
+
+  // toggle the appearance of the menu on and off
+
+  &--close {
+    #{$root}-contents {
+      display: none;
+    }
+  }
+
+  &--open {
+    margin: 0;
+    width: 100%;
+    border: $wrapperBorder solid var(--text-color);
+
+    #{$root}-contents {
+      height: calc(100vh - #{2 * $wrapperBorder});
+      padding: 1rem;
+    }
+
+    #{$root}-open {
+      display: none;
+    }
+  }
+
+  @media (min-width: globals.$bp-large) {
+    &--open {
+      margin: calc(#{$wrapperBorder} + 1rem);
+      width: calc(100% - (2 * #{$wrapperBorder}) - (2 * 1rem));
+      max-width: 600px;
+      border: none;
+
+      #{$root}-contents {
+        max-height: calc(100vh - (2 * (#{$wrapperBorder} + 1rem)));
+        height: auto;
+        padding: initial;
+      }
+    }
+  }
+}
+
+/**
+ * The Splash component defines a fancy, full-page splash screen
+ */
+.Splash {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 2 * #{$wrapperBorder} - #{$wrapperPadding});
+  .Wrapper-inner > &:only-child {
+    min-height: calc(100vh - 2 * #{$wrapperBorder} - 2 * #{$wrapperPadding});
+  }
+
+  padding: var(--spacing4);
+
+  & > *:not(:first-child) {
+    margin-top: var(--spacing2);
+  }
+}
+
+/**
+ * The Icon component is a bunch of rules for styling Icons and
+ * making sure they're themed correctly
+ */
+.Icon {
+  height: calc(var(--font-size-base) * 4 / 3);
+  width: calc(var(--font-size-base) * 4 / 3);
+  display: block;
+
+  svg {
+    display: block;
+  }
+
+  path,
+  rect {
+    fill: var(--text-color);
+
+    button:hover &,
+    button:focus &,
+    .button:hover &,
+    .button:focus & {
+      fill: var(--background-color);
+    }
+  }
+}
+
+/**
+ * The Button Group is a collection of buttons that are spaced
+ * appropriately
+ */
+.ButtonGroup {
+  display: inline-flex;
+  gap: var(--border-size);
+  padding: var(--border-size);
+  flex-wrap: wrap;
+  // justify-content: center;
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+
+  & button,
+  & a.button,
+  & input[type="submit"] {
+    margin: 0;
+  }
+}
+
+/**
+ * You've seen links, but you've never seen
+ * my fancy links ✨
+ */
+
+.LinkGrid {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 1fr;
+
+  position: relative;
+  padding: var(--spacing1);
+
+  &::before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+
+    @include globals.CheckeredPattern(var(--text-color));
+  }
+
+  /**
+   * @TODO - Not sold on these sizes
+   * ~reccanti 4/10/2021
+   */
+  @media (min-width: globals.$bp-large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.LinkGridItem {
+  $root: &;
+  display: flex;
+  margin: 0 !important; /* Bleh */
+  position: relative;
+
+  &-preview {
+    width: 100%;
+
+    flex: 0 0 auto;
+    filter: grayscale(1) brightness(0.5);
+  }
+
+  &-linkWrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+      outline: none;
+
+      &:before {
+        content: "";
+        pointer-events: none;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      #{$root}-preview {
+        filter: none;
+      }
+
+      /**
+       * These effects are a little jarring. Maybe use some
+       * sort of "wipe" effect?
+       */
+      & #{$root}-description {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      &:before {
+        box-shadow: inset 0 0 0 calc(3 * var(--border-size)) var(--text-color);
+      }
+    }
+
+    &:focus {
+      &:before {
+        box-shadow: inset 0 0 0 var(--border-size) var(--text-color),
+          inset 0 0 0 calc(2 * var(--border-size)) var(--background-color),
+          inset 0 0 0 calc(3 * var(--border-size)) var(--text-color);
+      }
+    }
+  }
+
+  &-description {
+    display: inline-block;
+    position: absolute;
+    margin: calc(5 * var(--border-size));
+    padding: var(--spacing1);
+    text-align: center;
+    border: var(--border-size) solid var(--background-color);
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-header5);
+    line-height: 0.8;
+    opacity: 0;
+    top: 0; /* Fixes a weird safari bug where the text was being shifted down :shrug: */
+    background-color: var(--text-color);
+    color: var(--background-color);
+
+    // &:after {
+    // 	content: "";
+    // 	position: absolute;
+    // 	display: block;
+    // 	width: calc(100% + #{globals.$borderSize * 4});
+    // 	height: calc(100% + #{globals.$borderSize * 4});
+    // 	top: -1 * 2 * globals.$borderSize;
+    // 	left: -1 * 2 * globals.$borderSize;
+
+    // 	@include globals.CheckeredPattern(var(--text-color));
+    // }
+  }
+
+  @media (min-width: globals.$bp-large) {
+    #{$root}-description {
+      font-size: var(--font-size-header5);
+    }
+  }
+
+  &--recent {
+    @media (min-width: globals.$bp-large) {
+      grid-column: span 2;
+      grid-row: span 2;
+      #{$root}-description {
+        font-size: var(--font-size-header5);
+      }
+    }
+  }
+}
+
+/**
+* Tag, you're it!
+*/
+.Tag {
+  all: unset;
+  margin: 0 !important; /* Bleh */
+  font-size: var(--tag-font-size);
+  font-family: var(--font-family-header);
+}
+
+.TagList {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > .Tag:not(:first-child)::before {
+    content: "|";
+    margin: 0 var(--spacing1);
+  }
+}
+
+/**
+* Comics!!!
+*/
+.Comic {
+  &-image {
+    width: 100%;
+    height: auto;
+  }
+
+  &-nav {
+    display: grid;
+    grid-template-areas: "First Prev Next Last";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    // > * {
+    // 	flex: 1 !important; // >:(
+    // }
+  }
+
+  &-first {
+    grid-area: First !important; // >:(
+  }
+  &-prev {
+    grid-area: Prev !important; // >:(
+  }
+  &-next {
+    grid-area: Next !important; // >:(
+  }
+  &-last {
+    grid-area: Last !important; // >:(
+  }
+}
+
+/**
+ * A Banner for fun banner things
+ */
+.Banner {
+  --banner-speed: 20s;
+
+  $root: &;
+
+  background: var(--text-color);
+  color: var(--background-color);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: var(--border-size) 0;
+  text-align: left;
+
+  &-inner {
+    animation: var(--banner-speed) infinite linear ticker;
+
+    position: relative;
+    font-family: var(--font-family-header);
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .theme-root--no-motion & {
+    padding: var(--border-size) var(--spacing1);
+    text-align: center;
+
+    #{$root}-inner {
+      animation: none;
+      white-space: normal;
+    }
+  }
+}
+
+@keyframes ticker {
+  from {
+    left: 100%;
+    transform: translate(0%);
+  }
+  to {
+    left: 0%;
+    transform: translate(-100%);
+  }
+}
+
+/**
+ * Skip Nav
+ */
+.SkipNav {
+  --offset: calc(#{$wrapperBorder} + 1rem);
+
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin: var(--offset);
+  transform: translateY(calc(-100% - 2 * var(--offset)));
+
+  &:focus-within {
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Text Box
+ */
+.TextBox {
+  padding: var(--spacing4) 0;
+
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+  &--center {
+    text-align: center;
+  }
+}
