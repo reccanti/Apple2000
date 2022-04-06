@@ -1,7 +1,12 @@
 import html from "nanohtml";
 import { capitalCase } from "change-case";
 
-import { ThemeManager, Apple2000eTheme } from "./ThemeManager";
+import {
+  ThemeManager,
+  Apple2000eTheme,
+  apple2000eAAThemeList,
+  apple2000eAAAThemeList,
+} from "./ThemeManager";
 
 const manager = new ThemeManager();
 
@@ -14,20 +19,16 @@ class ThemeSelect extends HTMLSelectElement {
     // initialize with the default themes
 
     const options = html`<optgroup label="WCAG AA">
-        ${manager
-          .getAAThemes()
-          .map(
-            (theme) =>
-              html` <option value="${theme}">${capitalCase(theme)}</option> `
-          )}
+        ${apple2000eAAThemeList.map(
+          (theme) =>
+            html` <option value="${theme}">${capitalCase(theme)}</option> `
+        )}
       </optgroup>
       <optgroup label="WCAG AAA">
-        ${manager
-          .getAAAThemes()
-          .map(
-            (theme) =>
-              html` <option value="${theme}">${capitalCase(theme)}</option> `
-          )}
+        ${apple2000eAAAThemeList.map(
+          (theme) =>
+            html` <option value="${theme}">${capitalCase(theme)}</option> `
+        )}
       </optgroup>`;
 
     this.appendChild(options);
@@ -43,6 +44,14 @@ class ThemeSelect extends HTMLSelectElement {
     // set initial value
 
     this.value = manager.theme;
+
+    // listen for changes
+
+    manager.addListener((key, value) => {
+      if (key === "theme") {
+        this.value = value;
+      }
+    });
   }
 }
 
@@ -72,6 +81,14 @@ class SiteWidthInput extends HTMLInputElement {
       this.max = manager.siteWidth.toString(); // kind of a hack to make sure the value doesn't get overwritten
     }
     this.value = manager.siteWidth.toString();
+
+    // listen for changes
+
+    manager.addListener((key, value) => {
+      if (key === "siteWidth") {
+        this.value = value.toString();
+      }
+    });
   }
 }
 
@@ -101,6 +118,14 @@ class FontSizeInput extends HTMLInputElement {
       this.max = manager.fontSize.toString(); // kind of a hack to make sure the value doesn't get overwritten
     }
     this.value = manager.fontSize.toString();
+
+    // listen for changes
+
+    manager.addListener((key, value) => {
+      if (key === "fontSize") {
+        this.value = value.toString();
+      }
+    });
   }
 }
 
@@ -125,6 +150,14 @@ class MotionInput extends HTMLInputElement {
     // set initial value
 
     this.checked = manager.motionEnabled;
+
+    // listen for changes
+
+    manager.addListener((key, value) => {
+      if (key === "motionEnabled") {
+        this.checked = value;
+      }
+    });
   }
 }
 
@@ -149,6 +182,14 @@ class SimpleTextInput extends HTMLInputElement {
     // set initial value
 
     this.checked = manager.simpleTextEnabled;
+
+    // listen for changes
+
+    manager.addListener((key, value) => {
+      if (key === "simpleTextEnabled") {
+        this.checked = value;
+      }
+    });
   }
 }
 

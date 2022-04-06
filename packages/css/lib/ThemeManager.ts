@@ -2,7 +2,7 @@
 
 // definitions for our different color themes
 
-const apple2000eAAThemeList = [
+export const apple2000eAAThemeList = [
   "blue",
   "brown",
   "darkGray",
@@ -11,7 +11,7 @@ const apple2000eAAThemeList = [
   "salmon",
 ] as const;
 
-const apple2000eAAAThemeList = [
+export const apple2000eAAAThemeList = [
   "black",
   "darkBlue",
   "lightBlue",
@@ -39,9 +39,31 @@ const themeClassLookup = new Map<string, Apple2000eTheme>(
 );
 
 // the actual class where we can manage our themes
+// type Callback = (
+//   key: Exclude<
+//     keyof ThemeManager,
+//     "rootElement" | "addListener" | "removeListener"
+//   >,
+//   value: typeof ThemeManager[key]
+// ) => void;
+
+type Keys = Exclude<
+  keyof ThemeManager,
+  "rootElement" | "addListener" | "removeListener"
+>;
+type CBParams<K extends Keys = Keys> = K extends any
+  ? [K, ThemeManager[K]]
+  : never;
+type Callback = (...args: CBParams) => void;
+
+// const cb: Callback = (key, value) => {
+//   // if (key === "")
+// };
 
 export class ThemeManager {
   readonly rootElement: HTMLElement;
+
+  private listeners = new Set<Callback>();
 
   constructor() {
     // get the root element so that we can modify stuff
@@ -76,14 +98,7 @@ export class ThemeManager {
         break;
       }
     }
-  }
-
-  getAAThemes() {
-    return apple2000eAAThemeList;
-  }
-
-  getAAAThemes() {
-    return apple2000eAAAThemeList;
+    this.callListeners("theme", value);
   }
 
   get simpleTextEnabled() {
@@ -96,6 +111,7 @@ export class ThemeManager {
     } else {
       this.rootElement.classList.remove(`theme-root--simple-text`);
     }
+    this.callListeners("simpleTextEnabled", shouldUse);
   }
 
   get motionEnabled() {
@@ -108,6 +124,7 @@ export class ThemeManager {
     } else {
       this.rootElement.classList.add(`theme-root--no-motion`);
     }
+    this.callListeners("motionEnabled", shouldUse);
   }
 
   get siteWidth() {
@@ -120,6 +137,7 @@ export class ThemeManager {
 
   set siteWidth(width: number) {
     this.rootElement.style.setProperty("--site-width", `${width}px`);
+    this.callListeners("siteWidth", width);
   }
 
   get fontSize() {
@@ -134,5 +152,20 @@ export class ThemeManager {
       "--font-base-size-multiplier",
       `${size}`
     );
+    this.callListeners("fontSize", size);
+  }
+
+  private callListeners(...params: CBParams) {
+    this.listeners.forEach((cb) => {
+      cb(...params);
+    });
+  }
+
+  addListener(cb: Callback) {
+    this.listeners.add(cb);
+  }
+
+  removeListener(cb: Callback) {
+    this.listeners.delete(cb);
   }
 }
